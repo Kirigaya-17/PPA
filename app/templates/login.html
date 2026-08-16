@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>ALPHAFIZIC - Login</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>ALPHAFIZIC</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alerta alerta-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <input type="email" name="email" placeholder="E-MAIL" required>
+            <input type="password" name="senha" placeholder="SENHA" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div class="remember">
+            <input type="checkbox" id="lembrar">
+            <label for="lembrar">Lembrar de mim</label>
+        </div>
+
+        <div class="forgot-password">
+            <a href="{{ url_for('esqueci_senha') }}">Esqueceu sua senha?</a>
+        </div>
+
+        <div class="forgot-password" style="margin-top:12px;">
+            <a href="{{ url_for('cadastro') }}">Não tem conta? Cadastre-se</a>
+        </div>
+    </div>
+
+</body>
+</html>

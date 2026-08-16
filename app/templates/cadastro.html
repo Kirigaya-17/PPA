@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>ALPHAFIZIC - Cadastro</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>COMO DESEJA SE CADASTRAR?</h1>
+        <div class="opcoes">
+            <a href="{{ url_for('cadastro2') }}">
+                <button>ALUNO</button>
+            </a>
+            <a href="{{ url_for('cadastro2') }}">
+                <button>PROFESSOR</button>
+            </a>
+        </div>
+        <div style="margin-top:40px;">
+            <a href="{{ url_for('login') }}" style="color:#6d6862; font-size:14px; text-decoration:none;">Já possui conta? Faça login</a>
+        </div>
+    </div>
+
+</body>
+</html>

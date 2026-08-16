@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CABEÇALHO */
+header {
+    width: 100%;
+    padding: 40px 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo img {
+    width: 90px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+/* CENTRO */
+main {
+    width: 100%;
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+}
+
+/* LOBO */
+.wolf img {
+    width: 230px;
+}
+
+/* BOTÕES */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.buttons a {
+    text-decoration: none;
+}
+
+button {
+    width: 280px;
+    height: 58px;
+    border-radius: 40px;
+    border: 2px solid #111;
+    background: #2f39d4;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #2430b8;
+}
+
+button:active {
+    transform: scale(.98);
+}

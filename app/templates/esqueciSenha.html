@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>ALPHAFIZIC - Esqueci Minha Senha</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/esqueciSenha.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>ALPHAFIZIC</h1>
+        <p>Informe seu e-mail para recuperar sua senha</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alerta alerta-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('esqueci_senha') }}">
+            <input type="email" name="email" placeholder="E-MAIL" required>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div style="margin-top:20px;">
+            <a href="{{ url_for('login') }}" style="color:#6d6862; font-size:14px; text-decoration:none;">Voltar para o Login</a>
+        </div>
+    </div>
+
+</body>
+</html>
