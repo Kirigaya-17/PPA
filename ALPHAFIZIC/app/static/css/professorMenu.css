@@ -1,0 +1,541 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #111;
+}
+
+
+/* =================================
+   BARRA LATERAL
+================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 18px;
+    height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #eeeeee;
+
+    z-index: 100;
+
+    overflow: hidden;
+
+    transition:
+        width 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/*
+    Quando o mouse passa pela lateral,
+    ela abre.
+*/
+
+.sidebar:hover {
+
+    width: 220px;
+
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =================================
+   CABEÇALHO DA BARRA
+================================= */
+
+.sidebar-header {
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 27px;
+
+    white-space: nowrap;
+}
+
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #111111;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+
+.sidebar:hover .logo {
+
+    opacity: 1;
+}
+
+
+/* =================================
+   MENU
+================================= */
+
+.menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+    padding-top: 5px;
+}
+
+
+.menu-item {
+
+    width: 195px;
+
+    min-height: 60px;
+
+    margin-left: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding: 8px;
+
+    border: none;
+
+    border-radius: 35px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #111111;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    transition: 0.2s ease;
+}
+
+
+.menu-item:hover {
+
+    background: #f3f3f3;
+}
+
+
+.menu-item.active {
+
+    border: 2px solid #c8c8c8;
+
+    background: #ffffff;
+}
+
+
+/* =================================
+   ÍCONES
+================================= */
+
+.icon {
+
+    width: 55px;
+
+    min-width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.icon svg {
+
+    width: 50px;
+
+    height: 50px;
+}
+
+
+/* =================================
+   TEXTO DOS ITENS
+================================= */
+
+.menu-text {
+
+    opacity: 0;
+
+    white-space: nowrap;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.sidebar:hover .menu-text {
+
+    opacity: 1;
+}
+
+
+/* =================================
+   ÁREA PRINCIPAL
+================================= */
+
+.main {
+
+    width: 100%;
+
+    height: 100vh;
+
+    padding-left: 18px;
+
+    transition: padding-left 0.3s ease;
+}
+
+
+/*
+    Quando a barra abre, reservamos
+    espaço para ela.
+*/
+
+.sidebar:hover ~ .main {
+
+    padding-left: 220px;
+}
+
+
+/* =================================
+   TOPO
+================================= */
+
+.top {
+
+    height: 85px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 10px;
+}
+
+
+.top h1 {
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #111111;
+}
+
+
+/* =================================
+   ÁREA DOS CARDS
+================================= */
+
+.content-area {
+
+    width: 100%;
+
+    height: calc(100vh - 85px);
+
+    padding: 35px 9%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(80px, 1fr));
+
+    grid-auto-rows: 1fr;
+
+    gap: 45px 6%;
+
+    align-content: center;
+}
+
+
+/* =================================
+   CARD / CONTEÚDO
+================================= */
+
+.card {
+
+    min-width: 65px;
+
+    aspect-ratio: 1 / 1;
+
+    max-width: 105px;
+
+    justify-self: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #0739ce;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.card:hover {
+
+    transform: scale(1.1);
+
+    background: #062eac;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/*
+    Quando a barra está recolhida,
+    os cards ficam maiores.
+*/
+
+.card {
+
+    width: clamp(65px, 6vw, 105px);
+}
+
+
+.sidebar:hover ~ .main .card {
+
+    width: clamp(60px, 5vw, 90px);
+}
+
+
+/* =================================
+   CARDS DE TEXTO
+================================= */
+
+.text-card {
+
+    width: 100%;
+
+    min-height: 130px;
+
+    border: 2px solid #dddddd;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.text-card:hover {
+
+    border-color: #0739ce;
+
+    transform: translateY(-3px);
+}
+
+
+.text-card h2 {
+
+    color: #0739ce;
+
+    font-size: 18px;
+}
+
+
+.text-card p {
+
+    color: #666666;
+
+    font-size: 14px;
+}
+
+
+/* =================================
+   BOTÕES INTERNOS
+================================= */
+
+.action-button {
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #0739ce;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.action-button:hover {
+
+    background: #062eac;
+}
+
+
+/* =================================
+   TURMAS
+================================= */
+
+.class-card {
+
+    width: 100%;
+
+    min-height: 130px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #eeeeee;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+
+.class-card h2 {
+
+    color: #0739ce;
+}
+
+
+/* =================================
+   PERFIL
+================================= */
+
+.profile {
+
+    grid-column: 1 / -1;
+
+    max-width: 500px;
+
+    justify-self: center;
+
+    width: 100%;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    border: 2px solid #dddddd;
+
+    text-align: center;
+}
+
+
+.profile h2 {
+
+    color: #0739ce;
+
+    margin-bottom: 15px;
+}
+
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 900px) {
+
+    .content-area {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 35px;
+
+        padding: 30px 7%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar:hover {
+
+        width: 200px;
+    }
+
+
+    .sidebar:hover ~ .main {
+
+        padding-left: 200px;
+    }
+
+
+    .content-area {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 25px;
+
+        padding: 25px;
+    }
+
+}

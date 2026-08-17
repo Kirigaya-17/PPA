@@ -17,7 +17,7 @@ def login():
         if email in usuarios and usuarios[email]['senha'] == senha:
             session['usuario'] = email
             flash('Login realizado com sucesso!', 'sucesso')
-            return redirect(url_for('index'))
+            return redirect(url_for('professorMenu'))
         else:
             flash('E-mail ou senha incorretos.', 'erro')
     return render_template('login.html')
@@ -63,3 +63,7 @@ def codigo():
 def logout():
     session.pop('usuario', None)
     return redirect(url_for('index'))
+
+@app.route('/professorMenu')
+def professorMenu():
+    return render_template('professorMenu.html')

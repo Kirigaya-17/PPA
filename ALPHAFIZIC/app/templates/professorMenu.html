@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ALPHAFIZIC - Professor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/professorMenu.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         BARRA LATERAL
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+            <span class="logo">ALPHAFIZIC</span>
+        </div>
+
+
+        <nav class="menu">
+
+            <!-- CONTEÚDO -->
+            <button
+                class="menu-item active"
+                data-section="conteudo"
+            >
+
+                <span class="icon">
+                    <svg viewBox="0 0 64 64">
+                        <path d="M8 12
+                                 C20 5, 29 8, 32 16
+                                 C35 8, 44 5, 56 12
+                                 V51
+                                 C44 44, 36 46, 32 53
+                                 C28 46, 20 44, 8 51 Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="3"
+                              stroke-linejoin="round"/>
+
+                        <path d="M32 16 V53"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="3"/>
+
+                        <path d="M15 18
+                                 C21 16, 26 18, 29 21"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"/>
+
+                        <path d="M49 18
+                                 C43 16, 38 18, 35 21"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"/>
+                    </svg>
+                </span>
+
+                <span class="menu-text">
+                    conteúdo
+                </span>
+
+            </button>
+
+
+            <!-- TURMAS -->
+            <button
+                class="menu-item"
+                data-section="turmas"
+            >
+
+                <span class="icon">
+
+                    <svg viewBox="0 0 64 64">
+
+                        <rect
+                            x="8"
+                            y="12"
+                            width="48"
+                            height="35"
+                            rx="3"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <circle
+                            cx="28"
+                            cy="28"
+                            r="9"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <path
+                            d="M17 51
+                               C17 43, 22 39, 28 39
+                               C34 39, 39 43, 39 51"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                    </svg>
+
+                </span>
+
+                <span class="menu-text">
+                    turmas
+                </span>
+
+            </button>
+
+
+            <!-- CRIAR -->
+            <button
+                class="menu-item"
+                data-section="criar"
+            >
+
+                <span class="icon">
+
+                    <svg viewBox="0 0 64 64">
+
+                        <circle
+                            cx="28"
+                            cy="35"
+                            r="20"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <circle
+                            cx="19"
+                            cy="29"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <circle
+                            cx="28"
+                            cy="20"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <circle
+                            cx="38"
+                            cy="28"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        />
+
+                        <path
+                            d="M43 42 L58 27"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </span>
+
+                <span class="menu-text">
+                    criar
+                </span>
+
+            </button>
+
+
+            <!-- PERFIL -->
+            <button
+                class="menu-item"
+                data-section="perfil"
+            >
+
+                <span class="icon">
+
+                    <svg viewBox="0 0 64 64">
+
+                        <circle
+                            cx="32"
+                            cy="32"
+                            r="21"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <circle
+                            cx="32"
+                            cy="25"
+                            r="7"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                        <path
+                            d="M19 51
+                               C19 42, 24 37, 32 37
+                               C40 37, 45 42, 45 51"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                        />
+
+                    </svg>
+
+                </span>
+
+                <span class="menu-text">
+                    perfil
+                </span>
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
+    <main class="main">
+
+        <header class="top">
+
+            <h1 id="pageTitle">
+                ALPHAFIZIC
+            </h1>
+
+        </header>
+
+
+        <section
+            id="contentArea"
+            class="content-area"
+        >
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/professorMenu.js') }}"></script>
+
+</body>
+
+</html>
