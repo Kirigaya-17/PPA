@@ -181,6 +181,23 @@ function mostrarCriar() {
 
         </div>
 
+        <div class="text-card">
+
+            <h2>Turmas</h2>
+
+            <p>
+                Criar e Adicionar uma nova Turma.
+            </p>
+
+            <button
+                class="action-button"
+                onclick="criarTurma()"
+            >
+                CRIAR
+            </button>
+
+        </div>
+
     `;
 
 }
@@ -343,6 +360,12 @@ function criarAtividade() {
 function criarMaterial() {
 
     alert("Tela para adicionar um material.");
+
+}
+
+function criarTurma() {
+
+    alert("Tela para adicionar uma Turma.");
 
 }
 

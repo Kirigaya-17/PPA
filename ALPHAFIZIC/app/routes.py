@@ -67,3 +67,7 @@ def logout():
 @app.route('/professorMenu')
 def professorMenu():
     return render_template('professorMenu.html')
+
+@app.route('/turmas')
+def turmas():
+    return render_template('turma.html')

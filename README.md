@@ -41,4 +41,11 @@ http://localhost:5000
 - [ ] Adicionar validações de email
 - [ ] Implementar confirmação de cadastro
 - [ ] Adicionar sistema de tokens
+- [ ] Adicionar um botão de entrar nas turmas
+- [ ] Conectar turmas com professorMenu
+
 "# PPA" 
+
+## ⚠️ Arrumar alguns Problemas
+
+- [ ] Mensagem de "Login concluido com Sucesso" aparecendo sem efetuar o login
