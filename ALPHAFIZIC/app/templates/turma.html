@@ -1,90 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ALPHAFIZIC - Turma</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/turma.css') }}">
-
 </head>
-
 <body>
-
-    <!-- =========================
-         BARRA LATERAL
-    ========================== -->
-
+    <!-- BARRA LATERAL -->
     <aside class="sidebar">
-
         <div class="sidebar-header">
             <span>ALPHAFIZIC</span>
         </div>
-
         <nav class="menu">
-
             <button class="menu-item active" data-section="conteudo">
-
                 <span class="icon">📖</span>
-
-                <span class="menu-text">
-                    conteúdo
-                </span>
-
+                <span class="menu-text">conteúdo</span>
             </button>
-
-
             <button class="menu-item" data-section="notas">
-
                 <span class="icon">📝</span>
-
-                <span class="menu-text">
-                    notas
-                </span>
-
+                <span class="menu-text">notas</span>
             </button>
-
-
             <button class="menu-item" data-section="alunos">
-
                 <span class="icon">👥</span>
-
-                <span class="menu-text">
-                    alunos
-                </span>
-
+                <span class="menu-text">alunos</span>
             </button>
-
         </nav>
-
     </aside>
 
-
-    <!-- =========================
-         ÁREA PRINCIPAL
-    ========================== -->
-
+    <!-- ÁREA PRINCIPAL -->
     <main class="main">
-
         <header class="top">
-
+            <button class="back-button" onclick="voltarParaProfessorMenu()">← Voltar</button>
             <h1>TURMA 1</h1>
-
         </header>
-
-
         <section id="contentArea" class="content-area">
-
         </section>
-
     </main>
 
-
     <script src="{{ url_for('static', filename='js/turma.js') }}"></script>
-
 </body>
-
 </html>

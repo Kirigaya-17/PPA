@@ -49,3 +49,12 @@ http://localhost:5000
 ## ⚠️ Arrumar alguns Problemas
 
 - [ ] Mensagem de "Login concluido com Sucesso" aparecendo sem efetuar o login
+
+## 🔧 Correções Recentes
+
+- Corrigido bug de login sem verificação de sessão
+- Adicionadas validações de email e CPF
+- Conectado professorMenu com turmas
+- Adicionado botão de logout
+- Corrigido requirements.txt
+- Adicionada autenticação nas rotas protegidas
