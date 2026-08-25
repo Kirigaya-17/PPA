@@ -1,0 +1,18 @@
+# arq comp.py
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ambiente virtual
+venv/
+env/
+ENV/
+
+# ambiente
+.env
+.env.local
+
+#
+.vscode/
+.idea/
+*.swp
