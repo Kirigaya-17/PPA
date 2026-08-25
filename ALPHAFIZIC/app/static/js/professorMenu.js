@@ -154,6 +154,9 @@ function mostrarTurmas() {
 
 function mostrarPerfil() {
     pageTitle.textContent = "PERFIL";
+    
+    const nomeExibicao = typeof nomeDoUsuario !== 'undefined' ? nomeDoUsuario : 'Professor(a)';
+
     contentArea.innerHTML = `
         <div class="profile-container">
             <div class="profile-card">
@@ -164,14 +167,15 @@ function mostrarPerfil() {
                             📷
                         </button>
                     </div>
-                    <h2 id="profileName">PROFESSORA ALANA</h2>
-                    <p class="profile-role">Professora de Física</p>
+                    <!-- AQUI ENTRA O NOME DINÂMICO! -->
+                    <h2 id="profileName">${nomeExibicao.toUpperCase()}</h2>
+                    <p class="profile-role">Professor(a)</p>
                 </div>
                 
                 <div class="profile-body">
                     <div class="profile-section">
                         <h3>📝 BIOGRAFIA</h3>
-                        <p id="profileBio" class="editable-text">Bem-vindo(a) ao meu perfil! Sou professora de Física e apaixonada por ensinar.</p>
+                        <p id="profileBio" class="editable-text">Bem-vindo(a) ao meu perfil!</p>
                         <button class="edit-btn" onclick="editarBio()">✏️ Editar Bio</button>
                     </div>
 

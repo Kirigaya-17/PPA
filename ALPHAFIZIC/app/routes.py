@@ -75,6 +75,9 @@ def cadastro2():
                 'contato': contato, 
                 'senha': senha
             }
+            
+            session['nome_usuario'] = nome 
+            
             flash('Cadastro realizado com sucesso!', 'sucesso')
             return redirect(url_for('login'))
     

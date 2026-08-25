@@ -41,6 +41,10 @@
         </section>
     </main>
 
+    <script>
+        const nomeDoUsuario = "{{ session.get('nome_usuario', 'Professor(a)') }}";
+    </script>
+    
     <script src="{{ url_for('static', filename='js/professorMenu.js') }}"></script>
 </body>
 </html>
