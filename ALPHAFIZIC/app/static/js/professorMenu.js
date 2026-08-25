@@ -8,25 +8,12 @@ const pageTitle = document.getElementById("pageTitle");
 
 // Lista de conteúdos
 let conteudos = [
-    { titulo: "Aula 01", descricao: "Introdução à Física" },
-    { titulo: "Aula 02", descricao: "Movimento" },
-    { titulo: "Aula 03", descricao: "Velocidade" },
-    { titulo: "Aula 04", descricao: "Aceleração" },
-    { titulo: "Aula 05", descricao: "Forças" },
-    { titulo: "Aula 06", descricao: "Energia" },
-    { titulo: "Aula 07", descricao: "Trabalho" },
-    { titulo: "Aula 08", descricao: "Potência" },
-    { titulo: "Aula 09", descricao: "Gravidade" },
-    { titulo: "Aula 10", descricao: "Leis de Newton" },
-    { titulo: "Aula 11", descricao: "Eletricidade" },
-    { titulo: "Aula 12", descricao: "Circuitos" }
+    {}
 ];
 
 // Lista de turmas
 let turmas = [
-    { nome: "3º Ano A", alunos: 32 },
-    { nome: "3º Ano B", alunos: 28 },
-    { nome: "2º Ano A", alunos: 30 }
+    {}
 ];
 
 // Lista de atividades
@@ -66,8 +53,8 @@ function mostrarConteudos() {
         card.className = "text-card";
         card.innerHTML = `
             <div>
-                <h2>${conteudo.titulo}</h2>
-                <p>${conteudo.descricao}</p>
+                <h2>${conteudo.titulo || "Sem título"}</h2>
+                <p>${conteudo.descricao || ""}</p>
             </div>
             <button class="action-button" onclick="editarConteudo('${conteudo.titulo}')">
                 EDITAR
@@ -116,7 +103,7 @@ function mostrarCriar() {
 }
 
 // =================================
-// TURMAS (ATUALIZADO)
+// TURMAS 
 // =================================
 
 function mostrarTurmas() {
@@ -155,7 +142,10 @@ function mostrarTurmas() {
 function mostrarPerfil() {
     pageTitle.textContent = "PERFIL";
     
-    const nomeExibicao = typeof nomeDoUsuario !== 'undefined' ? nomeDoUsuario : 'Professor(a)';
+    const nomeExibicao = (typeof nomeDoUsuario !== 'undefined' && nomeDoUsuario) ? nomeDoUsuario : 'Professor(a)';
+    const emailExibicao = (typeof emailDoUsuario !== 'undefined' && emailDoUsuario) ? emailDoUsuario : 'professora@email.com';
+    const contatoExibicao = (typeof contatoDoUsuario !== 'undefined' && contatoDoUsuario) ? contatoDoUsuario : '(11) 99999-9999';
+    const bioExibicao = (typeof bioDoUsuario !== 'undefined' && bioDoUsuario) ? bioDoUsuario : 'Bem-vindo(a) ao meu perfil!';
 
     contentArea.innerHTML = `
         <div class="profile-container">
@@ -167,16 +157,19 @@ function mostrarPerfil() {
                             📷
                         </button>
                     </div>
-                    <!-- AQUI ENTRA O NOME DINÂMICO! -->
+                    
                     <h2 id="profileName">${nomeExibicao.toUpperCase()}</h2>
                     <p class="profile-role">Professor(a)</p>
                 </div>
                 
                 <div class="profile-body">
+                    <!-- BIOGRAFIA INLINE -->
                     <div class="profile-section">
                         <h3>📝 BIOGRAFIA</h3>
-                        <p id="profileBio" class="editable-text">Bem-vindo(a) ao meu perfil!</p>
-                        <button class="edit-btn" onclick="editarBio()">✏️ Editar Bio</button>
+                        <div id="settingBioSection">
+                            <p id="profileBio" class="editable-text">${bioExibicao}</p>
+                            <button class="edit-btn" onclick="editarBioInline()">✏️ Editar Bio</button>
+                        </div>
                     </div>
 
                     <div class="profile-section">
@@ -200,18 +193,31 @@ function mostrarPerfil() {
                     <div class="profile-section">
                         <h3>⚙️ CONFIGURAÇÕES</h3>
                         <div class="settings-list">
-                            <button class="settings-btn" onclick="editarNome()">
-                                <span>👤</span> Editar Nome
-                            </button>
+                            <!-- Bloco com ID para o Nome -->
+                            <div id="settingNameSection">
+                                <button class="settings-btn" onclick="editarNomeInline()">
+                                    <span>👤</span> Editar Nome (${nomeExibicao})
+                                </button>
+                            </div>
+                            
+                            <!-- Email -->
                             <button class="settings-btn" onclick="editarEmail()">
-                                <span>📧</span> Editar Email
+                                <span>📧</span> Editar Email (${emailExibicao})
                             </button>
-                            <button class="settings-btn" onclick="editarSenha()">
-                                <span>🔒</span> Alterar Senha
-                            </button>
-                            <button class="settings-btn" onclick="editarContato()">
-                                <span>📱</span> Editar Contato
-                            </button>
+                            
+                            <!-- Bloco com ID para a Senha -->
+                            <div id="settingPasswordSection">
+                                <button class="settings-btn" onclick="editarSenhaInline()">
+                                    <span>🔒</span> Alterar Senha
+                                </button>
+                            </div>
+                            
+                            <!-- Bloco com ID para o Contato -->
+                            <div id="settingContactSection">
+                                <button class="settings-btn" onclick="editarContatoInline()">
+                                    <span>📱</span> Editar Contato (${contatoExibicao})
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -230,7 +236,7 @@ function mostrarPerfil() {
 }
 
 // =================================
-// FUNÇÕES DE CRIAÇÃO (CORRIGIDAS)
+// FUNÇÕES DE CRIAÇÃO
 // =================================
 
 function criarConteudo() {
@@ -239,7 +245,6 @@ function criarConteudo() {
         const descricao = prompt("Digite a descrição do conteúdo:");
         conteudos.push({ titulo: titulo, descricao: descricao || "Novo conteúdo" });
         alert(`Conteúdo "${titulo}" criado com sucesso!`);
-        // Atualiza automaticamente a aba de conteúdo
         if (pageTitle.textContent === "CONTEÚDOS") {
             mostrarConteudos();
         }
@@ -251,7 +256,6 @@ function criarAtividade() {
     if (titulo) {
         atividades.push({ titulo: titulo });
         alert(`Atividade "${titulo}" criada com sucesso!`);
-        // Atualiza automaticamente a aba de conteúdo se estiver nela
         if (pageTitle.textContent === "CONTEÚDOS") {
             mostrarConteudos();
         }
@@ -263,7 +267,6 @@ function criarMaterial() {
     if (titulo) {
         materiais.push({ titulo: titulo });
         alert(`Material "${titulo}" adicionado com sucesso!`);
-        // Atualiza automaticamente a aba de conteúdo se estiver nela
         if (pageTitle.textContent === "CONTEÚDOS") {
             mostrarConteudos();
         }
@@ -276,7 +279,6 @@ function criarTurma() {
         const numAlunos = prompt("Digite o número de alunos (padrão: 0):");
         turmas.push({ nome: nome, alunos: parseInt(numAlunos) || 0 });
         alert(`Turma "${nome}" criada com sucesso!`);
-        // Atualiza automaticamente a aba de turmas se estiver nela
         if (pageTitle.textContent === "TURMAS") {
             mostrarTurmas();
         }
@@ -284,16 +286,12 @@ function criarTurma() {
 }
 
 // =================================
-// FUNÇÕES DE EDIÇÃO
+// FUNÇÕES DE EDIÇÃO E PERFIL INLINE
 // =================================
 
 function editarConteudo(titulo) {
     alert(`Editando conteúdo: ${titulo}`);
 }
-
-// =================================
-// FUNÇÕES DO PERFIL
-// =================================
 
 function trocarFoto() {
     const input = document.createElement('input');
@@ -315,55 +313,56 @@ function trocarFoto() {
     input.click();
 }
 
-function editarBio() {
-    const bioElement = document.getElementById('profileBio');
-    const novaBio = prompt('Digite sua nova biografia:', bioElement.textContent);
+function editarBioInline() {
+    const sectionBio = document.getElementById("settingBioSection");
     
-    if (novaBio) {
-        bioElement.textContent = novaBio;
-        alert('Biografia atualizada!');
-    }
-}
-
-function editarNome() {
-    const nomeElement = document.getElementById('profileName');
-    const novoNome = prompt('Digite seu nome:', nomeElement.textContent);
+    // Pega a bio atual da variável global injetada pelo Flask (ou usa um padrão)
+    const bioAtual = typeof bioDoUsuario !== 'undefined' ? bioDoUsuario : 'Bem-vindo(a) ao meu perfil!';
     
-    if (novoNome) {
-        nomeElement.textContent = novoNome.toUpperCase();
-        alert('Nome atualizado!');
-    }
+    sectionBio.innerHTML = `
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; flex-direction: column; gap: 10px; margin-top: 5px;">
+            <textarea name="bio" rows="3" style="padding: 10px; border-radius: 8px; border: 1px solid #0739ce; width: 100%; resize: none; font-family: Arial, sans-serif; font-size: 14px;" required>${bioAtual}</textarea>
+            <button type="submit" class="action-button" style="padding: 8px 15px; font-size: 13px; align-self: flex-start;">Salvar Bio</button>
+        </form>
+    `;
 }
 
 function editarEmail() {
-    const email = prompt('Digite seu novo email:', 'professora@email.com');
-    
-    if (email) {
-        alert(`Email alterado para: ${email}`);
-    }
-}
-
-function editarSenha() {
-    const novaSenha = prompt('Digite sua nova senha:');
-    const confirmarSenha = prompt('Confirme sua nova senha:');
-    
-    if (novaSenha && novaSenha === confirmarSenha) {
-        alert('Senha alterada com sucesso!');
-    } else {
-        alert('As senhas não coincidem!');
-    }
-}
-
-function editarContato() {
-    const contato = prompt('Digite seu novo contato:', '(11) 99999-9999');
-    
-    if (contato) {
-        alert(`Contato atualizado para: ${contato}`);
-    }
+    alert("Para alterar seu e-mail de acesso, entre em contato com o suporte.");
 }
 
 function salvarPerfil() {
     alert('Perfil salvo com sucesso!');
+}
+
+function editarNomeInline() {
+    const sectionName = document.getElementById("settingNameSection");
+    sectionName.innerHTML = `
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" name="nome" value="${nomeDoUsuario}" style="padding: 8px; border-radius: 8px; border: 1px solid #0739ce; flex: 1;" required>
+            <button type="submit" class="action-button" style="padding: 8px 15px; font-size: 13px;">Salvar</button>
+        </form>
+    `;
+}
+
+function editarContatoInline() {
+    const sectionContact = document.getElementById("settingContactSection");
+    sectionContact.innerHTML = `
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; gap: 10px; align-items: center;">
+            <input type="tel" name="contato" value="${contatoDoUsuario}" style="padding: 8px; border-radius: 8px; border: 1px solid #0739ce; flex: 1;" required>
+            <button type="submit" class="action-button" style="padding: 8px 15px; font-size: 13px;">Salvar</button>
+        </form>
+    `;
+}
+
+function editarSenhaInline() {
+    const sectionPassword = document.getElementById("settingPasswordSection");
+    sectionPassword.innerHTML = `
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; gap: 10px; align-items: center;">
+            <input type="password" name="senha" placeholder="Nova senha" style="padding: 8px; border-radius: 8px; border: 1px solid #0739ce; flex: 1;" required>
+            <button type="submit" class="action-button" style="padding: 8px 15px; font-size: 13px;">Salvar</button>
+        </form>
+    `;
 }
 
 // =================================
@@ -393,4 +392,4 @@ menuItems.forEach((item) => {
 
 // INICIALIZAÇÃO
 mostrarConteudos();
-console.log("JavaScript do professor carregado!");
+console.log("JavaScript do professor carregado com sucesso!");  

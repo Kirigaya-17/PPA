@@ -41,10 +41,14 @@
         </section>
     </main>
 
+
     <script>
         const nomeDoUsuario = "{{ session.get('nome_usuario', 'Professor(a)') }}";
+        const emailDoUsuario = "{{ session.get('usuario_logado', '') }}";
+        const contatoDoUsuario = "{{ session.get('contato_usuario', '') }}";
+        const bioDoUsuario = "{{ session.get('bio_usuario', 'Bem-vindo(a) ao meu perfil!') }}";
     </script>
-    
+
     <script src="{{ url_for('static', filename='js/professorMenu.js') }}"></script>
 </body>
 </html>

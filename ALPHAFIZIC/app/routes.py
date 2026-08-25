@@ -29,10 +29,13 @@ def login():
         email = request.form.get('email')
         senha = request.form.get('senha')
         
-        # 2. VALIDAÇÃO DE LOGIN
         if email in usuarios and usuarios[email]['senha'] == senha:
             session['usuario_logado'] = email
             session['nome_usuario'] = usuarios[email]['nome']
+            session['contato_usuario'] = usuarios[email].get('contato', '')
+            
+            # ---> 1. ADICIONADO AQUI: Salva a bio na sessão no login <---
+            session['bio_usuario'] = usuarios[email].get('bio', 'Bem-vindo(a) ao meu perfil!')
             
             flash('Login realizado com sucesso!', 'sucesso')
             return redirect(url_for('professorMenu'))
@@ -74,7 +77,8 @@ def cadastro2():
                 'nome': nome, 
                 'cpf': cpf, 
                 'contato': contato, 
-                'senha': senha
+                'senha': senha,
+                'bio': 'Bem-vindo(a) ao meu perfil!' # ---> 2. ADICIONADO AQUI: Bio padrão ao cadastrar <---
             }
             
             session['nome_usuario'] = nome
@@ -89,43 +93,78 @@ def esqueci_senha():
     if request.method == 'POST':
         email = request.form.get('email')
         
-        # Verificação de email válido
         if not validar_email(email):
             flash('E-mail inválido.', 'erro')
             return render_template('esqueciSenha.html')
         
         if email in usuarios:
             flash('Um link de recuperação foi enviado para o seu e-mail.', 'sucesso')
-            # Aqui você implementaria o envio real de email
         else:
             flash('E-mail não encontrado.', 'erro')
     
     return render_template('esqueciSenha.html')
 
-
 @app.route('/logout')
 def logout():
-    session.clear() # Limpa todos os dados da sessão
+    session.clear()
     flash('Você saiu da sua conta.', 'sucesso')
     return redirect(url_for('login'))
 
 @app.route('/professorMenu')
 def professorMenu():
-    # VERIFICA SE O USUÁRIO ESTÁ LOGADO (Chave certa)
     if 'usuario_logado' not in session:
         flash('Por favor, faça login para acessar esta página.', 'erro')
         return redirect(url_for('login'))
         
-    # Pega os dados do usuário logado
     usuario_email = session['usuario_logado']
     usuario_data = usuarios.get(usuario_email, {})
     
     return render_template('professorMenu.html', usuario=usuario_data)
 
+@app.route('/atualizar-perfil-inline', methods=['POST'])
+def atualizar_perfil_inline():
+    if 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+        
+    email_atual = session['usuario_logado']
+    
+    if email_atual not in usuarios:
+        session.clear()
+        flash('Sessão expirada ou servidor reiniciado. Por favor, faça login novamente.', 'erro')
+        return redirect(url_for('login'))
+    
+    novo_nome = request.form.get('nome')
+    novo_contato = request.form.get('contato')
+    nova_senha = request.form.get('senha')
+    
+    # ---> 3. ADICIONADO AQUI: Pega a nova bio enviada pelo formulário <---
+    nova_bio = request.form.get('bio')
+    
+    if novo_nome:
+        usuarios[email_atual]['nome'] = novo_nome
+        session['nome_usuario'] = novo_nome
+        
+    if novo_contato:
+        usuarios[email_atual]['contato'] = novo_contato
+        session['contato_usuario'] = novo_contato
+        
+    # ---> 4. ADICIONADO AQUI: Atualiza a bio no dicionário e na sessão <---
+    if nova_bio is not None:
+        usuarios[email_atual]['bio'] = nova_bio
+        session['bio_usuario'] = nova_bio
+        
+    if nova_senha:
+        usuarios[email_atual]['senha'] = nova_senha
+        flash('Senha alterada com sucesso!', 'sucesso')
+    else:
+        flash('Perfil atualizado com sucesso!', 'sucesso')
+        
+    return redirect(url_for('professorMenu'))
+
 @app.route('/turmas')
 def turmas():
-    # Verificação de autenticação
-    if 'usuario' not in session:
+    # CORRIGIDO AQUI: Trocado 'usuario' por 'usuario_logado' para bater com o resto do sistema
+    if 'usuario_logado' not in session:
         flash('Faça login para acessar esta página.', 'erro')
         return redirect(url_for('login'))
     
