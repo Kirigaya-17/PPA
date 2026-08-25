@@ -1,3 +1,4 @@
+
 # ALPHAFIZIC 🐺
 
 Bem-vindo ao repositório do **ALPHAFIZIC**. Esta aplicação é construída em **Python + Flask** e gerencia fluxos de cadastro, login e painéis específicos para alunos e professores.
