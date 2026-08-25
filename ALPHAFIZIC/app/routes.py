@@ -22,17 +22,18 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if 'usuario_logado' in session:
+        return redirect(url_for('professorMenu'))
+        
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
         
-        # Verificação de sessão existente
-        if 'usuario' in session:
-            flash('Você já está logado!', 'sucesso')
-            return redirect(url_for('professorMenu'))
-        
+        # 2. VALIDAÇÃO DE LOGIN
         if email in usuarios and usuarios[email]['senha'] == senha:
-            session['usuario'] = email
+            session['usuario_logado'] = email
+            session['nome_usuario'] = usuarios[email]['nome']
+            
             flash('Login realizado com sucesso!', 'sucesso')
             return redirect(url_for('professorMenu'))
         else:
@@ -76,7 +77,7 @@ def cadastro2():
                 'senha': senha
             }
             
-            session['nome_usuario'] = nome 
+            session['nome_usuario'] = nome
             
             flash('Cadastro realizado com sucesso!', 'sucesso')
             return redirect(url_for('login'))
@@ -101,35 +102,22 @@ def esqueci_senha():
     
     return render_template('esqueciSenha.html')
 
-@app.route('/codigo', methods=['GET', 'POST'])
-def codigo():
-    if request.method == 'POST':
-        codigo = request.form.get('codigo')
-        
-        # Validação do código (exemplo: 6 dígitos)
-        if codigo and len(codigo) == 6 and codigo.isdigit():
-            flash('Código verificado com sucesso!', 'sucesso')
-            return redirect(url_for('login'))
-        else:
-            flash('Código inválido. Verifique e tente novamente.', 'erro')
-    
-    return render_template('codigo.html')
 
 @app.route('/logout')
 def logout():
-    session.pop('usuario', None)
-    flash('Logout realizado com sucesso!', 'sucesso')
+    session.clear() # Limpa todos os dados da sessão
+    flash('Você saiu da sua conta.', 'sucesso')
     return redirect(url_for('login'))
 
 @app.route('/professorMenu')
 def professorMenu():
-    # Verificação de autenticação
-    if 'usuario' not in session:
-        flash('Faça login para acessar esta página.', 'erro')
+    # VERIFICA SE O USUÁRIO ESTÁ LOGADO (Chave certa)
+    if 'usuario_logado' not in session:
+        flash('Por favor, faça login para acessar esta página.', 'erro')
         return redirect(url_for('login'))
-    
+        
     # Pega os dados do usuário logado
-    usuario_email = session['usuario']
+    usuario_email = session['usuario_logado']
     usuario_data = usuarios.get(usuario_email, {})
     
     return render_template('professorMenu.html', usuario=usuario_data)
