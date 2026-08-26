@@ -1324,10 +1324,12 @@ function mostrarTurmas() {
 function mostrarPerfil() {
     ativarMenu("perfil");
     pageTitle.textContent = "PERFIL";
-    const nomeExibicao = (typeof nomeDoUsuario !== 'undefined' && nomeDoUsuario) ? nomeDoUsuario : 'Professor(a)';
-    const emailExibicao = (typeof emailDoUsuario !== 'undefined' && emailDoUsuario) ? emailDoUsuario : '';
-    const contatoExibicao = (typeof contatoDoUsuario !== 'undefined' && contatoDoUsuario) ? contatoDoUsuario : '';
-    const bioExibicao = (typeof bioDoUsuario !== 'undefined' && bioDoUsuario) ? bioDoUsuario : 'Bem-vindo(a) ao meu perfil!';
+    
+    // Tratamento reforçado para evitar o texto "None" do Python
+    const nomeExibicao = (typeof nomeDoUsuario !== 'undefined' && nomeDoUsuario !== 'None' && nomeDoUsuario.trim() !== '') ? nomeDoUsuario : 'Professor(a)';
+    const emailExibicao = (typeof emailDoUsuario !== 'undefined' && emailDoUsuario !== 'None' && emailDoUsuario.trim() !== '') ? emailDoUsuario : 'Sem e-mail';
+    const contatoExibicao = (typeof contatoDoUsuario !== 'undefined' && contatoDoUsuario !== 'None' && contatoDoUsuario.trim() !== '') ? contatoDoUsuario : 'Sem contato';
+    const bioExibicao = (typeof bioDoUsuario !== 'undefined' && bioDoUsuario !== 'None' && bioDoUsuario.trim() !== '') ? bioDoUsuario : 'Bem-vindo(a) ao meu perfil!';
 
     contentArea.innerHTML = `
         <div class="profile-container">
@@ -1340,6 +1342,7 @@ function mostrarPerfil() {
                     <h2 id="profileName">${nomeExibicao.toUpperCase()}</h2>
                     <p class="profile-role">Professor(a)</p>
                 </div>
+                
                 <div class="profile-body">
                     <div class="profile-section">
                         <h3>📝 BIOGRAFIA</h3>
@@ -1348,6 +1351,7 @@ function mostrarPerfil() {
                             <button class="edit-btn" onclick="editarBioInline()">✏️ Editar Bio</button>
                         </div>
                     </div>
+                    
                     <div class="profile-section">
                         <h3>📊 ESTATÍSTICAS</h3>
                         <div class="stats-grid">
@@ -1365,6 +1369,7 @@ function mostrarPerfil() {
                             </div>
                         </div>
                     </div>
+                    
                     <div class="profile-section">
                         <h3>⚙️ CONFIGURAÇÕES</h3>
                         <div class="settings-list">
@@ -1380,9 +1385,10 @@ function mostrarPerfil() {
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Botão azul de salvar geral foi removido daqui para evitar confusão! -->
                     <div class="profile-actions">
-                        <button class="action-button save-btn" onclick="salvarPerfil()">💾 Salvar Alterações</button>
-                        <button class="action-button logout-btn" onclick="fazerLogout()">🚪 Sair</button>
+                        <button class="action-button logout-btn" style="background:#e74c3c; width: 100%;" onclick="fazerLogout()">🚪 Sair da Conta</button>
                     </div>
                 </div>
             </div>
@@ -1468,22 +1474,27 @@ function editarBioInline() {
 }
 
 function editarEmail() { mostrarAlerta("Para alterar seu e-mail, entre em contato com o suporte."); }
-function salvarPerfil() { mostrarAlerta('Perfil salvo com sucesso!'); }
+
 
 function editarNomeInline() {
     const s = document.getElementById("settingNameSection");
+    // Se for o nome padrão ou 'None', deixa a caixinha limpa para digitar um novo
+    const nomeAtual = (typeof nomeDoUsuario !== 'undefined' && nomeDoUsuario !== 'None' && nomeDoUsuario !== 'Professor(a)') ? nomeDoUsuario : '';
+    
     s.innerHTML = `
         <form action="/atualizar-perfil-inline" method="POST" style="display:flex;gap:10px;align-items:center;">
-            <input type="text" name="nome" value="${nomeDoUsuario}" style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
+            <input type="text" name="nome" value="${nomeAtual}" placeholder="Digite o novo nome..." style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
             <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;">Salvar</button>
         </form>`;
 }
 
 function editarContatoInline() {
     const s = document.getElementById("settingContactSection");
+    const contatoAtual = (typeof contatoDoUsuario !== 'undefined' && contatoDoUsuario !== 'None') ? contatoDoUsuario : '';
+    
     s.innerHTML = `
         <form action="/atualizar-perfil-inline" method="POST" style="display:flex;gap:10px;align-items:center;">
-            <input type="tel" name="contato" value="${contatoDoUsuario}" style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
+            <input type="tel" name="contato" value="${contatoAtual}" placeholder="DDD + Número" style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
             <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;">Salvar</button>
         </form>`;
 }
