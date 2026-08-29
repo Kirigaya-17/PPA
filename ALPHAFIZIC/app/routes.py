@@ -1,21 +1,22 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash, session
 from dotenv import load_dotenv
+import os
 import re
 import resend
 
 load_dotenv()  # Carrega variáveis de ambiente do arquivo .env
 
-resend.api_key = "resend"
+resend.api_key = os.getenv("Resend")  # Obtém a chave da variável de ambiente
 
 # Simulação de banco de dados em memória
 usuarios = {}
 
 def enviarEmail():
     r = resend.Emails.send({
-  "from": "onboarding@resend.dev",
+  "from": "wesleyvitor.1928@gmail.com",
   "to": "wesleyvitor.1928@gmail.com",
-  "subject": "Hello World",
+  "subject": "Recuperação de senha",
   "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
 })
 
@@ -114,6 +115,7 @@ def esqueci_senha():
         
         if email in usuarios:
             flash('Um link de recuperação foi enviado para o seu e-mail.', 'sucesso')
+            enviarEmail()  # Chama a função para enviar o e-mail
 
         else:
             flash('E-mail não encontrado.', 'erro')
