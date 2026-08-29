@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, redirect, url_for, flash, session
+from flask import render_template, request, redirect, url_for, flash, session, jsonify
 from dotenv import load_dotenv
 import os
 import re
@@ -94,7 +94,8 @@ def cadastro2():
                 'cpf': cpf, 
                 'contato': contato, 
                 'senha': senha,
-                'bio': 'Bem-vindo(a) ao meu perfil!' # ---> 2. ADICIONADO AQUI: Bio padrão ao cadastrar <---
+                'bio': 'Bem-vindo(a) ao meu perfil!',
+                'dados_app': {'turmas': [], 'conteudos': []} # <-- ADICIONADO AQUI: Guarda o estado do JS
             }
             
             session['nome_usuario'] = nome
@@ -187,3 +188,40 @@ def turmas():
         return redirect(url_for('login'))
     
     return render_template('turma.html')
+
+# ==========================================
+# ROTAS DE API PARA O JAVASCRIPT (FETCH)
+# ==========================================
+
+@app.route('/api/dados', methods=['GET'])
+def obter_dados():
+    """Retorna as turmas e conteúdos do usuário logado para o JavaScript"""
+    if 'usuario_logado' not in session:
+        return jsonify({'erro': 'Não autorizado'}), 401
+        
+    email = session['usuario_logado']
+    
+    # FIX: Se o servidor reiniciou e o usuário sumiu da memória, devolve vazio
+    if email not in usuarios:
+        return jsonify({'turmas': [], 'conteudos': []})
+        
+    dados = usuarios[email].get('dados_app', {'turmas': [], 'conteudos': []})
+    return jsonify(dados)
+
+
+@app.route('/api/dados', methods=['POST'])
+def salvar_dados():
+    """Recebe as turmas e conteúdos do JavaScript e salva no Python"""
+    if 'usuario_logado' not in session:
+        return jsonify({'erro': 'Não autorizado'}), 401
+        
+    email = session['usuario_logado']
+    
+    # FIX: Evita quebra se o usuário não existir mais na memória
+    if email not in usuarios:
+        return jsonify({'erro': 'Usuário não encontrado, faça login novamente.'}), 404
+        
+    dados_recebidos = request.get_json()
+    usuarios[email]['dados_app'] = dados_recebidos
+    
+    return jsonify({'status': 'sucesso', 'mensagem': 'Dados salvos!'})

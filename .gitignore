@@ -11,7 +11,8 @@ ENV/
 # ambiente
 .env
 .env.local
-
+.migrations/
+migrations/
 
 #
 .vscode/

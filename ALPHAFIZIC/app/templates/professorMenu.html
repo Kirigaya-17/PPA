@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALPHAFIZIC - Professor</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/professorMenu.css') }}">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/professorMenu.css">
 </head>
 <body>
     <!-- BARRA LATERAL -->
@@ -49,6 +50,6 @@
         const bioDoUsuario = "{{ session.get('bio_usuario', 'Bem-vindo(a) ao meu perfil!') }}";
     </script>
 
-    <script src="{{ url_for('static', filename='js/professorMenu.js') }}"></script>
+    <script type="module" src="/static/js/main.js"></script>
 </body>
 </html>

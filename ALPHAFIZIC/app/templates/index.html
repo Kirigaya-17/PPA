@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>ALPHAFIZIC</title>
-    <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-
     <header>
         <div class="logo">
-            <img src="{{ url_for('static', filename='img/loboauu.png') }}" alt="ALPHAFIZIC Logo">
+            <img src="/static/img/loboauu.png" alt="Logo">
             <h1>ALPHAFIZIC</h1>
         </div>
     </header>
@@ -17,18 +17,13 @@
     <main>
         <div class="container">
             <div class="wolf">
-                <img src="{{ url_for('static', filename='img/lobopidao.png') }}" alt="Lobo Pidão">
+                <img src="/static/img/lobopidao.png" alt="Mascote Lobo">
             </div>
             <div class="buttons">
-                <a href="{{ url_for('login') }}">
-                    <button>ENTRAR</button>
-                </a>
-                <a href="{{ url_for('cadastro') }}">
-                    <button>CADASTRAR-SE</button>
-                </a>
+                <a href="{{ url_for('login') }}"><button type="button">ENTRAR</button></a>
+                <a href="{{ url_for('cadastro') }}"><button type="button">CADASTRAR-SE</button></a>
             </div>
         </div>
     </main>
-
 </body>
 </html>

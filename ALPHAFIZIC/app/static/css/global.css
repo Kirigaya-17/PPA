@@ -1,0 +1,111 @@
+/* ===================================================
+   RESET & TIPOGRAFIA GERAL
+=================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* Centralização exclusiva para telas de login/cadastro/recuperação */
+body.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===================================================
+   CONTAINER E FORMULÁRIOS
+=================================================== */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Inputs padronizados (incluindo tel, number, etc.) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]) {
+    width: 350px;
+    height: 52px;
+    margin-bottom: 18px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: #6d6862;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Botões padrões */
+button,
+.btn-primary {
+    width: 350px;
+    height: 52px;
+    border: none;
+    border-radius: 30px;
+    background: #2f38d3;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.btn-primary:hover {
+    background: #2430b8;
+    transform: scale(1.03);
+}
+
+button:active,
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Alertas Flash */
+.alerta {
+    width: 350px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alerta-sucesso, .alerta-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.alerta-erro, .alerta-danger, .alerta-error {
+    background: #f8d7da;
+    color: #721c24;
+}

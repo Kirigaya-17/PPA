@@ -1,0 +1,140 @@
+import { mostrarAlerta, mostrarConfirmacao, mostrarPrompt } from './overlay.js';
+import * as Turmas from './turmas.js';
+import * as Questoes from './questoes.js';
+import * as Perfil from './perfil.js';
+
+
+// =================================
+// ESTADO GLOBAL E SINCRONIZAÇÃO API
+// =================================
+export let state = {
+    turmas: [],
+    conteudos: []
+};
+
+// Puxa os dados do Python assim que a página carrega
+export async function carregarDadosDoBanco() {
+    try {
+        const resposta = await fetch('/api/dados');
+        if (resposta.ok) {
+            const dados = await resposta.json();
+            state.turmas = dados.turmas || [];
+            state.conteudos = dados.conteudos || [];
+            
+            // Depois de carregar, renderiza a tela inicial
+            carregarSecao('conteudo'); 
+        }
+    } catch (erro) {
+        console.error("Erro ao carregar dados:", erro);
+    }
+}
+
+// Envia o estado atualizado para o Python
+export async function salvarDadosNoBanco() {
+    try {
+        await fetch('/api/dados', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(state)
+        });
+    } catch (erro) {
+        console.error("Erro ao salvar dados:", erro);
+    }
+}
+
+// =================================
+// SELETORES DO DOM
+// =================================
+export const menuItems = document.querySelectorAll(".menu-item");
+export const contentArea = document.getElementById("contentArea");
+export const pageTitle = document.getElementById("pageTitle");
+
+// =================================
+// NAVEGAÇÃO DO MENU PRINCIPAL
+// =================================
+export function ativarMenu(section) {
+    menuItems.forEach((menu) => {
+        menu.classList.toggle("active", menu.dataset.section === section);
+    });
+}
+
+export function carregarSecao(section) {
+    ativarMenu(section);
+    if (section === "conteudo") {
+        Questoes.mostrarConteudos();
+    } else if (section === "turmas") {
+        Turmas.mostrarTurmas();
+    } else if (section === "criar") {
+        Questoes.mostrarCriar();
+    } else if (section === "perfil") {
+        Perfil.mostrarPerfil();
+    }
+}
+
+// Configura os cliques dos botões da sidebar
+menuItems.forEach((item) => {
+    item.addEventListener("click", () => carregarSecao(item.dataset.section));
+});
+
+// Funções de logout e rota global
+export function fazerLogout() {
+    mostrarConfirmacao('Tem certeza que deseja sair?', () => {
+        window.location.href = '/logout';
+    });
+}
+
+export function voltarParaProfessorMenu() {
+    window.location.href = '/professorMenu';
+}
+
+// =================================
+// REGISTRO GLOBAL NO WINDOW
+// Necessário para chamadas de onclick="" do HTML dinâmico
+// =================================
+window.carregarSecao = carregarSecao;
+window.fazerLogout = fazerLogout;
+window.voltarParaProfessorMenu = voltarParaProfessorMenu;
+
+// Funções de Turmas
+window.abrirTurma = Turmas.abrirTurma;
+window.mostrarTurmas = Turmas.mostrarTurmas;
+window.ativarAbaTurma = Turmas.ativarAbaTurma;
+window.adicionarAluno = Turmas.adicionarAluno;
+window.excluirAluno = Turmas.excluirAluno;
+window.verNotasAluno = Turmas.verNotasAluno;
+window.salvarNotasAluno = Turmas.salvarNotasAluno;
+window.salvarNotasTabela = Turmas.salvarNotasTabela;
+window.salvarDesempenhoQuestoes = Turmas.salvarDesempenhoQuestoes;
+window.alternarLiberacaoConteudo = Turmas.alternarLiberacaoConteudo;
+window.editarTurma = Turmas.editarTurma;
+window.excluirTurma = Turmas.excluirTurma;
+
+// Funções de Conteúdos/Questões
+window.mostrarConteudos = Questoes.mostrarConteudos;
+window.verQuestoes = Questoes.verQuestoes;
+window.abrirFormQuestao = Questoes.abrirFormQuestao;
+window.atualizarCamposTipo = Questoes.atualizarCamposTipo;
+window.adicionarAlternativa = Questoes.adicionarAlternativa;
+window.removerAlternativa = Questoes.removerAlternativa;
+window.adicionarItemColuna = Questoes.adicionarItemColuna;
+window.removerItemColuna = Questoes.removerItemColuna;
+window.salvarQuestao = Questoes.salvarQuestao;
+window.editarQuestao = Questoes.editarQuestao;
+window.excluirQuestao = Questoes.excluirQuestao;
+window.excluirConteudo = Questoes.excluirConteudo;
+window.criarConteudo = Questoes.criarConteudo;
+window.criarTurma = Turmas.criarTurma;
+
+// Funções de Perfil
+window.mostrarPerfil = Perfil.mostrarPerfil;
+window.trocarFoto = Perfil.trocarFoto;
+window.editarBioInline = Perfil.editarBioInline;
+window.editarEmail = Perfil.editarEmail;
+window.editarNomeInline = Perfil.editarNomeInline;
+window.editarContatoInline = Perfil.editarContatoInline;
+window.editarSenhaInline = Perfil.editarSenhaInline;
+
+// INICIALIZAÇÃO AUTOMÁTICA
+carregarDadosDoBanco();

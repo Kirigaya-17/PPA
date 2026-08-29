@@ -14,7 +14,7 @@ class Usuario(db.Model):
            
     senha = db.Column(db.String(120), nullable=False)
 
-    tipo_usuario = db.Column(db.String(20), nullable=False)
+    tipo_usuario = db.Column(db.Enum('aluno', 'professor', 'administrador'), nullable=False)
 
     genero = db.Column(db.String(20), nullable=True)
 
@@ -74,6 +74,8 @@ class Aluno(db.Model):
 
     id_aluno = db.Column(db.Integer, primary_key=True)
 
+    matricula = db.Column(db.String(20), unique=True, nullable=False)
+
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
 
     usuario = so.relationship('Usuario', backref=so.backref('aluno', uselist=False))
@@ -91,11 +93,13 @@ class atividades(db.Model):
 
     descricao = db.Column(db.String(1000), nullable=True)
 
+    dificuldade = db.Column(db.Enum('facil', 'medio', 'dificil'), nullable=False)
+
     data_criacao = db.Column(db.DateTime, nullable=False, default=sa.func.now())
 
-    professor_id = db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
+    id_turma = db.Column(db.Integer, db.ForeignKey('turmas.id'), nullable=False)
 
-    professor = so.relationship('Professor', backref=so.backref('atividades', lazy='dynamic'))
+    turma = so.relationship('turmas', backref=so.backref('atividades', lazy='dynamic'))
 
     def __repr__(self):
         return '<Atividade {}>'.format(self.titulo)
@@ -104,19 +108,19 @@ class atividades_alunos(db.Model):
 
     __tablename__ = 'atividades_alunos'
 
-    id: db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
 
-    atividade_id: db.Column(db.Integer, db.ForeignKey('atividades.id'), nullable=False)
+    id_atividade = db.Column(db.Integer, db.ForeignKey('atividades.id'), nullable=False)
 
-    aluno_id: db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
+    id_aluno = db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
 
-    data_entrega: db.Column(db.DateTime, nullable=True)
+    data_entrega = db.Column(db.DateTime, nullable=True)
 
-    nota: db.Column(db.Float, nullable=True)
+    nota = db.Column(db.Float, nullable=True)
 
-    atividade: so.relationship('atividades', backref=so.backref('atividades_alunos', lazy='dynamic'))
+    atividade = so.relationship('atividades', backref=so.backref('atividades_alunos', lazy='dynamic'))
 
-    aluno: so.relationship('Aluno', backref=so.backref('atividades_alunos', lazy='dynamic'))
+    aluno = so.relationship('Aluno', backref=so.backref('atividades_alunos', lazy='dynamic'))
 
     def __repr__(self):
         return '<AtividadeAluno Atividade {} Aluno {}>'.format(self.atividade.titulo, self.aluno.usuario.username)
@@ -125,15 +129,17 @@ class aluno_turma(db.Model):
 
     __tablename__ = 'aluno_turma'
 
-    id: db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
 
-    aluno_id: db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
+    id_aluno = db.Column(db.Integer, db.ForeignKey('alunos.id'), nullable=False)
 
-    turma_id: db.Column(db.Integer, db.ForeignKey('turmas.id'), nullable=False)
+    id_turma = db.Column(db.Integer, db.ForeignKey('turmas.id'), nullable=False)
 
-    aluno: so.relationship('Aluno', backref=so.backref('aluno_turma', lazy='dynamic'))
+    data_entrada = db.Column(db.DateTime, nullable=False, default=sa.func.now())
 
-    turma: so.relationship('turmas', backref=so.backref('aluno_turma', lazy='dynamic'))
+    aluno = so.relationship('Aluno', backref=so.backref('aluno_turma', lazy='dynamic'))
+
+    turma = so.relationship('turmas', backref=so.backref('aluno_turma', lazy='dynamic'))
 
     def __repr__(self):
         return '<AlunoTurma Aluno {} Turma {}>'.format(self.aluno.usuario.username, self.turma.nome)
@@ -142,17 +148,21 @@ class conteudo(db.Model):
 
     __tablename__ = 'conteudos'
 
-    id: db.Column(db.Integer, primary_key=True)
+    id_conteudo = db.Column(db.Integer, primary_key=True)
 
-    titulo: db.Column(db.String(200), nullable=False)
+    titulo = db.Column(db.String(200), nullable=False)
 
-    descricao: db.Column(db.String(1000), nullable=True)
+    descricao = db.Column(db.String(1000), nullable=True)
 
-    data_criacao: db.Column(db.DateTime, nullable=False, default=sa.func.now())
+    tipo = db.Column(db.String(50), nullable=False)
 
-    professor_id: db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
+    arquivo = db.Column(db.String(200), nullable=True)
 
-    professor: so.relationship('Professor', backref=so.backref('conteudos', lazy='dynamic'))
+    data_publicacao = db.Column(db.DateTime, nullable=False, default=sa.func.now())
+
+    professor_id = db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
+
+    professor = so.relationship('Professor', backref=so.backref('conteudos', lazy='dynamic'))
 
     def __repr__(self):
         return '<Conteudo {}>'.format(self.titulo)
@@ -161,15 +171,19 @@ class turmas(db.Model):
 
     __tablename__ = 'turmas'
 
-    id: db.Column(db.Integer, primary_key=True)
+    id_turma = db.Column(db.Integer, primary_key=True)
 
-    nome: db.Column(db.String(100), nullable=False)
+    nome_turma = db.Column(db.String(100), nullable=False)
 
-    descricao: db.Column(db.String(500), nullable=True)
+    codigo_turma = db.Column(db.String(20), unique=True, nullable=False)
 
-    professor_id: db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
+    disciplina = db.Column(db.String(100), nullable=False)
 
-    professor: so.relationship('Professor', backref=so.backref('turmas', lazy='dynamic'))
+    ano_letivo = db.Column(db.Integer, nullable=False)
+
+    professor_id = db.Column(db.Integer, db.ForeignKey('professores.id'), nullable=False)
+
+    professor = so.relationship('Professor', backref=so.backref('turmas', lazy='dynamic'))
 
     def __repr__(self):
         return '<Turma {}>'.format(self.nome)
