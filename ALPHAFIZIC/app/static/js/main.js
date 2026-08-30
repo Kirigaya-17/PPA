@@ -138,3 +138,14 @@ window.editarSenhaInline = Perfil.editarSenhaInline;
 
 // INICIALIZAÇÃO AUTOMÁTICA
 carregarDadosDoBanco();
+
+// =================================
+// SERVICE WORKER PARA PWA
+// =================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/static/js/sw.js')
+            .then(reg => console.log("Service Worker registrado!"))
+            .catch(err => console.error("Erro no Service Worker:", err));
+    });
+}

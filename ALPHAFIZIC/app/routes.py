@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, request, redirect, url_for, flash, session, jsonify
+from flask import render_template, request, redirect, url_for, flash, session, jsonify, send_from_directory
 from dotenv import load_dotenv
 import os
 import re
@@ -225,3 +225,12 @@ def salvar_dados():
     usuarios[email]['dados_app'] = dados_recebidos
     
     return jsonify({'status': 'sucesso', 'mensagem': 'Dados salvos!'})
+
+# ==========================================
+# ROTAS PARA O FAVICON - icon do site
+# ==========================================
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'img'),
+                               'loboauu.png', mimetype='image/png')
