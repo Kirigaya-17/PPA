@@ -480,9 +480,19 @@ TURMAS E DESKTOP
     color: #ffffff !important;
 }
 
-/* 4. Organiza as abas da turma lado a lado no desktop */
-.content-area div[style*="display:flex;gap:8px;flex-wrap:wrap"] {
+/* Força as abas a ficarem lado a lado dividindo o espaço no PC */
+#abasNavegacaoTurma {
     flex-direction: row !important;
+}
+#abasNavegacaoTurma .turma-tab {
+    width: auto !important;
+    flex: 1; 
+}
+
+/* Impede o botão "Liberar" de ficar gigante e esmagar o texto no PC */
+.linha-liberar-conteudo .action-button {
+    width: auto !important;
+    min-width: 120px;
 }
 
 /* ===================================================
@@ -612,6 +622,20 @@ TURMAS E DESKTOP
     color: #ffffff !important;
 }
 
+/* No celular, deixa 2 abas por linha (quadrado perfeito) */
+    #abasNavegacaoTurma .turma-tab {
+        flex: 1 1 45% !important; 
+    }
+
+    /* No celular, quebra a linha: Título em cima, botão grandão embaixo */
+    .linha-liberar-conteudo {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+    .linha-liberar-conteudo .action-button {
+        width: 100% !important; 
+    }
     .profile-container {
         padding: 0;
     }
@@ -641,7 +665,4 @@ TURMAS E DESKTOP
     .edit-btn {
         width: 100% !important;
     }
-}
-.content-area div[style*="display:flex;gap:8px;flex-wrap:wrap"] {
-    flex-direction: row !important;
 }
