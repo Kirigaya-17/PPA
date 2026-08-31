@@ -18,9 +18,11 @@ export function mostrarPerfil() {
         <div class="profile-container">
             <div class="profile-card">
                 <div class="profile-header">
-                    <div class="profile-avatar">
-                        <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="profileImage">
-                        <button class="edit-avatar-btn" onclick="trocarFoto()" title="Trocar foto">📷</button>
+                    <!-- Foto clicável com ícone padrão -->
+                    <div class="profile-avatar" onclick="trocarFoto()" title="Clique para trocar a foto" style="cursor: pointer;">
+                        <div id="profileImageContainer" class="avatar-placeholder">
+                            👤
+                        </div>
                     </div>
                     <h2 id="profileName">${nomeExibicao.toUpperCase()}</h2>
                     <p class="profile-role">Professor(a)</p>
@@ -80,13 +82,16 @@ export function mostrarPerfil() {
 
 export function trocarFoto() {
     const input = document.createElement('input');
-    input.type = 'file'; input.accept = 'image/*';
+    input.type = 'file'; 
+    input.accept = 'image/*';
     input.onchange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = (ev) => {
-                document.getElementById('profileImage').src = ev.target.result;
+                const container = document.getElementById('profileImageContainer');
+                // Substitui o emoji 👤 pela imagem que o usuário escolheu
+                container.innerHTML = `<img src="${ev.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
                 mostrarAlerta('Foto atualizada!');
             };
             reader.readAsDataURL(file);

@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+        <header class="top">
+            <!-- BOTÃO HAMBÚRGUER ADICIONADO AQUI -->
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <h1 id="pageTitle">ALPHAFIZIC</h1>
+        </header>
+        <section id="contentArea" class="content-area">
+        </section>
+    </main>
     <title>ALPHAFIZIC - Professor</title>
     <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
     <link rel="stylesheet" href="/static/css/global.css">
@@ -20,19 +30,19 @@
         <nav class="menu">
             <button class="menu-item active" data-section="conteudo">
                 <span class="icon">📚</span>
-                <span class="menu-text">conteúdo</span>
+                <span class="menu-text">Conteúdo</span>
             </button>
             <button class="menu-item" data-section="turmas">
                 <span class="icon">🏫</span>
-                <span class="menu-text">turmas</span>
+                <span class="menu-text">Turmas</span>
             </button>
             <button class="menu-item" data-section="criar">
                 <span class="icon">➕</span>
-                <span class="menu-text">criar</span>
+                <span class="menu-text">Criar</span>
             </button>
             <button class="menu-item" data-section="perfil">
                 <span class="icon">👤</span>
-                <span class="menu-text">perfil</span>
+                <span class="menu-text">Perfil</span>
             </button>
         </nav>
     </aside>
@@ -48,10 +58,11 @@
 
 
     <script>
-        const nomeDoUsuario = "{{ session.get('nome_usuario', 'Professor(a)') }}";
-        const emailDoUsuario = "{{ session.get('usuario_logado', '') }}";
-        const contatoDoUsuario = "{{ session.get('contato_usuario', '') }}";
-        const bioDoUsuario = "{{ session.get('bio_usuario', 'Bem-vindo(a) ao meu perfil!') }}";
+        // Usar window. garante que o perfil.js consiga ler os dados reais do Python
+        window.nomeDoUsuario = "{{ session.get('nome_usuario', 'Professor(a)') }}";
+        window.emailDoUsuario = "{{ session.get('usuario_logado', '') }}";
+        window.contatoDoUsuario = "{{ session.get('contato_usuario', '') }}";
+        window.bioDoUsuario = "{{ session.get('bio_usuario', 'Bem-vindo(a) ao meu perfil!') }}";
     </script>
 
     <script type="module" src="/static/js/main.js"></script>

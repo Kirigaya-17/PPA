@@ -65,6 +65,7 @@ input::placeholder {
 
 /* Botões padrões */
 button,
+.auth-page button,
 .btn-primary {
     width: 350px;
     height: 52px;

@@ -149,3 +149,28 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.error("Erro no Service Worker:", err));
     });
 }
+
+// ==========================================
+// MENU MOBILE (HAMBÚRGUER) - CORRIGIDO
+// ==========================================
+{
+    const btnMenuMobile = document.getElementById('menuToggle');
+    const barraLateralMobile = document.querySelector('.sidebar');
+    const botoesMenuLateral = document.querySelectorAll('.menu-item');
+
+    if (btnMenuMobile && barraLateralMobile) {
+        // Abre e fecha o menu ao clicar nas 3 barras
+        btnMenuMobile.addEventListener('click', () => {
+            barraLateralMobile.classList.toggle('open');
+        });
+
+        // Fecha o painel automaticamente após tocar em um botão no celular
+        botoesMenuLateral.forEach(botao => {
+            botao.addEventListener('click', () => {
+                if (window.innerWidth <= 600) {
+                    barraLateralMobile.classList.remove('open');
+                }
+            });
+        });
+    }
+}

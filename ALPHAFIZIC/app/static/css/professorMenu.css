@@ -1,3 +1,8 @@
+:root {
+    --primary: #0739ce;
+    --gray: #eeeeee;
+}
+
 /* ===================================================
    BARRA LATERAL FIXA (PAINEL DO PROFESSOR)
 =================================================== */
@@ -115,7 +120,7 @@
     height: auto;
     padding: 35px 9%;
     display: grid;
-    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-auto-rows: auto;
     gap: 45px 6%;
     align-content: start; 
@@ -238,43 +243,33 @@
     position: relative;
 }
 
+
 .profile-avatar {
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
+    transition: transform 0.2s ease;
 }
 
-.profile-avatar img {
+/* Efeito de zoom ao passar o mouse ou tocar na foto */
+.profile-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Estrutura redonda perfeita com o ícone padrão */
+.avatar-placeholder {
     width: 130px;
     height: 130px;
     border-radius: 50%;
     border: 4px solid #ffffff;
-    object-fit: cover;
     background: #f0f0f0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.edit-avatar-btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.edit-avatar-btn:hover {
-    transform: scale(1.1);
-    background: #f0f0f0;
+    font-size: 65px; /* Tamanho do ícone 👤 */
+    color: #999999;
+    overflow: hidden;
 }
 
 .profile-header h2 {
@@ -296,6 +291,7 @@
 }
 
 .profile-section {
+    width: 100% !important;
     margin-bottom: 20px;
     padding: 20px;
     background: #f9f9f9;
@@ -332,6 +328,8 @@
     font-size: 13px;
     transition: all 0.3s;
     font-weight: bold;
+    width: auto !important;
+    height: auto !important;
 }
 
 .edit-btn:hover {
@@ -451,65 +449,199 @@
 }
 
 /* ===================================================
+TURMAS E DESKTOP
+=================================================== */
+/* 1. Impede que o botão "Acessar Turma" vaze do card no PC */
+.text-card .action-button,
+.class-card .action-button {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 5px !important;
+    font-size: 13px !important;
+    white-space: normal !important; /* Permite quebrar linha se necessário */
+    word-break: break-word !important;
+    height: auto !important;
+    min-height: 38px;
+}
+
+/* Impede conteúdo de saltar visualmente da caixa */
+.text-card, .class-card {
+    overflow: hidden;
+}
+
+/* 2. Revela os nomes ocultos (Perfil, Alunos, etc.) nas abas em todas as telas */
+.turma-tab {
+    color: #111111 !important;
+}
+
+/* 3. Mantém o texto branco apenas na aba que estiver ativa (fundo azul) */
+.turma-tab[style*="var(--primary)"] {
+    color: #ffffff !important;
+}
+
+/* 4. Organiza as abas da turma lado a lado no desktop */
+.content-area div[style*="display:flex;gap:8px;flex-wrap:wrap"] {
+    flex-direction: row !important;
+}
+
+/* ===================================================
+   MENU MOBILE (clique para acessar a o menu lateral)
+=================================================== */
+.menu-toggle {
+    display: none;
+    width: 45px !important;
+    height: 45px !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 32px !important;
+    color: #0739ce !important;
+    cursor: pointer;
+    margin: 0 15px 0 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0;
+}
+
+/* ===================================================
    RESPONSIVIDADE
 =================================================== */
 @media (max-width: 900px) {
+    /* Limita o botão ao tamanho do card e ajusta o texto se necessário */
+    .class-card .action-button {
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 10px 5px;
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+/* Notebooks e Tablets deitados (Dispara antes de esmagar os cards) */
+@media (max-width: 1100px) {
     .content-area {
         grid-template-columns: repeat(3, 1fr);
-        gap: 35px;
-        padding: 30px 7%;
+        gap: 25px;
+        padding: 30px 5%;
+    }
+}
+
+/* Tablets em pé (Transição segura antes do mobile) */
+@media (max-width: 850px) {
+    .content-area {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
-    .sidebar {
-        width: 70px;
+    /* Exibe o botão e remove o recuo da área principal */
+    .menu-toggle {
+        display: block; 
     }
-
+    
     .main {
-        padding-left: 70px;
+        padding-left: 0;
     }
 
+    /* Transforma a barra lateral em um painel flutuante escondido à esquerda */
+    .sidebar {
+        width: 220px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Classe ativada pelo JavaScript para deslizar o menu para dentro da tela */
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* Restaura o visual original do menu (já que agora ele tem 220px novamente) */
+    .sidebar-header {
+        padding-left: 27px;
+        justify-content: flex-start;
+    }
+    .sidebar-header .logo {
+        display: block;
+    }
     .sidebar .menu-text {
-        display: none;
+        display: inline-block;
+    }
+    .menu-item {
+        width: 195px;
+        justify-content: flex-start;
+        margin-left: 8px;
+        padding: 8px;
+        border-radius: 35px;
+    }
+    .icon {
+        width: 55px;
+    }
+
+    .top {
+        padding-left: 15px;
     }
 
     .content-area {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 25px;
-        padding: 25px;
+        padding: 15px;
     }
+    /* Botões dentro da área de conteúdo */
+    .content-area button {
+        height: auto !important;
+        min-height: 45px !important;
+        padding: 10px 15px !important;
+        line-height: normal !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .turma-tab {
+        flex: 1 1 22% !important; 
+        padding: 8px 2px !important;
+        font-size: 13px !important; 
+        color: #111111 !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .turma-tab[style*="var(--primary)"] {
+    color: #ffffff !important;
+}
 
     .profile-container {
-        padding: 10px;
+        padding: 0;
     }
-
     .profile-body {
         padding: 15px;
     }
-
     .profile-header {
         padding: 20px;
     }
-
     .profile-header h2 {
         font-size: 20px;
     }
-
     .stats-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        gap: 5px;
     }
-
     .stat-number {
-        font-size: 24px;
+        font-size: 20px;
     }
-
+    .stat-item {
+        padding: 10px;
+    }
     .profile-actions {
         flex-direction: column;
     }
-
-    .profile-actions .action-button {
-        width: 100%;
+    .profile-actions .action-button, 
+    .edit-btn {
+        width: 100% !important;
     }
+}
+.content-area div[style*="display:flex;gap:8px;flex-wrap:wrap"] {
+    flex-direction: row !important;
 }
