@@ -3,7 +3,7 @@
 
 Bem-vindo ao repositório do **ALPHAFIZIC**. Esta aplicação é construída em **Python + Flask** e gerencia fluxos de cadastro, login e painéis específicos para alunos e professores.
 
-**Aviso de Contexto:** Este projeto é o resultado da **mesclagem dos repositórios PPA2025 + PPA**. Atualmente, ele serve como base para a implementação do sistema completo, com autenticação provisória estruturada em memória.
+**Aviso de Contexto:** Este projeto é o resultado da **PPA2025**. Atualmente, ele serve como base para a implementação do sistema completo, com autenticação provisória estruturada em memória.
 
 ---
 

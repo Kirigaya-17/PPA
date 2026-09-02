@@ -1,8 +1,13 @@
+
 from functools import wraps
 
 from app import app, db, limiter
 from flask import (render_template, request, redirect, url_for, flash,
                     session, jsonify, send_from_directory, abort)
+
+from app import app
+from flask import render_template, request, redirect, url_for, flash, session, jsonify, send_from_directory
+from dotenv import load_dotenv
 import os
 import re
 
@@ -328,9 +333,25 @@ def obter_dados():
 @app.route('/api/dados', methods=['POST'])
 @login_required
 def salvar_dados():
+
     # Ver nota acima em obter_dados(): persistência real ainda não
     # modelada para não inventar um esquema não presente no banco existente.
     return jsonify({'status': 'ignorado', 'mensagem': 'Persistência ainda não integrada ao banco relacional.'}), 501
+
+    """Recebe as turmas e conteúdos do JavaScript e salva no Python"""
+    if 'usuario_logado' not in session:
+        return jsonify({'erro': 'Não autorizado'}), 401
+        
+    email = session['usuario_logado']
+    
+    # FIX: Evita quebra se o usuário não existir mais na memória
+    if email not in usuarios:
+        return jsonify({'erro': 'Usuário não encontrado, faça login novamente.'}), 404
+        
+    dados_recebidos = request.get_json()
+    usuarios[email]['dados_app'] = dados_recebidos
+    
+    return jsonify({'status': 'sucesso', 'mensagem': 'Dados salvos!'})
 
 
 # ==========================================
@@ -341,3 +362,4 @@ def salvar_dados():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static', 'img'),
                                 'loboauu.png', mimetype='image/png')
+                               

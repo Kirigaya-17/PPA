@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta name="csrf-token" content="{{ csrf_token() }}">
+=======
+>>>>>>> 9ba7763267ab8a237ea33cb575e11c2c3217c9e9
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main">
         <header class="top">
@@ -59,6 +62,7 @@
 
 
     <script>
+
         // Usar |tojson garante que os valores sejam corretamente serializados
         // como literais JS seguros (aspas, barras, <, > etc. são escapados
         // pelo próprio Jinja para o contexto JSON/JS), eliminando o vetor de
@@ -66,7 +70,7 @@
         // dentro de aspas duplas permitia quebrar o literal JS).
         window.nomeDoUsuario = {{ (usuario.nome or 'Professor(a)') | tojson }};
         window.emailDoUsuario = {{ (usuario.email or '') | tojson }};
-        window.contatoDoUsuario = {{ '' | tojson }}; {#- 'contato' não existe no banco real; ver relatório -#}
+        window.contatoDoUsuario = {{ '' | tojson }}; {#- 'contato' não existe no banco real; ver relatório -#};
         window.bioDoUsuario = {{ (bio or 'Bem-vindo(a) ao meu perfil!') | tojson }};
     </script>
 
