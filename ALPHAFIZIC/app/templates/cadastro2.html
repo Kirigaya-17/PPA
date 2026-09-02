@@ -19,7 +19,9 @@
           {% endif %}
         {% endwith %}
 
-        <form method="POST" action="{{ url_for('cadastro2') }}">
+        <form method="POST" action="{{ url_for('cadastro2', tipo=request.args.get('tipo')) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="tipo" value="{{ request.args.get('tipo', '') }}">
             <input type="text" name="nome" placeholder="NOME COMPLETO" required>
             <input type="email" name="email" placeholder="E-MAIL" required>
             <input type="text" name="cpf" placeholder="CPF" required>

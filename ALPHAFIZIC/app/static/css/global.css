@@ -65,6 +65,7 @@ input::placeholder {
 
 /* Botões padrões */
 button,
+.auth-page button,
 .btn-primary {
     width: 350px;
     height: 52px;
@@ -108,4 +109,19 @@ button:active,
 .alerta-erro, .alerta-danger, .alerta-error {
     background: #f8d7da;
     color: #721c24;
+}
+/* Responsividade para telas pequenas */
+@media (max-width: 400px) {
+    input[type="text"], input[type="email"], input[type="password"],
+    input[type="tel"], input[type="number"],
+    input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+    button, .btn-primary, .alerta, .forgot-password, .remember {
+        width: 90% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .opcoes {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

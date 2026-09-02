@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main">
+        <header class="top">
+            <!-- BOTÃO HAMBÚRGUER ADICIONADO AQUI -->
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <h1 id="pageTitle">ALPHAFIZIC</h1>
+        </header>
+        <section id="contentArea" class="content-area">
+        </section>
+    </main>
     <title>ALPHAFIZIC - Professor</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
     <link rel="stylesheet" href="/static/css/global.css">
     <link rel="stylesheet" href="/static/css/professorMenu.css">
+    <!-- Manifest e cor do tema -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#0739ce">
 </head>
 <body>
     <!-- BARRA LATERAL -->
@@ -16,19 +31,19 @@
         <nav class="menu">
             <button class="menu-item active" data-section="conteudo">
                 <span class="icon">📚</span>
-                <span class="menu-text">conteúdo</span>
+                <span class="menu-text">Conteúdo</span>
             </button>
             <button class="menu-item" data-section="turmas">
                 <span class="icon">🏫</span>
-                <span class="menu-text">turmas</span>
+                <span class="menu-text">Turmas</span>
             </button>
             <button class="menu-item" data-section="criar">
                 <span class="icon">➕</span>
-                <span class="menu-text">criar</span>
+                <span class="menu-text">Criar</span>
             </button>
             <button class="menu-item" data-section="perfil">
                 <span class="icon">👤</span>
-                <span class="menu-text">perfil</span>
+                <span class="menu-text">Perfil</span>
             </button>
         </nav>
     </aside>
@@ -44,10 +59,15 @@
 
 
     <script>
-        const nomeDoUsuario = "{{ session.get('nome_usuario', 'Professor(a)') }}";
-        const emailDoUsuario = "{{ session.get('usuario_logado', '') }}";
-        const contatoDoUsuario = "{{ session.get('contato_usuario', '') }}";
-        const bioDoUsuario = "{{ session.get('bio_usuario', 'Bem-vindo(a) ao meu perfil!') }}";
+        // Usar |tojson garante que os valores sejam corretamente serializados
+        // como literais JS seguros (aspas, barras, <, > etc. são escapados
+        // pelo próprio Jinja para o contexto JSON/JS), eliminando o vetor de
+        // XSS armazenado que existia antes (interpolação direta de string
+        // dentro de aspas duplas permitia quebrar o literal JS).
+        window.nomeDoUsuario = {{ (usuario.nome or 'Professor(a)') | tojson }};
+        window.emailDoUsuario = {{ (usuario.email or '') | tojson }};
+        window.contatoDoUsuario = {{ '' | tojson }}; {#- 'contato' não existe no banco real; ver relatório -#}
+        window.bioDoUsuario = {{ (bio or 'Bem-vindo(a) ao meu perfil!') | tojson }};
     </script>
 
     <script type="module" src="/static/js/main.js"></script>

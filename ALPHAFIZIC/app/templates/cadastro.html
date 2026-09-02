@@ -11,10 +11,10 @@
     <div class="container">
         <h1>COMO DESEJA SE CADASTRAR?</h1>
         <div class="opcoes">
-            <a href="{{ url_for('cadastro2') }}">
+            <a href="{{ url_for('cadastro2', tipo='aluno') }}">
                 <button>ALUNO</button>
             </a>
-            <a href="{{ url_for('cadastro2') }}">
+            <a href="{{ url_for('cadastro2', tipo='professor') }}">
                 <button>PROFESSOR</button>
             </a>
         </div>

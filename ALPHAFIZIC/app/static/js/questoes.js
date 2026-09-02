@@ -33,13 +33,17 @@ export function mostrarCriar() {
     ativarMenu("criar");
     pageTitle.textContent = "CRIAR";
     contentArea.innerHTML = `
-        <div class="text-card">
-            <h2>📖 Novo Conteúdo</h2>
-            <button class="action-button" onclick="criarConteudo()">CRIAR CONTEÚDO</button>
-        </div>
-        <div class="text-card">
-            <h2>🏫 Nova Turma</h2>
-            <button class="action-button" onclick="criarTurma()">CRIAR TURMA</button>
+        <div style="grid-column: 1 / -1; display: flex; gap: 20px; flex-wrap: wrap;">
+            <div class="text-card" style="flex: 1; min-width: 250px;">
+                <h2 style="margin-bottom: 10px;">📖 Novo Conteúdo</h2>
+                <p style="margin-bottom: 20px;">Criar uma nova aula com questões.</p>
+                <button class="action-button" onclick="criarConteudo()" style="width: 100%;">CRIAR CONTEÚDO</button>
+            </div>
+            <div class="text-card" style="flex: 1; min-width: 250px;">
+                <h2 style="margin-bottom: 10px;">🏫 Nova Turma</h2>
+                <p style="margin-bottom: 20px;">Criar e gerenciar uma nova turma.</p>
+                <button class="action-button" onclick="criarTurma()" style="width: 100%;">CRIAR TURMA</button>
+            </div>
         </div>
     `;
 }

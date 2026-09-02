@@ -5,6 +5,8 @@ colorama==0.4.6
 Flask==3.1.3
 Flask-Migrate==4.1.0
 Flask-SQLAlchemy==3.1.1
+Flask-WTF==1.2.2
+Flask-Limiter==3.9.2
 greenlet==3.5.5
 itsdangerous==2.2.0
 Jinja2==3.1.6
@@ -16,4 +18,9 @@ Werkzeug==3.1.8
 PyMySQL==1.2.0
 python-dotenv==1.2.3
 resend==2.40.2
-python-dotenv==1.2.3
+WTForms==3.2.1
+email-validator==2.2.0
+
+# --- Testes / auditoria (dev) ---
+pytest==9.0.3
+pip-audit==2.7.3

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ALPHAFIZIC - Erro {{ codigo }}</title>
+    <link rel="stylesheet" href="/static/css/global.css">
+</head>
+<body class="auth-page">
+    <div class="container">
+        <h1>ALPHAFIZIC</h1>
+        <p>Erro {{ codigo }}</p>
+        <p>{{ mensagem }}</p>
+        <div style="margin-top:20px;">
+            <a href="{{ url_for('index') }}" style="color:#6d6862; font-size:14px; text-decoration:none;">Voltar para a página inicial</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -65,7 +65,7 @@ export function abrirTurma(turmaId) {
                     </div>
                 </div>
             </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px 0;">
+            <div id="abasNavegacaoTurma" style="display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px 0;">
                 <button class="turma-tab action-button" data-aba="perfil" onclick="ativarAbaTurma(${turma.id},'perfil')">👤 Perfil</button>
                 <button class="turma-tab action-button" data-aba="alunos" onclick="ativarAbaTurma(${turma.id},'alunos')">🧑‍🎓 Alunos</button>
                 <button class="turma-tab action-button" data-aba="notas" onclick="ativarAbaTurma(${turma.id},'notas')">📊 Notas</button>
@@ -250,7 +250,7 @@ export function renderTurmaConteudo(turma) {
         const liberado = turma.conteudosLiberados.includes(c.id);
         return `
             <div class="text-card" style="margin-bottom:16px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="linha-liberar-conteudo" style="display:flex;justify-content:space-between;align-items:center;">
                     <h3 style="margin:0;">${c.titulo}</h3>
                     <button class="action-button ${liberado ? 'btn-danger' : 'btn-success'}" onclick="alternarLiberacaoConteudo(${turma.id},${c.id})">
                         ${liberado ? '🔒 Bloquear' : '🔓 Liberar'}

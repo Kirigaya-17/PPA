@@ -1,127 +1,234 @@
-from app import app
-from flask import render_template, request, redirect, url_for, flash, session, jsonify
-from dotenv import load_dotenv
+from functools import wraps
+
+from app import app, db, limiter
+from flask import (render_template, request, redirect, url_for, flash,
+                    session, jsonify, send_from_directory, abort)
 import os
 import re
-import resend
 
-load_dotenv()  # Carrega variáveis de ambiente do arquivo .env
+from app.models import Usuario, Professor, Aluno, TIPOS_USUARIO
 
-resend.api_key = os.getenv("Resend")  # Obtém a chave da variável de ambiente
+# ---------------------------------------------------------------------------
+# E-mail (Resend) - chave lida via config, nunca hardcoded no código-fonte.
+# A função é isolada para que uma falha no provedor de e-mail nunca vaze
+# detalhes internos (stack trace) para o usuário final.
+# ---------------------------------------------------------------------------
+def enviar_email_recuperacao(destinatario: str) -> None:
+    api_key = app.config.get('RESEND_API_KEY')
+    if not api_key:
+        app.logger.warning('RESEND_API_KEY não configurada; e-mail de recuperação não enviado.')
+        return
+    try:
+        import resend
+        resend.api_key = api_key
+        resend.Emails.send({
+            "from": "no-reply@alphafizic.example",
+            "to": destinatario,
+            "subject": "Recuperação de senha - ALPHAFIZIC",
+            "html": "<p>Se você solicitou a recuperação de senha, siga as instruções enviadas pela equipe.</p>",
+        })
+    except Exception:
+        # Nunca deixa uma falha no provedor de e-mail derrubar a rota com
+        # stack trace exposto; loga internamente e segue o fluxo normal.
+        app.logger.exception('Falha ao enviar e-mail de recuperação')
 
-# Simulação de banco de dados em memória
-usuarios = {}
 
-def enviarEmail():
-    r = resend.Emails.send({
-  "from": "wesleyvitor.1928@gmail.com",
-  "to": "wesleyvitor.1928@gmail.com",
-  "subject": "Recuperação de senha",
-  "html": "<p>Congrats on sending your <strong>first email</strong>!</p>"
-})
+# ---------------------------------------------------------------------------
+# Validações de entrada (servidor nunca confia em validação só de frontend)
+# ---------------------------------------------------------------------------
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
 
 
-# Validação de email
 def validar_email(email):
-    regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-    return re.match(regex, email)
+    return bool(email) and bool(EMAIL_REGEX.match(email))
 
-# Validação de CPF (apenas dígitos e tamanho)
+
 def validar_cpf(cpf):
+    if not cpf:
+        return False
     cpf = cpf.replace('.', '').replace('-', '')
     return len(cpf) == 11 and cpf.isdigit()
+
+
+def validar_senha_forte(senha):
+    # Regra mínima de robustez; ajustável conforme política da equipe.
+    return bool(senha) and len(senha) >= 8
+
+
+# ---------------------------------------------------------------------------
+# Autenticação / Autorização
+#
+# Regra de segurança: nunca tratar uma URL "escondida" como controle de
+# acesso. Toda rota protegida verifica, no servidor, se o usuário está
+# autenticado (401) e se possui o papel necessário (403) -- mesmo que a
+# pessoa descubra a URL manualmente.
+# ---------------------------------------------------------------------------
+def login_required(view):
+    @wraps(view)
+    def wrapped(*args, **kwargs):
+        if 'usuario_id' not in session:
+            abort(401)
+        return view(*args, **kwargs)
+    return wrapped
+
+
+def roles_required(*papeis):
+    def decorator(view):
+        @wraps(view)
+        def wrapped(*args, **kwargs):
+            if 'usuario_id' not in session:
+                abort(401)
+            if session.get('tipo_usuario') not in papeis:
+                abort(403)
+            return view(*args, **kwargs)
+        return wrapped
+    return decorator
+
+
+def usuario_logado():
+    """Carrega o usuário autenticado a partir do banco (nunca confia em
+    dados de sessão para além do id -- nome/tipo/etc. são sempre lidos
+    de novo do banco quando precisam ser autoritativos)."""
+    uid = session.get('usuario_id')
+    if not uid:
+        return None
+    return db.session.get(Usuario, uid)
+
+
+def iniciar_sessao(usuario: Usuario):
+    """Cria uma sessão nova para o usuário autenticado.
+
+    session.clear() é chamado ANTES de popular os novos dados para reduzir
+    o risco de reaproveitamento de estado de uma sessão anterior (mitigação
+    de session fixation possível com o backend de sessão padrão do Flask,
+    que é um cookie assinado no cliente). Para proteção mais forte contra
+    fixation, recomenda-se migrar para um backend de sessão server-side
+    (ex.: Flask-Session com Redis), documentado no relatório final.
+    """
+    session.clear()
+    session.permanent = True
+    session['usuario_id'] = usuario.id_usuario
+    session['tipo_usuario'] = usuario.tipo_usuario
+    session['nome_usuario'] = usuario.nome
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
 
+
 @app.route('/login', methods=['GET', 'POST'])
+@limiter.limit("10 per minute")
 def login():
-    if 'usuario_logado' in session:
+    if 'usuario_id' in session:
         return redirect(url_for('professorMenu'))
-        
+
     if request.method == 'POST':
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        
-        if email in usuarios and usuarios[email]['senha'] == senha:
-            session['usuario_logado'] = email
-            session['nome_usuario'] = usuarios[email]['nome']
-            session['contato_usuario'] = usuarios[email].get('contato', '')
-            
-            # ---> 1. ADICIONADO AQUI: Salva a bio na sessão no login <---
-            session['bio_usuario'] = usuarios[email].get('bio', 'Bem-vindo(a) ao meu perfil!')
-            
-            flash('Login realizado com sucesso!', 'sucesso')
-            return redirect(url_for('professorMenu'))
-        else:
+        email = (request.form.get('email') or '').strip().lower()
+        senha = request.form.get('senha') or ''
+
+        usuario = Usuario.query.filter_by(email=email).first()
+
+        # Mensagem de erro genérica e idêntica para "não existe" e "senha
+        # errada" -- evita user enumeration por diferença de mensagem/tempo.
+        if usuario is None or not usuario.check_senha(senha):
             flash('E-mail ou senha incorretos.', 'erro')
-    
+            return render_template('login.html')
+
+        if usuario.status == 0:
+            flash('Esta conta está desativada. Contate o suporte.', 'erro')
+            return render_template('login.html')
+
+        iniciar_sessao(usuario)
+        flash('Login realizado com sucesso!', 'sucesso')
+        return redirect(url_for('professorMenu'))
+
     return render_template('login.html')
+
 
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
 
+
 @app.route('/cadastro2', methods=['GET', 'POST'])
+@limiter.limit("10 per minute")
 def cadastro2():
     if request.method == 'POST':
-        nome = request.form.get('nome')
-        email = request.form.get('email')
+        nome = (request.form.get('nome') or '').strip()
+        email = (request.form.get('email') or '').strip().lower()
         cpf = request.form.get('cpf')
-        contato = request.form.get('contato')
         senha = request.form.get('senha')
-        
-        # Validações
+
+        # Allowlist explícita: 'tipo' só pode ser um dos valores permitidos.
+        # Isso é o que impede, por exemplo, um usuário mandar
+        # tipo_usuario=admin e virar administrador (Mass Assignment).
+        tipo = request.args.get('tipo') or request.form.get('tipo')
+        if tipo not in ('aluno', 'professor'):
+            flash('Selecione se deseja se cadastrar como aluno ou professor.', 'erro')
+            return render_template('cadastro2.html')
+
         if not nome or not email or not cpf or not senha:
             flash('Todos os campos obrigatórios devem ser preenchidos.', 'erro')
             return render_template('cadastro2.html')
-        
+
         if not validar_email(email):
             flash('E-mail inválido.', 'erro')
             return render_template('cadastro2.html')
-        
+
         if not validar_cpf(cpf):
             flash('CPF inválido. Verifique o formato.', 'erro')
             return render_template('cadastro2.html')
-        
-        if email in usuarios:
+
+        if not validar_senha_forte(senha):
+            flash('A senha deve ter pelo menos 8 caracteres.', 'erro')
+            return render_template('cadastro2.html')
+
+        if Usuario.query.filter_by(email=email).first() is not None:
             flash('E-mail já cadastrado.', 'erro')
+            return render_template('cadastro2.html')
+
+        novo_usuario = Usuario(nome=nome, email=email, tipo_usuario=tipo)
+        novo_usuario.set_senha(senha)  # nunca armazenar senha em texto puro
+        db.session.add(novo_usuario)
+        db.session.flush()  # obtém id_usuario antes do commit final
+
+        if tipo == 'professor':
+            db.session.add(Professor(usuario_id=novo_usuario.id_usuario))
         else:
-            usuarios[email] = {
-                'nome': nome, 
-                'cpf': cpf, 
-                'contato': contato, 
-                'senha': senha,
-                'bio': 'Bem-vindo(a) ao meu perfil!',
-                'dados_app': {'turmas': [], 'conteudos': []} # <-- ADICIONADO AQUI: Guarda o estado do JS
-            }
-            
-            session['nome_usuario'] = nome
-            
-            flash('Cadastro realizado com sucesso!', 'sucesso')
-            return redirect(url_for('login'))
-    
+            db.session.add(Aluno(usuario_id=novo_usuario.id_usuario))
+
+        db.session.commit()
+
+        flash('Cadastro realizado com sucesso!', 'sucesso')
+        return redirect(url_for('login'))
+
     return render_template('cadastro2.html')
 
+
 @app.route('/esqueci-senha', methods=['GET', 'POST'])
+@limiter.limit("5 per minute")
 def esqueci_senha():
     if request.method == 'POST':
-        email = request.form.get('email')
-        
+        email = (request.form.get('email') or '').strip().lower()
+
         if not validar_email(email):
             flash('E-mail inválido.', 'erro')
             return render_template('esqueciSenha.html')
-        
-        if email in usuarios:
-            flash('Um link de recuperação foi enviado para o seu e-mail.', 'sucesso')
-            enviarEmail()  # Chama a função para enviar o e-mail
 
-        else:
-            flash('E-mail não encontrado.', 'erro')
-    
+        usuario = Usuario.query.filter_by(email=email).first()
+        if usuario is not None:
+            enviar_email_recuperacao(email)
+
+        # Mensagem SEMPRE igual, exista ou não o e-mail, para não permitir
+        # que um atacante descubra quais e-mails estão cadastrados
+        # (user enumeration). O fluxo de token real de reset (JWT/expiração)
+        # ainda não está implementado -- ver recomendações no relatório.
+        flash('Se este e-mail estiver cadastrado, um link de recuperação foi enviado.', 'sucesso')
+
     return render_template('esqueciSenha.html')
+
 
 @app.route('/logout')
 def logout():
@@ -129,99 +236,108 @@ def logout():
     flash('Você saiu da sua conta.', 'sucesso')
     return redirect(url_for('login'))
 
+
 @app.route('/professorMenu')
+@login_required
 def professorMenu():
-    if 'usuario_logado' not in session:
-        flash('Por favor, faça login para acessar esta página.', 'erro')
-        return redirect(url_for('login'))
-        
-    usuario_email = session['usuario_logado']
-    usuario_data = usuarios.get(usuario_email, {})
-    
-    return render_template('professorMenu.html', usuario=usuario_data)
+    usuario = usuario_logado()
+    if usuario is None:
+        # Sessão aponta para um usuário que não existe mais no banco.
+        session.clear()
+        abort(401)
+
+    bio = ''
+    if usuario.tipo_usuario == 'professor' and usuario.professor:
+        bio = usuario.professor.bio or ''
+
+    return render_template('professorMenu.html', usuario=usuario, bio=bio)
+
 
 @app.route('/atualizar-perfil-inline', methods=['POST'])
+@login_required
 def atualizar_perfil_inline():
-    if 'usuario_logado' not in session:
-        return redirect(url_for('login'))
-        
-    email_atual = session['usuario_logado']
-    
-    if email_atual not in usuarios:
+    usuario = usuario_logado()
+    if usuario is None:
         session.clear()
-        flash('Sessão expirada ou servidor reiniciado. Por favor, faça login novamente.', 'erro')
-        return redirect(url_for('login'))
-    
+        abort(401)
+
+    # Allowlist explícita de campos editáveis pelo próprio usuário.
+    # Nenhum campo sensível (id_usuario, email, tipo_usuario, status) pode
+    # ser alterado por aqui.
     novo_nome = request.form.get('nome')
-    novo_contato = request.form.get('contato')
     nova_senha = request.form.get('senha')
-    
-    # ---> 3. ADICIONADO AQUI: Pega a nova bio enviada pelo formulário <---
     nova_bio = request.form.get('bio')
-    
+
     if novo_nome:
-        usuarios[email_atual]['nome'] = novo_nome
+        novo_nome = novo_nome.strip()[:150]
+        usuario.nome = novo_nome
         session['nome_usuario'] = novo_nome
-        
-    if novo_contato:
-        usuarios[email_atual]['contato'] = novo_contato
-        session['contato_usuario'] = novo_contato
-        
-    # ---> 4. ADICIONADO AQUI: Atualiza a bio no dicionário e na sessão <---
+
     if nova_bio is not None:
-        usuarios[email_atual]['bio'] = nova_bio
-        session['bio_usuario'] = nova_bio
-        
+        # 'bio' pertence à tabela professores no banco real (não existe
+        # coluna de bio em 'usuarios'). Só é persistida para professores.
+        if usuario.tipo_usuario == 'professor':
+            if usuario.professor is None:
+                db.session.add(Professor(usuario_id=usuario.id_usuario, bio=nova_bio[:500]))
+            else:
+                usuario.professor.bio = nova_bio[:500]
+
     if nova_senha:
-        usuarios[email_atual]['senha'] = nova_senha
+        if not validar_senha_forte(nova_senha):
+            flash('A nova senha deve ter pelo menos 8 caracteres.', 'erro')
+            return redirect(url_for('professorMenu'))
+        usuario.set_senha(nova_senha)
         flash('Senha alterada com sucesso!', 'sucesso')
     else:
         flash('Perfil atualizado com sucesso!', 'sucesso')
-        
+
+    db.session.commit()
     return redirect(url_for('professorMenu'))
 
+
 @app.route('/turmas')
+@login_required
 def turmas():
-    # CORRIGIDO AQUI: Trocado 'usuario' por 'usuario_logado' para bater com o resto do sistema
-    if 'usuario_logado' not in session:
-        flash('Faça login para acessar esta página.', 'erro')
-        return redirect(url_for('login'))
-    
     return render_template('turma.html')
+
 
 # ==========================================
 # ROTAS DE API PARA O JAVASCRIPT (FETCH)
 # ==========================================
 
 @app.route('/api/dados', methods=['GET'])
+@login_required
 def obter_dados():
-    """Retorna as turmas e conteúdos do usuário logado para o JavaScript"""
-    if 'usuario_logado' not in session:
-        return jsonify({'erro': 'Não autorizado'}), 401
-        
-    email = session['usuario_logado']
-    
-    # FIX: Se o servidor reiniciou e o usuário sumiu da memória, devolve vazio
-    if email not in usuarios:
-        return jsonify({'turmas': [], 'conteudos': []})
-        
-    dados = usuarios[email].get('dados_app', {'turmas': [], 'conteudos': []})
-    return jsonify(dados)
+    """Retorna os dados do usuário logado (nunca de outro usuário: o
+    identificador vem exclusivamente da sessão do servidor, nunca de um
+    parâmetro fornecido pelo cliente -- isso é o que evita IDOR aqui)."""
+    # NOTA DE INTEGRAÇÃO: a estrutura completa de turmas/conteúdos
+    # (many-to-many via aluno_turma, conteúdos por turma etc.) já existe no
+    # banco real, mas o frontend atual (turmas.js/questoes.js) foi escrito
+    # para o protótipo em memória e espera um formato ad-hoc em JSON dentro
+    # de 'dados_app'. Persistir esse JSON diretamente no banco relacional
+    # descartaria a estrutura normalizada das tabelas reais. Como o enunciado
+    # pede para não inventar comportamento não determinável a partir dos
+    # arquivos fornecidos, mantive aqui apenas um retorno vazio seguro;
+    # a modelagem completa dessa integração (mapear turmas.js para as
+    # tabelas turmas/conteudos/atividades reais) é uma tarefa de produto
+    # que precisa de definição do time -- ver relatório, seção C.
+    return jsonify({'turmas': [], 'conteudos': []})
 
 
 @app.route('/api/dados', methods=['POST'])
+@login_required
 def salvar_dados():
-    """Recebe as turmas e conteúdos do JavaScript e salva no Python"""
-    if 'usuario_logado' not in session:
-        return jsonify({'erro': 'Não autorizado'}), 401
-        
-    email = session['usuario_logado']
-    
-    # FIX: Evita quebra se o usuário não existir mais na memória
-    if email not in usuarios:
-        return jsonify({'erro': 'Usuário não encontrado, faça login novamente.'}), 404
-        
-    dados_recebidos = request.get_json()
-    usuarios[email]['dados_app'] = dados_recebidos
-    
-    return jsonify({'status': 'sucesso', 'mensagem': 'Dados salvos!'})
+    # Ver nota acima em obter_dados(): persistência real ainda não
+    # modelada para não inventar um esquema não presente no banco existente.
+    return jsonify({'status': 'ignorado', 'mensagem': 'Persistência ainda não integrada ao banco relacional.'}), 501
+
+
+# ==========================================
+# ROTAS PARA O FAVICON - icon do site
+# ==========================================
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'img'),
+                                'loboauu.png', mimetype='image/png')

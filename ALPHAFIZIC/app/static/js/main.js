@@ -35,13 +35,19 @@ export async function salvarDadosNoBanco() {
         await fetch('/api/dados', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRFToken': obterCsrfTokenGlobal()
             },
             body: JSON.stringify(state)
         });
     } catch (erro) {
         console.error("Erro ao salvar dados:", erro);
     }
+}
+
+function obterCsrfTokenGlobal() {
+    const meta = document.querySelector('meta[name="csrf-token"]');
+    return meta ? meta.getAttribute('content') : '';
 }
 
 // =================================
@@ -138,3 +144,39 @@ window.editarSenhaInline = Perfil.editarSenhaInline;
 
 // INICIALIZAÇÃO AUTOMÁTICA
 carregarDadosDoBanco();
+
+// =================================
+// SERVICE WORKER PARA PWA
+// =================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/static/js/sw.js')
+            .then(reg => console.log("Service Worker registrado!"))
+            .catch(err => console.error("Erro no Service Worker:", err));
+    });
+}
+
+// ==========================================
+// MENU MOBILE (HAMBÚRGUER) - CORRIGIDO
+// ==========================================
+{
+    const btnMenuMobile = document.getElementById('menuToggle');
+    const barraLateralMobile = document.querySelector('.sidebar');
+    const botoesMenuLateral = document.querySelectorAll('.menu-item');
+
+    if (btnMenuMobile && barraLateralMobile) {
+        // Abre e fecha o menu ao clicar nas 3 barras
+        btnMenuMobile.addEventListener('click', () => {
+            barraLateralMobile.classList.toggle('open');
+        });
+
+        // Fecha o painel automaticamente após tocar em um botão no celular
+        botoesMenuLateral.forEach(botao => {
+            botao.addEventListener('click', () => {
+                if (window.innerWidth <= 600) {
+                    barraLateralMobile.classList.remove('open');
+                }
+            });
+        });
+    }
+}

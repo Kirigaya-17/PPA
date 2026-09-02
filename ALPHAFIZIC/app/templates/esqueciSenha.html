@@ -21,6 +21,7 @@
         {% endwith %}
 
         <form method="POST" action="{{ url_for('esqueci_senha') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="email" name="email" placeholder="E-MAIL" required>
             <button type="submit">Enviar</button>
         </form>
