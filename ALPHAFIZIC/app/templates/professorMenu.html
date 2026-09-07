@@ -3,66 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <meta name="csrf-token" content="{{ csrf_token() }}">
-=======
->>>>>>> 9ba7763267ab8a237ea33cb575e11c2c3217c9e9
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main">
-        <header class="top">
-            <!-- BOTÃO HAMBÚRGUER ADICIONADO AQUI -->
-            <button id="menuToggle" class="menu-toggle">☰</button>
-            <h1 id="pageTitle">ALPHAFIZIC</h1>
-        </header>
-        <section id="contentArea" class="content-area">
-        </section>
-    </main>
     <title>ALPHAFIZIC - Professor</title>
     <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
     <link rel="stylesheet" href="/static/css/global.css">
     <link rel="stylesheet" href="/static/css/professorMenu.css">
-    <!-- Manifest e cor do tema -->
     <link rel="manifest" href="/static/manifest.json">
     <meta name="theme-color" content="#0739ce">
 </head>
 <body>
-    <!-- BARRA LATERAL -->
+    <!-- ===================================================
+    BARRA LATERAL
+    =================================================== -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <span class="logo">ALPHAFIZIC</span>
         </div>
         <nav class="menu">
-            <button class="menu-item active" data-section="conteudo">
-                <span class="icon">📚</span>
+            <button class="menu-item {% if request.endpoint == 'conteudo' %}active{% endif %}" data-section="conteudo">
                 <span class="menu-text">Conteúdo</span>
             </button>
             <button class="menu-item" data-section="turmas">
-                <span class="icon">🏫</span>
                 <span class="menu-text">Turmas</span>
             </button>
-            <button class="menu-item" data-section="criar">
-                <span class="icon">➕</span>
-                <span class="menu-text">Criar</span>
-            </button>
             <button class="menu-item" data-section="perfil">
-                <span class="icon">👤</span>
                 <span class="menu-text">Perfil</span>
             </button>
         </nav>
     </aside>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main">
+    <!-- ===================================================
+    CONTEÚDO PRINCIPAL
+    =================================================== -->
+    <main class="main" id="mainContent">
         <header class="top">
-            <h1 id="pageTitle">ALPHAFIZIC</h1>
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <h1 id="pageTitle">CONTEÚDOS</h1>
+            <button id="btn-dark-mode" class="theme-toggle">🌙 Modo Escuro</button>
         </header>
         <section id="contentArea" class="content-area">
+            <!-- O conteúdo será renderizado pelo JavaScript -->
         </section>
     </main>
 
-
+    <!-- ===================================================
+    DADOS DO USUÁRIO (vindos do servidor)
+    =================================================== -->
     <script>
-
         // Usar |tojson garante que os valores sejam corretamente serializados
         // como literais JS seguros (aspas, barras, <, > etc. são escapados
         // pelo próprio Jinja para o contexto JSON/JS), eliminando o vetor de
@@ -70,10 +57,13 @@
         // dentro de aspas duplas permitia quebrar o literal JS).
         window.nomeDoUsuario = {{ (usuario.nome or 'Professor(a)') | tojson }};
         window.emailDoUsuario = {{ (usuario.email or '') | tojson }};
-        window.contatoDoUsuario = {{ '' | tojson }}; {#- 'contato' não existe no banco real; ver relatório -#};
+        window.contatoDoUsuario = {{ '' | tojson }};
         window.bioDoUsuario = {{ (bio or 'Bem-vindo(a) ao meu perfil!') | tojson }};
     </script>
 
+    <!-- ===================================================
+    JAVASCRIPT PRINCIPAL (módulo)
+    =================================================== -->
     <script type="module" src="/static/js/main.js"></script>
 </body>
 </html>

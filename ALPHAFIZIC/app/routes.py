@@ -1,18 +1,16 @@
 
 from functools import wraps
 
-from app import app, db, limiter
+from app import _wants_json, app, db, limiter
 from flask import (render_template, request, redirect, url_for, flash,
                     session, jsonify, send_from_directory, abort)
-
 from app import app
 from flask import render_template, request, redirect, url_for, flash, session, jsonify, send_from_directory
 from dotenv import load_dotenv
 import os
 import re
 
-from app.models import Usuario, Professor, Aluno, TIPOS_USUARIO
-
+from app.models import Usuario, Professor, Aluno, TIPOS_USUARIO, Turma, Conteudo
 # ---------------------------------------------------------------------------
 # E-mail (Resend) - chave lida via config, nunca hardcoded no código-fonte.
 # A função é isolada para que uma falha no provedor de e-mail nunca vaze
@@ -313,45 +311,108 @@ def turmas():
 @app.route('/api/dados', methods=['GET'])
 @login_required
 def obter_dados():
-    """Retorna os dados do usuário logado (nunca de outro usuário: o
-    identificador vem exclusivamente da sessão do servidor, nunca de um
-    parâmetro fornecido pelo cliente -- isso é o que evita IDOR aqui)."""
-    # NOTA DE INTEGRAÇÃO: a estrutura completa de turmas/conteúdos
-    # (many-to-many via aluno_turma, conteúdos por turma etc.) já existe no
-    # banco real, mas o frontend atual (turmas.js/questoes.js) foi escrito
-    # para o protótipo em memória e espera um formato ad-hoc em JSON dentro
-    # de 'dados_app'. Persistir esse JSON diretamente no banco relacional
-    # descartaria a estrutura normalizada das tabelas reais. Como o enunciado
-    # pede para não inventar comportamento não determinável a partir dos
-    # arquivos fornecidos, mantive aqui apenas um retorno vazio seguro;
-    # a modelagem completa dessa integração (mapear turmas.js para as
-    # tabelas turmas/conteudos/atividades reais) é uma tarefa de produto
-    # que precisa de definição do time -- ver relatório, seção C.
-    return jsonify({'turmas': [], 'conteudos': []})
+    usuario = usuario_logado()
+    
+    # Se não for professor ou houver algum problema, retorna vazio por segurança
+    if not usuario or usuario.tipo_usuario != 'professor' or not usuario.professor:
+        return jsonify({'turmas': [], 'conteudos': []})
+
+    # 1. BUSCAR AS TURMAS DESTE PROFESSOR NO BANCO
+    turmas_do_banco = Turma.query.filter_by(professor_id=usuario.professor.id_professor).all()
+    lista_turmas_formatadas = []
+    
+    for t in turmas_do_banco:
+        lista_turmas_formatadas.append({
+            'id': t.id_turma,
+            'nome': t.nome_turma,
+            'alunos': [],  # Fica vazio por enquanto, até resolvermos a questão dos usuários/alunos
+            'conteudosLiberados': [],
+            'notas': {},
+            'desempenhoQuestoes': {}
+        })
+
+    # 2. BUSCAR OS CONTEÚDOS NO BANCO
+    conteudos_do_banco = Conteudo.query.all()
+    lista_conteudos_formatados = []
+    
+    for c in conteudos_do_banco:
+        lista_conteudos_formatados.append({
+            'id': c.id_conteudo,
+            'titulo': c.titulo,
+            'descricao': c.descricao,
+            'questoes': []  # Fica vazio por enquanto, até a tabela de questões ser criada no banco
+        })
+
+    # 3. ENVIAR PARA O JAVASCRIPT (FRONTEND)
+    return jsonify({
+        'turmas': lista_turmas_formatadas,
+        'conteudos': lista_conteudos_formatados
+    })
 
 
 @app.route('/api/dados', methods=['POST'])
 @login_required
 def salvar_dados():
-
-    # Ver nota acima em obter_dados(): persistência real ainda não
-    # modelada para não inventar um esquema não presente no banco existente.
-    return jsonify({'status': 'ignorado', 'mensagem': 'Persistência ainda não integrada ao banco relacional.'}), 501
-
-    """Recebe as turmas e conteúdos do JavaScript e salva no Python"""
-    if 'usuario_logado' not in session:
-        return jsonify({'erro': 'Não autorizado'}), 401
-        
-    email = session['usuario_logado']
+    usuario = usuario_logado()
     
-    # FIX: Evita quebra se o usuário não existir mais na memória
-    if email not in usuarios:
-        return jsonify({'erro': 'Usuário não encontrado, faça login novamente.'}), 404
-        
+    # Garante que só professores podem salvar dados de turmas/conteúdos
+    if not usuario or usuario.tipo_usuario != 'professor' or not usuario.professor:
+        if _wants_json():
+            return jsonify({'erro': 'Apenas professores podem salvar dados.'}), 403
+        abort(403)
+
     dados_recebidos = request.get_json()
-    usuarios[email]['dados_app'] = dados_recebidos
-    
-    return jsonify({'status': 'sucesso', 'mensagem': 'Dados salvos!'})
+
+    try:
+        # 1. SALVANDO AS TURMAS
+        for turma_front in dados_recebidos.get('turmas', []):
+            # Procura no banco se a turma já existe (usando o id que vem do front)
+            turma_db = Turma.query.filter_by(id_turma=turma_front.get('id')).first()
+            
+            if not turma_db:
+                # Se não existe, cria uma turma nova vinculada a este professor
+                turma_db = Turma(
+                    id_turma=turma_front.get('id'),
+                    nome_turma=turma_front.get('nome'),
+                    professor_id=usuario.professor.id_professor
+                )
+                db.session.add(turma_db)
+            else:
+                # Se já existe, apenas atualiza o nome
+                turma_db.nome_turma = turma_front.get('nome')
+
+            # NOTA: Não estamos salvando os alunos aqui porque o banco exige
+            # e-mail e senha para criar um aluno, mas a tela só envia o nome.
+
+        # 2. SALVANDO OS CONTEÚDOS
+        for cont_front in dados_recebidos.get('conteudos', []):
+            conteudo_db = Conteudo.query.filter_by(id_conteudo=cont_front.get('id')).first()
+            
+            if not conteudo_db:
+                # Cria um conteúdo novo
+                conteudo_db = Conteudo(
+                    id_conteudo=cont_front.get('id'),
+                    titulo=cont_front.get('titulo'),
+                    descricao=cont_front.get('descricao', ''),
+                    tipo='geral'
+                )
+                db.session.add(conteudo_db)
+            else:
+                # Atualiza o conteúdo existente
+                conteudo_db.titulo = cont_front.get('titulo')
+                conteudo_db.descricao = cont_front.get('descricao', '')
+                
+            # NOTA: Não estamos salvando as "Questões" porque a tabela de
+            # questões não existe no models.py do banco de dados.
+
+        # Confirma as alterações no banco de dados
+        db.session.commit()
+        return jsonify({'status': 'sucesso', 'mensagem': 'Turmas e Conteúdos salvos no banco!'}), 200
+
+    except Exception as e:
+        db.session.rollback() # Desfaz em caso de erro
+        app.logger.error(f"Erro ao salvar dados: {e}")
+        return jsonify({'erro': 'Falha ao salvar no banco de dados.'}), 500
 
 
 # ==========================================

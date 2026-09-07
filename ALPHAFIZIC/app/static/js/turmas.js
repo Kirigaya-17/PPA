@@ -3,14 +3,55 @@ import { state, salvarDadosNoBanco, contentArea, pageTitle, ativarMenu } from '.
 
 export function mostrarTurmas() {
     ativarMenu("turmas");
-    pageTitle.textContent = "TURMAS";
+    pageTitle.textContent = "";
     contentArea.innerHTML = "";
 
     if (state.turmas.length === 0) {
-        contentArea.innerHTML = `<div class="text-card" style="grid-column:1/-1;text-align:center;"><h2>Nenhuma turma cadastrada</h2><p>Clique em "Criar" para adicionar.</p></div>`;
+        // Cria a div como um card clicável
+        const card = document.createElement("div");
+        card.className = "text-card";
+        card.style.cssText = "grid-column:1/-1;text-align:center;cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;";
+        card.innerHTML = `
+            <h2>Nenhuma turma cadastrada</h2>
+            <p>Clique aqui para criar sua primeira turma.</p>
+            <div style="font-size:48px;margin-top:10px;"></div>
+        `;
+        
+        // Efeito hover
+        card.onmouseenter = function() {
+            this.style.transform = "scale(1.02)";
+            this.style.boxShadow = "0 8px 25px rgba(7,57,206,0.2)";
+        };
+        card.onmouseleave = function() {
+            this.style.transform = "scale(1)";
+            this.style.boxShadow = "none";
+        };
+        
+        // Ao clicar, abre o modal de criar turma
+        card.onclick = function() {
+            criarTurma();
+        };
+        
+        contentArea.appendChild(card);
         return;
     }
 
+    // Container para os cards com botão de criar no topo
+    const container = document.createElement('div');
+    container.style.cssText = 'grid-column:1/-1;';
+    
+    // Botão "Criar Nova Turma" no topo
+    const btnCriar = document.createElement('div');
+    btnCriar.style.cssText = 'display:flex;justify-content:flex-end;margin-bottom:16px;';
+    btnCriar.innerHTML = `
+        <button class="action-button" onclick="criarTurma()">Nova Turma</button>
+    `;
+    container.appendChild(btnCriar);
+    
+    // Grid para os cards
+    const gridCards = document.createElement('div');
+    gridCards.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;';
+    
     state.turmas.forEach((turma) => {
         const card = document.createElement("div");
         card.className = "class-card";
@@ -21,14 +62,17 @@ export function mostrarTurmas() {
             <button class="action-button" onclick="event.stopPropagation();abrirTurma(${turma.id})">ACESSAR TURMA</button>
         `;
         card.onclick = () => abrirTurma(turma.id);
-        contentArea.appendChild(card);
+        gridCards.appendChild(card);
     });
+    
+    container.appendChild(gridCards);
+    contentArea.appendChild(container);
 }
 
 export function criarTurma() {
     mostrarPrompt(
         [{ id: "campoNomeTurma", label: "Nome da turma", placeholder: "Ex: 3º Ano A" }],
-        "🏫 Nova Turma",
+        "Nova Turma",
         (valores) => {
             if (!valores.campoNomeTurma) { mostrarAlerta("Por favor, informe o nome da turma."); return; }
             const maxId = state.turmas.reduce((m, t) => Math.max(m, t.id || 0), 0);
@@ -55,21 +99,24 @@ export function abrirTurma(turmaId) {
 
     contentArea.innerHTML = `
         <div style="grid-column:1/-1;">
-            <button class="action-button btn-muted" style="margin-bottom:16px;" onclick="mostrarTurmas()">← Voltar</button>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+                <button class="action-button btn-muted" onclick="mostrarTurmas()">← Voltar</button>
+                <button class="action-button" onclick="criarTurma()"> Nova Turma</button>
+            </div>
             <div class="text-card" style="display:flex;flex-direction:column;gap:14px;">
                 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-                    <div><h2 style="margin:0;">🏫 ${turma.nome}</h2><p style="margin:4px 0 0 0;color:var(--primary);">${turma.alunos.length} aluno(s)</p></div>
+                    <div><h2 style="margin:0;"> ${turma.nome}</h2><p style="margin:4px 0 0 0;color:var(--primary);">${turma.alunos.length} aluno(s)</p></div>
                     <div style="display:flex;gap:8px;">
-                        <button class="action-button" onclick="editarTurma(${turma.id})">✏️ Editar</button>
-                        <button class="action-button btn-danger" onclick="excluirTurma(${turma.id})">🗑️ Excluir</button>
+                        <button class="action-button" onclick="editarTurma(${turma.id})"> Editar</button>
+                        <button class="action-button btn-danger" onclick="excluirTurma(${turma.id})"> Excluir</button>
                     </div>
                 </div>
             </div>
             <div id="abasNavegacaoTurma" style="display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px 0;">
-                <button class="turma-tab action-button" data-aba="perfil" onclick="ativarAbaTurma(${turma.id},'perfil')">👤 Perfil</button>
-                <button class="turma-tab action-button" data-aba="alunos" onclick="ativarAbaTurma(${turma.id},'alunos')">🧑‍🎓 Alunos</button>
-                <button class="turma-tab action-button" data-aba="notas" onclick="ativarAbaTurma(${turma.id},'notas')">📊 Notas</button>
-                <button class="turma-tab action-button" data-aba="conteudo" onclick="ativarAbaTurma(${turma.id},'conteudo')">🔓 Conteúdo</button>
+                <button class="turma-tab action-button" data-aba="perfil" onclick="ativarAbaTurma(${turma.id},'perfil')"> Perfil</button>
+                <button class="turma-tab action-button" data-aba="alunos" onclick="ativarAbaTurma(${turma.id},'alunos')"> Alunos</button>
+                <button class="turma-tab action-button" data-aba="notas" onclick="ativarAbaTurma(${turma.id},'notas')"> Notas</button>
+                <button class="turma-tab action-button" data-aba="conteudo" onclick="ativarAbaTurma(${turma.id},'conteudo')"> Conteúdo</button>
             </div>
             <div id="turmaSubContent"></div>
         </div>
@@ -107,7 +154,7 @@ export function renderTurmaPerfil(turma) {
 
     return `
         <div class="text-card">
-            <h3 style="margin-top:0;">👤 Perfil da Turma</h3>
+            <h3 style="margin-top:0;"> Perfil da Turma</h3>
             <div class="stats-grid">
                 <div class="stat-item"><span class="stat-number">${turma.alunos.length}</span><span class="stat-label">Alunos</span></div>
                 <div class="stat-item"><span class="stat-number">${turma.conteudosLiberados.length}</span><span class="stat-label">Conteúdos</span></div>
@@ -131,23 +178,23 @@ export function renderTurmaAlunos(turma) {
         <div class="text-card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
             <div><strong>${aluno.nome}</strong><br><small style="color:var(--primary);">Média: ${formatarMediaAluno(turma, aluno.id)}</small></div>
             <div style="display:flex;gap:8px;">
-                <button class="action-button" onclick="verNotasAluno(${turma.id},${aluno.id})">📊 Notas</button>
-                <button class="action-button btn-danger" onclick="excluirAluno(${turma.id},${aluno.id})">🗑️</button>
+                <button class="action-button" onclick="verNotasAluno(${turma.id},${aluno.id})"> Notas</button>
+                <button class="action-button btn-danger" onclick="excluirAluno(${turma.id},${aluno.id})"></button>
             </div>
         </div>
     `).join("");
 
     return `
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-            <h3 style="margin:0;">🧑‍🎓 Alunos da Turma</h3>
-            <button class="action-button" onclick="adicionarAluno(${turma.id})">➕ Adicionar Aluno</button>
+            <h3 style="margin:0;"> Alunos da Turma</h3>
+            <button class="action-button" onclick="adicionarAluno(${turma.id})"> Adicionar Aluno</button>
         </div>
         ${turma.alunos.length === 0 ? `<div class="text-card"><p>Nenhum aluno cadastrado.</p></div>` : linhas}
     `;
 }
 
 export function adicionarAluno(turmaId) {
-    mostrarPrompt([{ id: "campoNomeAluno", label: "Nome do aluno" }], "➕ Adicionar Aluno", (valores) => {
+    mostrarPrompt([{ id: "campoNomeAluno", label: "Nome do aluno" }], " Adicionar Aluno", (valores) => {
         if (!valores.campoNomeAluno) return;
         const turma = state.turmas.find(t => t.id === turmaId);
         const maxId = turma.alunos.reduce((m, a) => Math.max(m, a.id || 0), 0);
@@ -175,14 +222,14 @@ export function verNotasAluno(turmaId, alunoId) {
     document.getElementById("turmaSubContent").innerHTML = `
         <button class="action-button btn-muted" style="margin-bottom:14px;" onclick="ativarAbaTurma(${turmaId},'alunos')">← Voltar</button>
         <div class="text-card">
-            <h3>📊 Notas de ${aluno.nome}</h3>
+            <h3>Notas de ${aluno.nome}</h3>
             ${conteudosLiberados.map(c => `
                 <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee;">
                     <span>${c.titulo}</span>
                     <input type="number" min="0" max="10" step="0.1" id="nota-${c.id}" value="${turma.notas[aluno.id]?.[c.id] || ''}" style="width:80px;text-align:center;">
                 </div>
             `).join("")}
-            <button class="action-button" style="margin-top:14px;" onclick="salvarNotasAluno(${turmaId},${alunoId})">💾 Salvar Notas</button>
+            <button class="action-button" style="margin-top:14px;" onclick="salvarNotasAluno(${turmaId},${alunoId})">Salvar Notas</button>
         </div>
     `;
 }
@@ -246,19 +293,30 @@ export function salvarNotasTabela(turmaId) {
 export function renderTurmaConteudo(turma) {
     if (state.conteudos.length === 0) return `<div class="text-card"><p>Nenhum conteúdo cadastrado.</p></div>`;
 
-    return state.conteudos.map(c => {
+    const cards = state.conteudos.map(c => {
         const liberado = turma.conteudosLiberados.includes(c.id);
+        const totalQuestoes = (c.questoes || []).length;
         return `
-            <div class="text-card" style="margin-bottom:16px;">
-                <div class="linha-liberar-conteudo" style="display:flex;justify-content:space-between;align-items:center;">
-                    <h3 style="margin:0;">${c.titulo}</h3>
-                    <button class="action-button ${liberado ? 'btn-danger' : 'btn-success'}" onclick="alternarLiberacaoConteudo(${turma.id},${c.id})">
-                        ${liberado ? '🔒 Bloquear' : '🔓 Liberar'}
+            <div class="class-card" style="cursor:pointer;" onclick="verQuestoes(${c.id})">
+                <h2 style="margin:0;">${c.titulo}</h2>
+                <p>${totalQuestoes} questão(ões) cadastrada(s)</p>
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;">
+                    <span style="font-size:13px;color:${liberado ? 'var(--success, #2e7d32)' : 'var(--primary)'};">
+                        ${liberado ? '✅ Liberado' : '🔒 Bloqueado'}
+                    </span>
+                    <button class="action-button ${liberado ? 'btn-danger' : 'btn-success'}" onclick="event.stopPropagation();alternarLiberacaoConteudo(${turma.id},${c.id})">
+                        ${liberado ? 'Bloquear' : 'Liberar'}
                     </button>
                 </div>
             </div>
         `;
     }).join("");
+
+    return `
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+            ${cards}
+        </div>
+    `;
 }
 
 export function alternarLiberacaoConteudo(turmaId, conteudoId) {
@@ -273,7 +331,7 @@ export function alternarLiberacaoConteudo(turmaId, conteudoId) {
 // ---------------- Edição e Exclusão ----------------
 export function editarTurma(turmaId) {
     const turma = state.turmas.find(t => t.id === turmaId);
-    mostrarPrompt([{ id: "campoNomeTurma", label: "Nome", valor: turma.nome }], "✏️ Editar Turma", (valores) => {
+    mostrarPrompt([{ id: "campoNomeTurma", label: "Nome", valor: turma.nome }], "Editar Turma", (valores) => {
         if (!valores.campoNomeTurma) return;
         turma.nome = valores.campoNomeTurma;
         salvarDadosNoBanco();

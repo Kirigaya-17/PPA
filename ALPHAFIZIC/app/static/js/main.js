@@ -72,8 +72,6 @@ export function carregarSecao(section) {
         Questoes.mostrarConteudos();
     } else if (section === "turmas") {
         Turmas.mostrarTurmas();
-    } else if (section === "criar") {
-        Questoes.mostrarCriar();
     } else if (section === "perfil") {
         Perfil.mostrarPerfil();
     }
@@ -180,3 +178,36 @@ if ('serviceWorker' in navigator) {
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeBtn = document.getElementById('btn-dark-mode');
+    
+    // Verifica se o usuário já havia escolhido o modo escuro antes
+    const currentTheme = localStorage.getItem('theme');
+    
+    // Se o tema salvo for 'dark', adiciona a classe ao body
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkModeBtn.textContent = '☀️ Mudar Tema'; // Muda o ícone do botão
+    }
+
+    // Adiciona o evento de clique no botão
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener('click', () => {
+            // Alterna (liga/desliga) a classe 'dark-mode' no body
+            document.body.classList.toggle('dark-mode');
+            
+            // Verifica qual é o tema atual para salvar
+            let theme = 'light';
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                darkModeBtn.textContent = '☀️ Mudar Tema';
+            } else {
+                darkModeBtn.textContent = '🌙 Mudar Tema';
+            }
+            
+            // Salva a preferência no localStorage
+            localStorage.setItem('theme', theme);
+        });
+    }
+});

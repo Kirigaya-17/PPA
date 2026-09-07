@@ -20,7 +20,7 @@ function escapeHtml(valor) {
 
 export function mostrarPerfil() {
     ativarMenu("perfil");
-    pageTitle.textContent = "PERFIL";
+    pageTitle.textContent = "";
     
     // Pega as variáveis globais que estão no <script> do HTML
     const nomeExibicao = escapeHtml((typeof window.nomeDoUsuario !== 'undefined' && window.nomeDoUsuario !== 'None' && window.nomeDoUsuario.trim() !== '') ? window.nomeDoUsuario : 'Professor(a)');
@@ -47,15 +47,15 @@ export function mostrarPerfil() {
                 
                 <div class="profile-body">
                     <div class="profile-section">
-                        <h3>📝 BIOGRAFIA</h3>
+                        <h3>BIOGRAFIA</h3>
                         <div id="settingBioSection">
                             <p id="profileBio" class="editable-text">${bioExibicao}</p>
-                            <button class="edit-btn" onclick="editarBioInline()">✏️ Editar Bio</button>
+                            <button class="edit-btn" onclick="editarBioInline()">Editar Bio</button>
                         </div>
                     </div>
                     
                     <div class="profile-section">
-                        <h3>📊 ESTATÍSTICAS</h3>
+                        <h3>ESTATÍSTICAS</h3>
                         <div class="stats-grid">
                             <div class="stat-item">
                                 <span class="stat-number">${state.turmas.length}</span>
@@ -73,23 +73,23 @@ export function mostrarPerfil() {
                     </div>
                     
                     <div class="profile-section">
-                        <h3>⚙️ CONFIGURAÇÕES</h3>
+                        <h3>CONFIGURAÇÕES</h3>
                         <div class="settings-list">
                             <div id="settingNameSection">
-                                <button class="settings-btn" onclick="editarNomeInline()"><span>👤</span> Editar Nome (${nomeExibicao})</button>
+                                <button class="settings-btn" onclick="editarNomeInline()"><span></span> Editar Nome (${nomeExibicao})</button>
                             </div>
-                            <button class="settings-btn" onclick="editarEmail()"><span>📧</span> Editar Email (${emailExibicao})</button>
+                            <button class="settings-btn" onclick="editarEmail()"><span></span> Editar Email (${emailExibicao})</button>
                             <div id="settingPasswordSection">
-                                <button class="settings-btn" onclick="editarSenhaInline()"><span>🔒</span> Alterar Senha</button>
+                                <button class="settings-btn" onclick="editarSenhaInline()"><span></span> Alterar Senha</button>
                             </div>
                             <div id="settingContactSection">
-                                <button class="settings-btn" onclick="editarContatoInline()"><span>📱</span> Editar Contato (${contatoExibicao})</button>
+                                <button class="settings-btn" onclick="editarContatoInline()"><span></span> Editar Contato (${contatoExibicao})</button>
                             </div>
                         </div>
                     </div>
                     
                     <div class="profile-actions">
-                        <button class="action-button logout-btn" style="background:#e74c3c; width: 100%;" onclick="fazerLogout()">🚪 Sair da Conta</button>
+                        <button class="action-button logout-btn" style="background:#e74c3c; width: 100%;" onclick="fazerLogout()">Sair da Conta</button>
                     </div>
                 </div>
             </div>
@@ -121,10 +121,10 @@ export function editarBioInline() {
     const s = document.getElementById("settingBioSection");
     const bio = escapeHtml(typeof window.bioDoUsuario !== 'undefined' ? window.bioDoUsuario : '');
     s.innerHTML = `
-        <form action="/atualizar-perfil-inline" method="POST" style="display:flex;flex-direction:column;gap:10px;margin-top:5px;">
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px; width: 100%;">
             <input type="hidden" name="csrf_token" value="${obterCsrfToken()}">
-            <textarea name="bio" rows="3" style="padding:10px;border-radius:8px;border:1px solid #0739ce;width:100%;resize:none;font-family:Arial,sans-serif;font-size:14px;" required>${bio}</textarea>
-            <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;align-self:flex-start;">Salvar Bio</button>
+            <textarea name="bio" rows="4" style="width: 100%; height: 120px; padding: 15px; border-radius: 16px; border: 2px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-family: inherit; font-size: 15px; font-weight: 500; resize: none; outline: none;" required>${bio}</textarea>
+            <button type="submit" class="action-button" style="align-self: flex-start; padding: 10px 24px; font-size: 14px;">Salvar Bio</button>
         </form>`;
 }
 
@@ -137,10 +137,10 @@ export function editarNomeInline() {
     const nomeAtual = escapeHtml((typeof window.nomeDoUsuario !== 'undefined' && window.nomeDoUsuario !== 'None' && window.nomeDoUsuario !== 'Professor(a)') ? window.nomeDoUsuario : '');
     
     s.innerHTML = `
-        <form action="/atualizar-perfil-inline" method="POST" style="display:flex;gap:10px;align-items:center;">
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; flex-direction: row; gap: 12px; width: 100%; align-items: center; margin-top: 5px;">
             <input type="hidden" name="csrf_token" value="${obterCsrfToken()}">
-            <input type="text" name="nome" value="${nomeAtual}" placeholder="Digite o novo nome..." style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
-            <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;">Salvar</button>
+            <input type="text" name="nome" value="${nomeAtual}" placeholder="Digite o novo nome..." style="flex: 1; height: 45px; padding: 0 16px; border-radius: 14px; border: 2px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-size: 15px; font-weight: bold; outline: none;" required>
+            <button type="submit" class="action-button" style="padding: 0 20px; height: 45px; font-size: 14px; width: auto !important;">Salvar</button>
         </form>`;
 }
 
@@ -149,23 +149,22 @@ export function editarContatoInline() {
     const contatoAtual = escapeHtml((typeof window.contatoDoUsuario !== 'undefined' && window.contatoDoUsuario !== 'None') ? window.contatoDoUsuario : '');
     
     s.innerHTML = `
-        <form action="/atualizar-perfil-inline" method="POST" style="display:flex;gap:10px;align-items:center;">
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; flex-direction: row; gap: 12px; width: 100%; align-items: center; margin-top: 5px;">
             <input type="hidden" name="csrf_token" value="${obterCsrfToken()}">
-            <input type="tel" name="contato" value="${contatoAtual}" placeholder="DDD + Número" style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
-            <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;">Salvar</button>
+            <input type="tel" name="contato" value="${contatoAtual}" placeholder="DDD + Número" style="flex: 1; height: 45px; padding: 0 16px; border-radius: 14px; border: 2px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-size: 15px; font-weight: bold; outline: none;" required>
+            <button type="submit" class="action-button" style="padding: 0 20px; height: 45px; font-size: 14px; width: auto !important;">Salvar</button>
         </form>`;
 }
 
 export function editarSenhaInline() {
     const s = document.getElementById("settingPasswordSection");
     s.innerHTML = `
-        <form action="/atualizar-perfil-inline" method="POST" style="display:flex;gap:10px;align-items:center;">
+        <form action="/atualizar-perfil-inline" method="POST" style="display: flex; flex-direction: row; gap: 12px; width: 100%; align-items: center; margin-top: 5px;">
             <input type="hidden" name="csrf_token" value="${obterCsrfToken()}">
-            <input type="password" name="senha" placeholder="Nova senha" style="padding:8px;border-radius:8px;border:1px solid #0739ce;flex:1;" required>
-            <button type="submit" class="action-button" style="padding:8px 15px;font-size:13px;">Salvar</button>
+            <input type="password" name="senha" placeholder="Nova senha" style="flex: 1; height: 45px; padding: 0 16px; border-radius: 14px; border: 2px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-size: 15px; font-weight: bold; outline: none;" required>
+            <button type="submit" class="action-button" style="padding: 0 20px; height: 45px; font-size: 14px; width: auto !important;">Salvar</button>
         </form>`;
 }
-
 function obterCsrfToken() {
     const meta = document.querySelector('meta[name="csrf-token"]');
     return meta ? escapeHtml(meta.getAttribute('content')) : '';
