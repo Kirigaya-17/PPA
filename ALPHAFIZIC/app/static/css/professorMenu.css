@@ -1,5 +1,5 @@
 :root {
-    --primary: #0739ce;
+    --primary: #1CB0F6;
     --gray: #eeeeee;
 }
 
@@ -133,7 +133,7 @@
 .main {
     width: 100%;
     height: 100vh;
-    padding-left: 220px;
+    padding-left: 260px; 
     overflow-y: auto; 
     overflow-x: hidden;
 }
@@ -182,7 +182,7 @@
 
 .card:hover {
     transform: scale(1.1);
-    background: #062eac;
+    background: #1CB0F6;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 

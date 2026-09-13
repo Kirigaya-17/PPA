@@ -32,7 +32,7 @@ export async function carregarDadosDoBanco() {
 // Envia o estado atualizado para o Python
 export async function salvarDadosNoBanco() {
     try {
-        await fetch('/api/dados', {
+        const resposta = await fetch('/api/dados', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,8 +40,25 @@ export async function salvarDadosNoBanco() {
             },
             body: JSON.stringify(state)
         });
+
+        if (!resposta.ok) {
+            console.error("Falha ao salvar dados:", resposta.status);
+            return false;
+        }
+
+        const resultado = await resposta.json();
+
+        (resultado.turmas_criadas || []).forEach(({ posicao, id }) => {
+            if (state.turmas[posicao]) state.turmas[posicao].id = id;
+        });
+        (resultado.conteudos_criados || []).forEach(({ posicao, id }) => {
+            if (state.conteudos[posicao]) state.conteudos[posicao].id = id;
+        });
+
+        return true;
     } catch (erro) {
         console.error("Erro ao salvar dados:", erro);
+        return false;
     }
 }
 
@@ -54,9 +71,8 @@ function obterCsrfTokenGlobal() {
 // SELETORES DO DOM
 // =================================
 export const menuItems = document.querySelectorAll(".menu-item");
-export const contentArea = document.getElementById("contentArea");
 export const pageTitle = document.getElementById("pageTitle");
-
+export const contentArea = document.getElementById("contentArea");
 // =================================
 // NAVEGAÇÃO DO MENU PRINCIPAL
 // =================================
@@ -186,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme');
     
     // Se o tema salvo for 'dark', adiciona a classe ao body
-    if (currentTheme === 'dark') {
+    if (currentTheme === 'dark' && darkModeBtn) {
         document.body.classList.add('dark-mode');
         darkModeBtn.textContent = '☀️ Mudar Tema'; // Muda o ícone do botão
     }

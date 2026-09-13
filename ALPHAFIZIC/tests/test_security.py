@@ -37,9 +37,8 @@ def app():
     # client deve criar seu próprio request/app context do zero.
     with flask_app.app_context():
         for tbl in ['atividades_aluno', 'aluno_turma', 'mensagens', 'atividades',
-                    'conteudos', 'turmas', 'professores', 'alunos', 'usuarios']:
+            'turmas', 'professores', 'alunos', 'usuarios']:
             db.session.execute(text(f'DELETE FROM {tbl}'))
-        db.session.commit()
 
     yield flask_app
 

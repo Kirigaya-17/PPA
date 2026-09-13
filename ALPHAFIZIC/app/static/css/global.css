@@ -215,3 +215,47 @@ input::placeholder, textarea::placeholder {
         gap: 20px;
     }
 }
+
+/* ===================================================
+   AUMENTANDO O TAMANHO DAS LETRAS EM TODO O SISTEMA
+=================================================== */
+body {
+    font-size: 16px; /* Aumenta o tamanho padrão do texto */
+}
+
+h1 {
+    font-size: 26px !important;
+}
+
+h2 {
+    font-size: 22px !important;
+}
+
+h3 {
+    font-size: 18px !important;
+}
+
+p, span, label {
+    font-size: 16px;
+}
+
+/* Garante que os textos dos cards fiquem bem destacados */
+.text-card h2, .class-card h2 {
+    font-size: 22px !important;
+}
+
+.text-card p, .class-card p {
+    font-size: 16px !important;
+}
+
+/* Correção de botões secundários / neutros para as abas inativas */
+.btn-muted {
+    background: var(--container-bg) !important;
+    color: var(--text-color) !important;
+    border: 2px solid var(--border-color) !important;
+    border-bottom: 4px solid var(--border-color) !important;
+}
+
+.btn-muted:hover {
+    background: var(--border-color) !important;
+}

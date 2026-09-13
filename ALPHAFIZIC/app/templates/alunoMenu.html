@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>ALPHAFIZIC</title>
+  <meta name="theme-color" content="#0b1220">
+
+  <!--
+    Observação de segurança: as fontes do Google (Space Grotesk/Inter/
+    JetBrains Mono) usadas no design original do AlphaFizic foram
+    deliberadamente OMITIDAS aqui para não precisar afrouxar o
+    Content-Security-Policy global do PPA (que permite apenas 'self'
+    para estilos/scripts). O layout cai graciosamente para as fontes de
+    sistema. Se o time quiser as fontes originais, a forma segura de
+    fazer isso é hospedá-las localmente em /static e servi-las como
+    'self', em vez de liberar fonts.googleapis.com no CSP.
+  -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/aluno/style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/loboauu.png') }}">
+</head>
+<body>
+  <a class="skip-link" href="#app-main">Pular para o conteúdo</a>
+
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-inner">
+        <a class="brand" aria-label="ALPHAFIZIC — página inicial">
+          <span>ALPHAFIZIC</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu lateral" aria-controls="nav-principal" aria-expanded="false">
+          <span></span>
+          <span class="menu-toggle__label">MENU</span>
+        </button>
+
+        <nav class="nav" id="nav-principal" aria-label="Navegação principal">
+          <a class="nav__link" href="#aprender" data-rota="aprender">Aprender</a>
+          <a class="nav__link" href="#ranking" data-rota="ranking">Ranking</a>
+          <a class="nav__link" href="#perfil" data-rota="perfil">Perfil</a>
+          <a class="nav__link" href="{{ url_for('logout') }}">Sair</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app-main" class="app-main" aria-live="polite">
+      <!-- Preenchido dinamicamente por js/aluno/app.js -->
+    </main>
+
+    <footer class="app-footer">
+      <p>ALPHAFIZIC · Feito para aprender fazendo.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Identidade do aluno, já autenticado pelo PPA (sessão do servidor).
+    // |tojson serializa com segurança para o contexto JS (ver histórico de
+    // correção de XSS do módulo professor -- mesmo padrão aplicado aqui).
+    window.__ESTADO_INICIAL__ = {{ estado_inicial | tojson }};
+  </script>
+
+  <!-- Ordem importa: cada arquivo depende dos anteriores.
+       Note a ausência de supabase.js e demo-data.js: a identidade vem da
+       sessão do PPA (auth-shim.js) e o currículo vem do MySQL via
+       /api/fisica/* (content.js). -->
+<script src="{{ url_for('static', filename='js/aluno/ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aluno/content.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aluno/auth-shim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aluno/progress.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aluno/game.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aluno/app.js') }}"></script>
+</body>
+</html>

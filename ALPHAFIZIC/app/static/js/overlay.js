@@ -56,15 +56,45 @@ export function mostrarPrompt(campos, titulo, onEnviar) {
     box.className = "text-card";
     box.style.maxWidth = "440px";
 
-    const camposHtml = campos.map(c => `
-        <div style="margin-bottom:14px;">
-            <label style="font-weight:bold;display:block;margin-bottom:6px;">${c.label}</label>
-            ${c.tipo === "textarea" 
-                ? `<textarea id="${c.id}" rows="3" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--primary);"></textarea>`
-                : `<input type="${c.tipo || 'text'}" id="${c.id}" placeholder="${c.placeholder || ''}" value="${c.valor || ''}" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--primary);">`
-            }
-        </div>
-    `).join("");
+    const camposHtml = campos.map(c => {
+        if (c.tipo === "textarea") {
+            return `
+                <div style="margin-bottom:14px;">
+                    <label style="font-weight:bold;display:block;margin-bottom:6px;">${c.label}</label>
+                    <textarea id="${c.id}" rows="3" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--primary);">${c.valor || ''}</textarea>
+                </div>`;
+        }
+
+        if (c.tipo === "turmas") {
+            const opcoes = c.opcoes || [];
+            const chipsHtml = opcoes.length
+                ? opcoes.map(op => `
+                    <button type="button" class="turma-chip" data-turma-id="${op.id}"
+                        style="padding:6px 14px;border-radius:20px;border:2px solid var(--primary);
+                               background:transparent;color:var(--primary);cursor:pointer;font-size:14px;
+                               white-space:nowrap;">
+                        ${op.nome}
+                    </button>`).join("")
+                : `<p style="margin:0;color:var(--text-secondary,#888);font-size:14px;">
+                       Você ainda não tem nenhuma turma cadastrada. Crie uma turma primeiro.
+                   </p>`;
+
+            return `
+                <div style="margin-bottom:14px;">
+                    <label style="font-weight:bold;display:block;margin-bottom:6px;">${c.label}</label>
+                    <div id="${c.id}" class="turma-chip-selector"
+                         style="display:flex;flex-wrap:wrap;gap:8px;max-width:100%;">
+                        ${chipsHtml}
+                    </div>
+                </div>`;
+        }
+
+        return `
+            <div style="margin-bottom:14px;">
+                <label style="font-weight:bold;display:block;margin-bottom:6px;">${c.label}</label>
+                <input type="${c.tipo || 'text'}" id="${c.id}" placeholder="${c.placeholder || ''}" value="${c.valor || ''}" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--primary);">
+            </div>`;
+    }).join("");
 
     box.innerHTML = `
         <h3 style="margin:0 0 16px 0;color:var(--primary);">${titulo}</h3>
@@ -76,11 +106,46 @@ export function mostrarPrompt(campos, titulo, onEnviar) {
     `;
     overlay.appendChild(box);
 
+    // Seleção única (estilo "radio") dos chips de turma
+    campos.filter(c => c.tipo === "turmas").forEach(c => {
+        const wrapper = box.querySelector(`#${c.id}`);
+        if (!wrapper) return;
+        wrapper.querySelectorAll(".turma-chip").forEach(chip => {
+            if (c.valorSelecionado != null && String(c.valorSelecionado) === chip.dataset.turmaId) {
+                marcarChipSelecionado(chip);
+            }
+            chip.addEventListener("click", () => {
+                wrapper.querySelectorAll(".turma-chip").forEach(desmarcarChipSelecionado);
+                marcarChipSelecionado(chip);
+            });
+        });
+    });
+
     document.getElementById("btnPromptOk").onclick = () => {
         const valores = {};
-        campos.forEach(c => { valores[c.id] = document.getElementById(c.id).value.trim(); });
+        campos.forEach(c => {
+            if (c.tipo === "turmas") {
+                const wrapper = box.querySelector(`#${c.id}`);
+                const selecionado = wrapper ? wrapper.querySelector(".turma-chip.selecionada") : null;
+                valores[c.id] = selecionado ? selecionado.dataset.turmaId : null;
+            } else {
+                valores[c.id] = document.getElementById(c.id).value.trim();
+            }
+        });
         fecharOverlay();
         if (onEnviar) onEnviar(valores);
     };
     document.getElementById("btnPromptCancelar").onclick = fecharOverlay;
+}
+
+function marcarChipSelecionado(chip) {
+    chip.classList.add("selecionada");
+    chip.style.background = "var(--primary)";
+    chip.style.color = "#fff";
+}
+
+function desmarcarChipSelecionado(chip) {
+    chip.classList.remove("selecionada");
+    chip.style.background = "transparent";
+    chip.style.color = "var(--primary)";
 }

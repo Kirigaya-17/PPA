@@ -3,7 +3,6 @@ import { state, salvarDadosNoBanco, contentArea, pageTitle, ativarMenu } from '.
 
 export function mostrarTurmas() {
     ativarMenu("turmas");
-    pageTitle.textContent = "";
     contentArea.innerHTML = "";
 
     if (state.turmas.length === 0) {
@@ -73,19 +72,24 @@ export function criarTurma() {
     mostrarPrompt(
         [{ id: "campoNomeTurma", label: "Nome da turma", placeholder: "Ex: 3º Ano A" }],
         "Nova Turma",
-        (valores) => {
+        async (valores) => {
             if (!valores.campoNomeTurma) { mostrarAlerta("Por favor, informe o nome da turma."); return; }
-            const maxId = state.turmas.reduce((m, t) => Math.max(m, t.id || 0), 0);
             state.turmas.push({
-                id: maxId + 1,
+                id: null, // sera definido pelo backend
                 nome: valores.campoNomeTurma,
                 alunos: [],
                 conteudosLiberados: [],
                 notas: {},
                 desempenhoQuestoes: {}
             });
-            salvarDadosNoBanco();
-            mostrarAlerta(`Turma "${valores.campoNomeTurma}" criada!`, () => mostrarTurmas());
+
+            const salvouComSucesso = await salvarDadosNoBanco();
+            if (salvouComSucesso) {
+                mostrarAlerta(`Turma "${valores.campoNomeTurma}" criada!`, () => mostrarTurmas());
+            } else {
+                state.turmas.pop();
+                mostrarAlerta("Não foi possível criar a turma. Tente novamente.");
+            }
         }
     );
 }

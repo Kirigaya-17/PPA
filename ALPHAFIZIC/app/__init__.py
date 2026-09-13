@@ -124,3 +124,7 @@ def internal_error(e):
 
 
 from app import routes, models  # noqa: E402,F401
+from app import routes_fisica  # noqa: E402,F401
+from app.seed_fisica import seed_fisica_command  # noqa: E402
+
+app.cli.add_command(seed_fisica_command)

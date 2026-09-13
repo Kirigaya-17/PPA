@@ -1,4 +1,4 @@
-import { state, salvarDadosNoBanco, contentArea, pageTitle, ativarMenu } from './main.js';
+    import { state, salvarDadosNoBanco, contentArea, pageTitle, ativarMenu } from './main.js';
 import { mostrarAlerta, mostrarConfirmacao, mostrarPrompt } from './overlay.js';
 
 // Variável global para controlar o overlay aberto
@@ -125,20 +125,40 @@ export function criarConteudo() {
     mostrarPrompt(
         [
             { id: "campoTitulo", label: "Título do conteúdo", placeholder: "Ex: Força Elétrica" },
-            { id: "campoDescricao", label: "Descrição", tipo: "textarea", placeholder: "O que os alunos vão aprender?" }
+            { id: "campoDescricao", label: "Descrição", tipo: "textarea", placeholder: "O que os alunos vão aprender?" },
+            {
+                id: "campoTurma",
+                label: "A qual turma este conteúdo está relacionado",
+                tipo: "turmas",
+                opcoes: state.turmas.map(t => ({ id: t.id, nome: t.nome }))
+            }
         ],
         "Criar Novo Conteúdo",
-        (valores) => {
+        async (valores) => {
             if (!valores.campoTitulo) { mostrarAlerta("Informe o título do conteúdo."); return; }
-            const maxId = state.conteudos.reduce((m, c) => Math.max(m, c.id || 0), 0);
-            state.conteudos.push({ 
-                id: maxId + 1, 
-                titulo: valores.campoTitulo, 
-                descricao: valores.campoDescricao || "", 
-                questoes: [] 
+            if (state.turmas.length === 0) {
+                mostrarAlerta("Você precisa criar uma turma antes de cadastrar um conteúdo.");
+                return;
+            }
+            if (!valores.campoTurma) {
+                mostrarAlerta("Selecione a turma relacionada a este conteúdo.");
+                return;
+            }
+            state.conteudos.push({
+                id: null, //sera atribuido pelo banco de dados
+                titulo: valores.campoTitulo,
+                descricao: valores.campoDescricao || "",
+                id_turma: parseInt(valores.campoTurma, 10),
+                questoes: []
             });
-            salvarDadosNoBanco();
-            mostrarAlerta("Conteúdo criado com sucesso!", () => mostrarConteudos());
+
+            const salvouComSucesso = await salvarDadosNoBanco();
+            if (salvouComSucesso) {
+                mostrarAlerta("Conteúdo criado com sucesso!", () => mostrarConteudos());
+            } else {
+                state.conteudos.pop();
+                mostrarAlerta("Não foi possível salvar o conteúdo. Tente novamente.");
+            }
         }
     );
 }
@@ -155,18 +175,242 @@ export function verQuestoes(conteudoId) {
     const conteudoAtual = state.conteudos.find(c => c.id === conteudoId);
     if (!conteudoAtual) return;
 
+    pageTitle.textContent = conteudoAtual.titulo.toUpperCase();
+
     contentArea.innerHTML = `
-        <div style="grid-column:1/-1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%; max-width: 900px; margin: 0 auto; padding: 20px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px; width: 100%;">
-                <button class="action-button btn-muted" onclick="mostrarConteudos()">Voltar</button>
-                <button class="action-button" onclick="abrirFormQuestao(${conteudoId})">Nova Questão</button>
+        <div style="grid-column:1/-1; display: flex; flex-direction: column; align-items: flex-start; width: 100%; max-width: 1000px; margin: 0 auto; padding: 20px;">
+            
+            <!-- Botão Voltar -->
+            <div style="margin-bottom: 20px;">
+                <button class="action-button btn-muted" onclick="mostrarConteudos()" style="font-size: 15px; padding: 10px 24px; border-radius: 20px;">Voltar</button>
             </div>
-            <div id="listaQuestoes" style="width: 100%;"></div>
+
+            <!-- Sistema de Abas Inferiores / Superiores [QUESTÕES] | [MATERIAL] -->
+            <div style="display: flex; gap: 12px; margin-bottom: 25px; width: 100%;">
+                <button id="tabQuestoes" onclick="alternarAbaEditor('questoes', ${conteudoId})" style="padding: 12px 28px; border-radius: 20px; font-weight: 800; cursor: pointer; border: none; font-size: 15px; transition: all 0.2s;">Questões</button>
+                <button id="tabMaterial" onclick="alternarAbaEditor('material', ${conteudoId})" style="padding: 12px 28px; border-radius: 20px; font-weight: 800; cursor: pointer; border: none; font-size: 15px; transition: all 0.2s;">Material</button>
+            </div>
+
+            <!-- Área Central (Workspace Dinâmico) -->
+            <div id="editorWorkspace" style="width: 100%;"></div>
         </div>
     `;
-    renderizarQuestoes(conteudoAtual);
+    
+    // Inicializa abrindo a aba de Questões por padrão
+    window.alternarAbaEditor('questoes', conteudoId);
 }
 
+// Função global para alternar o estado visual e o conteúdo das abas
+window.alternarAbaEditor = function(aba, conteudoId) {
+    const conteudo = state.conteudos.find(c => c.id === conteudoId);
+    const workspace = document.getElementById("editorWorkspace");
+    const btnQ = document.getElementById("tabQuestoes");
+    const btnM = document.getElementById("tabMaterial");
+
+    if (aba === 'questoes') {
+        workspace.innerHTML = `
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+                <button class="action-button" onclick="abrirFormQuestao(${conteudoId})" style="font-size: 15px; padding: 12px 24px; border-radius: 20px;">+ Nova Questão</button>
+            </div>
+            <div id="listaQuestoes" style="width: 100%;"></div>
+        `;
+        renderizarQuestoes(conteudo);
+        
+        // Estilo Aba Ativa (Questões)
+        btnQ.style.background = "var(--primary-color)";
+        btnQ.style.color = "#ffffff";
+        btnQ.style.borderBottom = "4px solid var(--primary-hover)";
+        
+        // Estilo Aba Inativa (Material)
+        btnM.style.background = "var(--container-bg)";
+        btnM.style.color = "var(--text-color)";
+        btnM.style.border = "2px solid var(--border-color)";
+        btnM.style.borderBottom = "4px solid var(--border-color)";
+    } else {
+        const textoMaterial = conteudo.materialTexto || "";
+        
+        // Layout do Painel "Material" (Inspiração Canva)
+        workspace.innerHTML = `
+            <div class="text-card" style="background: var(--primary-color); border: none; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 8px 0px rgba(0,0,0,0.15);">
+                <h3 style="color: #ffffff; font-size: 20px; font-weight: 800;">Editor de Material da Aula</h3>
+                
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <!-- Área de Texto / Editor Esquerdo -->
+                    <textarea id="inputMaterialTexto" placeholder="Escreva seu conteúdo...." style="flex: 2; min-height: 300px; padding: 20px; border-radius: 16px; border: none; background: var(--container-bg); color: var(--text-color); font-size: 16px; font-family: inherit; resize: vertical; outline: none; font-weight: 600; line-height: 1.5;">${textoMaterial}</textarea>
+                    
+                    <!-- Bloco de Mídia / Exemplo Direito (Estilo Canva) -->
+                    <div style="flex: 1; min-height: 300px; background: #689f38; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffffff; font-weight: 800; gap: 10px; border: 3px dashed rgba(255,255,255,0.7); cursor: pointer; text-align: center; padding: 20px;" onclick="alterarImagemMaterial(${conteudoId})">
+                        <span style="font-size: 36px;">🖼️</span>
+                        <span style="font-size: 18px; letter-spacing: 1px;">IMAGEM...</span>
+                        <span style="font-size: 13px; opacity: 0.9; letter-spacing: 0.5px;">DE EXEMPLO</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <button class="action-button" onclick="salvarMaterial(${conteudoId})" style="background: var(--container-bg); color: var(--primary-color); font-size: 16px; padding: 12px 28px; border-radius: 20px; border-bottom: 4px solid #cccccc;">Salvar Material</button>
+                </div>
+            </div>
+        `;
+        
+        // Estilo Aba Ativa (Material)
+        btnM.style.background = "var(--primary-color)";
+        btnM.style.color = "#ffffff";
+        btnM.style.borderBottom = "4px solid var(--primary-hover)";
+        
+        // Estilo Aba Inativa (Questões)
+        btnQ.style.background = "var(--container-bg)";
+        btnQ.style.color = "var(--text-color)";
+        btnQ.style.border = "2px solid var(--border-color)";
+        btnQ.style.borderBottom = "4px solid var(--border-color)";
+    }
+}
+
+// Salva o texto livre digitado pelo professor no estado e banco
+window.salvarMaterial = function(conteudoId) {
+    const conteudo = state.conteudos.find(c => c.id === conteudoId);
+    if (conteudo) {
+        conteudo.materialTexto = document.getElementById("inputMaterialTexto").value;
+        salvarDadosNoBanco();
+        mostrarAlerta("Material da aula salvo com sucesso!");
+    }
+}
+
+window.alterarImagemMaterial = function(conteudoId) {
+    mostrarAlerta("Módulo de upload de imagens ilustrativas pronto para expansão.");
+}
+
+// Alterna entre o painel de Questões e o Editor de Material
+window.alternarAbaEditor = function(aba, conteudoId) {
+    const conteudo = state.conteudos.find(c => c.id === conteudoId);
+    const workspace = document.getElementById("editorWorkspace");
+    const btnQ = document.getElementById("tabQuestoes");
+    const btnM = document.getElementById("tabMaterial");
+
+    if (aba === 'questoes') {
+        workspace.innerHTML = `
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+                <button class="action-button" onclick="abrirFormQuestao(${conteudoId})" style="font-size: 16px; padding: 12px 24px;">+ Nova Questão</button>
+            </div>
+            <div id="listaQuestoes" style="width: 100%;"></div>
+        `;
+        renderizarQuestoes(conteudo);
+        
+        btnQ.style.background = "var(--primary-color)";
+        btnQ.style.color = "#ffffff";
+        btnQ.style.border = "none";
+        
+        btnM.style.background = "var(--container-bg)";
+        btnM.style.color = "var(--text-color)";
+        btnM.style.border = "2px solid var(--border-color)";
+    } else {
+        const textoMaterial = conteudo.materialTexto || "";
+        const Arquivo = conteudo.arquivoTexto || "";
+        workspace.innerHTML = `
+            <div class="text-card" style="background: var(--primary-color); border: none; border-radius: 24px; padding: 30px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 8px 0px rgba(0,0,0,0.15);">
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <textarea id="inputMaterialTexto" placeholder="Digite o seu conteúdo aqui" 
+                    style=
+                    "flex: 2;
+                     min-height: 500px;
+                     min-width: 900px;
+                     padding: 20px;
+                     border-radius: 16px;
+                     border: none;
+                     background: var(--container-bg);
+                     color: var(--text-color);
+                     font-size: 16px;
+                     font-family: inherit;
+                     resize: vertical;
+                     outline: none;
+                     font-weight: 600;">${textoMaterial}</textarea>
+                </div>
+                <h4>O campo acima aceita texto e imagens do tipo JPG, PNG e GIF de até 5MB</h4>
+                <h3>Material Adicional (PDF, DOCX, Imagens)</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                    ${Arquivo ? `<p style="color: var(--primary); font-weight: bold;">Arquivo atual: <a href="${Arquivo}" target="_blank" style="color: #3498db; text-decoration: underline;">Visualizar / Baixar Arquivo Anexado</a></p>` : `<p style="color: var(--text-secondary);">Nenhum arquivo anexado ainda.</p>`}
+                    
+                    <input type="file" id="inputArquivo" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.png" 
+                    style="
+                     padding: 15px;
+                     border-radius: 12px;
+                     background: var(--bg-color);
+                     color: var(--text-color);
+                     font-size: 16px;
+                     font-family: inherit;
+                     cursor: pointer;
+                     font-weight: 600;">
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <button class="action-button" onclick="salvarMaterial(${conteudoId})" style="background: var(--container-bg); color: var(--primary-color); font-size: 16px; padding: 12px 28px;">Salvar Alterações</button>
+                </div>
+            </div>
+        `;
+        
+        btnM.style.background = "var(--primary-color)";
+        btnM.style.color = "#ffffff";
+        btnM.style.border = "none";
+        
+        btnQ.style.background = "var(--container-bg)";
+        btnQ.style.color = "var(--text-color)";
+        btnQ.style.border = "2px solid var(--border-color)";
+    }
+}
+
+window.salvarMaterial = async function(conteudoId) {
+    const conteudo = state.conteudos.find(c => c.id === conteudoId);
+    if (!conteudo) return;
+
+    // 1. Salva o texto digitado no estado
+    conteudo.materialTexto = document.getElementById("inputMaterialTexto").value;
+    
+    // 2. Verifica se o professor selecionou um arquivo para upload
+    const inputArquivo = document.getElementById("inputArquivo");
+    const arquivo = inputArquivo.files[0];
+
+    if (arquivo) {
+        // Prepara o "pacote" FormData para enviar o arquivo pesado
+        let dados = new FormData();
+        dados.append('arquivo', arquivo);
+        dados.append('id_conteudo', conteudoId);
+
+        try {
+            mostrarAlerta("Fazendo upload do arquivo, aguarde...");
+            
+            // Envia para a rota do Flask
+            const resposta = await fetch('/salvar_material', {
+                method: 'POST',
+                body: dados
+            });
+            
+            const resultado = await resposta.json();
+            
+            if (resposta.ok) {
+                // Salva o caminho gerado pelo Python no estado do JavaScript
+                conteudo.arquivo = resultado.caminho;
+                
+                // Salva o restante (como o materialTexto) na rota principal
+                await salvarDadosNoBanco();
+                fecharOverlay(); // Fecha o alerta de "aguarde"
+                mostrarAlerta("Material e arquivo salvos com sucesso!");
+                alternarAbaEditor('material', conteudoId); // Recarrega a aba para exibir o link do arquivo
+            } else {
+                fecharOverlay();
+                mostrarAlerta("Erro ao salvar arquivo: " + (resultado.erro || "Desconhecido"));
+            }
+        } catch (erro) {
+            console.error(erro);
+            fecharOverlay();
+            mostrarAlerta("Erro de conexão ao enviar o arquivo.");
+        }
+    } else {
+        // Se não tem arquivo selecionado, apenas salva os textos normalmente
+        await salvarDadosNoBanco();
+        mostrarAlerta("Material salvo com sucesso!");
+    }
+}
+
+// Renderiza a lista de questões no painel de Questões
 export function renderizarQuestoes(conteudoAtual) {
     const lista = document.getElementById("listaQuestoes");
     if (!lista) return;
@@ -183,7 +427,7 @@ export function renderizarQuestoes(conteudoAtual) {
         `;
         return;
     }
-
+// Renderiza cada questão com base no tipo e nas alternativas
     lista.innerHTML = questoes.map((q, idx) => {
         let tipoDisplay = '';
         let icone = '';
@@ -205,7 +449,7 @@ export function renderizarQuestoes(conteudoAtual) {
                 icone = '';
                 corTipo = '#95a5a6';
         }
-
+// Renderiza as alternativas se a questão for de múltipla escolha
         let detalhes = '';
         if (q.tipo === 'multipla_escolha' && q.alternativas) {
             const alternativasHtml = q.alternativas.map((alt, i) => {
@@ -253,10 +497,11 @@ export function renderizarQuestoes(conteudoAtual) {
     `}).join("");
 }
 
+// Função para abrir o formulário de criação/edição de questão
 export function abrirFormQuestao(conteudoId, questaoId = null) {
     // Fecha qualquer overlay aberto antes de abrir um novo
     fecharFormQuestao();
-    
+     
     const conteudo = state.conteudos.find(c => c.id === conteudoId);
     const questao = questaoId ? conteudo.questoes.find(q => q.id === questaoId) : null;
     
@@ -291,9 +536,9 @@ export function abrirFormQuestao(conteudoId, questaoId = null) {
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     `;
-
+// Define o tipo atual da questão (multipla_escolha, aberta, etc.) com base na questão existente ou padrão
     const tipoAtual = questao ? questao.tipo : 'multipla_escolha';
-
+// Define o enunciado atual da questão com base na questão existente ou vazio
     modal.innerHTML = `
         <style>
             @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -310,10 +555,10 @@ export function abrirFormQuestao(conteudoId, questaoId = null) {
             .form-input, .form-textarea, .form-select {
                 width: 100%;
                 padding: 12px 16px;
-                border: 2px solid #dfe6e9;
+                border: 2px solid #2c88c5;
                 border-radius: 8px;
                 font-size: 1em;
-                background: #f8f9fa;
+                background: #2d3436;
                 color: #2d3436;
                 transition: all 0.3s ease;
                 box-sizing: border-box;

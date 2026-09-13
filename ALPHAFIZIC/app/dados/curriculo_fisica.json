@@ -1,0 +1,5554 @@
+{
+  "conteudo": {
+    "id_conteudo": 1,
+    "titulo": "Eletrodinâmica e Magnetismo",
+    "descricao": "Aprenda eletricidade e magnetismo em uma jornada progressiva, com desafios, fórmulas e laboratório interativo.",
+    "tipo": "teoria",
+    "data_publicacao": "2026-08-27"
+  },
+  "modulos": [
+    {
+      "id_modulo": 101,
+      "id_conteudo": 1,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Conceitos básicos de eletricidade",
+      "descricao": "Fundamentos de carga, elétrons, condutores, isolantes e conservação da carga.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Conceitos básicos de eletricidade é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em conceitos básicos de eletricidade e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Conceitos básicos de eletricidade.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 102,
+      "id_conteudo": 1,
+      "ordem": 2,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Corrente elétrica",
+      "descricao": "Entenda o movimento ordenado de cargas e a intensidade da corrente elétrica.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Corrente elétrica é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em corrente elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Corrente elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 103,
+      "id_conteudo": 1,
+      "ordem": 3,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Tensão elétrica",
+      "descricao": "Aprenda diferença de potencial, fontes e o papel da tensão nos circuitos.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Tensão elétrica é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em tensão elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Tensão elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 104,
+      "id_conteudo": 1,
+      "ordem": 4,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Resistência elétrica",
+      "descricao": "Descubra o que limita a corrente e como resistência depende do material e da geometria.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Resistência elétrica é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em resistência elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Resistência elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 105,
+      "id_conteudo": 1,
+      "ordem": 5,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Lei de Ohm",
+      "descricao": "Relacione tensão, resistência e corrente para resolver problemas elétricos.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Lei de Ohm é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em lei de ohm e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Lei de Ohm.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 106,
+      "id_conteudo": 1,
+      "ordem": 6,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Resistores",
+      "descricao": "Conheça resistores, suas funções e como interpretar seus valores.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Resistores é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em resistores e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Resistores.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 107,
+      "id_conteudo": 1,
+      "ordem": 7,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Associação de resistores",
+      "descricao": "Resolva associações em série e paralelo e encontre resistências equivalentes.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Associação de resistores é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em associação de resistores e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Associação de resistores.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 108,
+      "id_conteudo": 1,
+      "ordem": 8,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Potência elétrica",
+      "descricao": "Calcule a potência transformada ou consumida por aparelhos e circuitos.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Potência elétrica é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em potência elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Potência elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 109,
+      "id_conteudo": 1,
+      "ordem": 9,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Energia elétrica",
+      "descricao": "Relacione potência, tempo e consumo de energia elétrica.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Energia elétrica é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em energia elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Energia elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 110,
+      "id_conteudo": 1,
+      "ordem": 10,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Efeito Joule",
+      "descricao": "Entenda o aquecimento provocado pela passagem da corrente elétrica.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Efeito Joule é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em efeito joule e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Efeito Joule.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 111,
+      "id_conteudo": 1,
+      "ordem": 11,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Circuitos elétricos",
+      "descricao": "Analise fontes, fios, resistores e caminhos de corrente em circuitos.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Circuitos elétricos é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em circuitos elétricos e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Circuitos elétricos.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 112,
+      "id_conteudo": 1,
+      "ordem": 12,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Leis de Kirchhoff",
+      "descricao": "Use as leis dos nós e das malhas para analisar circuitos mais complexos.",
+      "icone": "eletricidade",
+      "area": "Eletrodinâmica",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Eletrodinâmica. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Leis de Kirchhoff é um conceito essencial para compreender fenômenos de eletrodinâmica e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em leis de kirchhoff e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Leis de Kirchhoff.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 201,
+      "id_conteudo": 1,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Conceitos básicos de magnetismo",
+      "descricao": "Conheça ímãs, polos e as interações magnéticas fundamentais.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Conceitos básicos de magnetismo é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em conceitos básicos de magnetismo e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Conceitos básicos de magnetismo.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 202,
+      "id_conteudo": 1,
+      "ordem": 2,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Ímãs e polos magnéticos",
+      "descricao": "Explore polos norte e sul, atração, repulsão e inseparabilidade dos polos.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Ímãs e polos magnéticos é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em ímãs e polos magnéticos e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Ímãs e polos magnéticos.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 203,
+      "id_conteudo": 1,
+      "ordem": 3,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Campo magnético",
+      "descricao": "Entenda como uma região do espaço pode apresentar efeitos magnéticos.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Campo magnético é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em campo magnético e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Campo magnético.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 204,
+      "id_conteudo": 1,
+      "ordem": 4,
+      "dificuldade": "basico",
+      "ativo": true,
+      "titulo": "Linhas de campo magnético",
+      "descricao": "Interprete direção, sentido e intensidade por meio das linhas de campo.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Linhas de campo magnético é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em linhas de campo magnético e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Linhas de campo magnético.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 205,
+      "id_conteudo": 1,
+      "ordem": 5,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Campo magnético terrestre",
+      "descricao": "Descubra o campo magnético da Terra e sua importância para orientação.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Campo magnético terrestre é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em campo magnético terrestre e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Campo magnético terrestre.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 206,
+      "id_conteudo": 1,
+      "ordem": 6,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Força magnética",
+      "descricao": "Analise a força sobre cargas em movimento e correntes em campos magnéticos.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Força magnética é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em força magnética e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Força magnética.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 207,
+      "id_conteudo": 1,
+      "ordem": 7,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Campo magnético gerado por corrente elétrica",
+      "descricao": "Relacione corrente elétrica e campo magnético produzido por condutores.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Campo magnético gerado por corrente elétrica é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em campo magnético gerado por corrente elétrica e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Campo magnético gerado por corrente elétrica.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 208,
+      "id_conteudo": 1,
+      "ordem": 8,
+      "dificuldade": "intermediario",
+      "ativo": true,
+      "titulo": "Eletroímãs",
+      "descricao": "Veja como corrente elétrica pode produzir ímãs controláveis e suas aplicações.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Eletroímãs é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em eletroímãs e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Eletroímãs.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 209,
+      "id_conteudo": 1,
+      "ordem": 9,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Indução eletromagnética",
+      "descricao": "Entenda como a variação do fluxo magnético pode gerar tensão induzida.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Indução eletromagnética é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em indução eletromagnética e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Indução eletromagnética.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 210,
+      "id_conteudo": 1,
+      "ordem": 10,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Lei de Faraday",
+      "descricao": "Calcule a força eletromotriz induzida a partir da variação do fluxo magnético.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Lei de Faraday é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em lei de faraday e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Lei de Faraday.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 211,
+      "id_conteudo": 1,
+      "ordem": 11,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Lei de Lenz",
+      "descricao": "Determine o sentido da corrente induzida pela oposição à variação do fluxo.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Lei de Lenz é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em lei de lenz e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Lei de Lenz.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    },
+    {
+      "id_modulo": 212,
+      "id_conteudo": 1,
+      "ordem": 12,
+      "dificuldade": "avancado",
+      "ativo": true,
+      "titulo": "Aplicações do eletromagnetismo",
+      "descricao": "Conecte os conceitos de magnetismo e eletricidade em motores, geradores e transformadores.",
+      "icone": "magnetismo",
+      "area": "Magnetismo",
+      "corpo": {
+        "introducao": "Esta é uma etapa de Magnetismo. Avance no seu ritmo e use o laboratório para testar o que aprendeu.",
+        "conceito": "Aplicações do eletromagnetismo é um conceito essencial para compreender fenômenos de magnetismo e resolver problemas de Física.",
+        "explicacao": [
+          "Comece identificando as grandezas físicas envolvidas em aplicações do eletromagnetismo e suas unidades no Sistema Internacional.",
+          "Observe sempre o significado físico de cada variável antes de substituir valores em uma expressão.",
+          "Use os exemplos e o laboratório para relacionar a representação matemática com o fenômeno observado."
+        ],
+        "resumo": [
+          "Definição e ideias centrais de Aplicações do eletromagnetismo.",
+          "Grandezas, unidades e relações principais.",
+          "Aplicação em situações-problema."
+        ],
+        "animacao": "fisica-progressiva"
+      }
+    }
+  ],
+  "formulas": [
+    {
+      "id_formula": 1,
+      "id_modulo": 101,
+      "ordem": 1,
+      "nome": "Carga elétrica",
+      "expressao": "Q = n · e",
+      "descricao": "Quantidade de carga em função do número de cargas elementares.",
+      "unidade": "C",
+      "calc": null
+    },
+    {
+      "id_formula": 2,
+      "id_modulo": 102,
+      "ordem": 1,
+      "nome": "Corrente elétrica",
+      "expressao": "i = ΔQ / Δt",
+      "descricao": "Corrente média como carga que atravessa uma seção por unidade de tempo.",
+      "unidade": "A",
+      "calc": null
+    },
+    {
+      "id_formula": 3,
+      "id_modulo": 103,
+      "ordem": 1,
+      "nome": "Tensão elétrica",
+      "expressao": "U = W / q",
+      "descricao": "Tensão como trabalho por unidade de carga.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 4,
+      "id_modulo": 104,
+      "ordem": 1,
+      "nome": "Resistência elétrica",
+      "expressao": "R = U / i",
+      "descricao": "Resistência obtida pela razão entre tensão e corrente.",
+      "unidade": "Ω",
+      "calc": null
+    },
+    {
+      "id_formula": 5,
+      "id_modulo": 105,
+      "ordem": 1,
+      "nome": "Lei de Ohm",
+      "expressao": "U = R · i",
+      "descricao": "Relação entre tensão, resistência e corrente em um resistor ôhmico.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 6,
+      "id_modulo": 105,
+      "ordem": 2,
+      "nome": "Corrente pela Lei de Ohm",
+      "expressao": "i = U / R",
+      "descricao": "Corrente obtida a partir da tensão e da resistência.",
+      "unidade": "A",
+      "calc": null
+    },
+    {
+      "id_formula": 7,
+      "id_modulo": 105,
+      "ordem": 3,
+      "nome": "Resistência pela Lei de Ohm",
+      "expressao": "R = U / i",
+      "descricao": "Resistência obtida a partir da tensão e da corrente.",
+      "unidade": "Ω",
+      "calc": null
+    },
+    {
+      "id_formula": 8,
+      "id_modulo": 106,
+      "ordem": 1,
+      "nome": "Potência no resistor",
+      "expressao": "P = U · i",
+      "descricao": "Potência elétrica associada ao produto da tensão pela corrente.",
+      "unidade": "W",
+      "calc": null
+    },
+    {
+      "id_formula": 9,
+      "id_modulo": 106,
+      "ordem": 2,
+      "nome": "Potência com resistência",
+      "expressao": "P = R · i²",
+      "descricao": "Forma da potência usando resistência e corrente.",
+      "unidade": "W",
+      "calc": null
+    },
+    {
+      "id_formula": 10,
+      "id_modulo": 107,
+      "ordem": 1,
+      "nome": "Série",
+      "expressao": "Req = R₁ + R₂ + ...",
+      "descricao": "Resistência equivalente de resistores em série.",
+      "unidade": "Ω",
+      "calc": null
+    },
+    {
+      "id_formula": 11,
+      "id_modulo": 107,
+      "ordem": 2,
+      "nome": "Paralelo (dois resistores)",
+      "expressao": "1/Req = 1/R₁ + 1/R₂",
+      "descricao": "Relação para dois resistores associados em paralelo.",
+      "unidade": "Ω",
+      "calc": null
+    },
+    {
+      "id_formula": 12,
+      "id_modulo": 108,
+      "ordem": 1,
+      "nome": "Potência elétrica",
+      "expressao": "P = U · i",
+      "descricao": "Potência elétrica de um componente.",
+      "unidade": "W",
+      "calc": null
+    },
+    {
+      "id_formula": 13,
+      "id_modulo": 108,
+      "ordem": 2,
+      "nome": "Potência com resistência",
+      "expressao": "P = U² / R",
+      "descricao": "Potência calculada com tensão e resistência.",
+      "unidade": "W",
+      "calc": null
+    },
+    {
+      "id_formula": 14,
+      "id_modulo": 109,
+      "ordem": 1,
+      "nome": "Energia elétrica",
+      "expressao": "E = P · Δt",
+      "descricao": "Energia consumida a partir da potência e do tempo.",
+      "unidade": "J",
+      "calc": null
+    },
+    {
+      "id_formula": 15,
+      "id_modulo": 110,
+      "ordem": 1,
+      "nome": "Efeito Joule",
+      "expressao": "Q = R · i² · Δt",
+      "descricao": "Energia térmica produzida por efeito Joule.",
+      "unidade": "J",
+      "calc": null
+    },
+    {
+      "id_formula": 16,
+      "id_modulo": 111,
+      "ordem": 1,
+      "nome": "Lei de Ohm no circuito",
+      "expressao": "U = R · i",
+      "descricao": "Relação básica usada na análise de circuitos.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 17,
+      "id_modulo": 112,
+      "ordem": 1,
+      "nome": "Lei dos nós",
+      "expressao": "Σi_entrada = Σi_saída",
+      "descricao": "Conservação da carga elétrica em um nó.",
+      "unidade": "A",
+      "calc": null
+    },
+    {
+      "id_formula": 18,
+      "id_modulo": 112,
+      "ordem": 2,
+      "nome": "Lei das malhas",
+      "expressao": "ΣΔV = 0",
+      "descricao": "Soma algébrica das diferenças de potencial em uma malha fechada.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 19,
+      "id_modulo": 201,
+      "ordem": 1,
+      "nome": "Força entre polos",
+      "expressao": "F = kₘ · m₁ · m₂ / d²",
+      "descricao": "Modelo simplificado para interação entre polos magnéticos.",
+      "unidade": "N",
+      "calc": null
+    },
+    {
+      "id_formula": 20,
+      "id_modulo": 202,
+      "ordem": 1,
+      "nome": "Polos magnéticos",
+      "expressao": "N ↔ S",
+      "descricao": "Polos opostos interagem por atração; polos iguais, por repulsão.",
+      "unidade": "—",
+      "calc": null
+    },
+    {
+      "id_formula": 21,
+      "id_modulo": 203,
+      "ordem": 1,
+      "nome": "Campo magnético",
+      "expressao": "B = F / (q · v)",
+      "descricao": "Relação entre força magnética, carga e velocidade perpendicular.",
+      "unidade": "T",
+      "calc": null
+    },
+    {
+      "id_formula": 22,
+      "id_modulo": 204,
+      "ordem": 1,
+      "nome": "Densidade de linhas",
+      "expressao": "B ∝ linhas / área",
+      "descricao": "Linhas mais próximas indicam campo magnético mais intenso.",
+      "unidade": "—",
+      "calc": null
+    },
+    {
+      "id_formula": 23,
+      "id_modulo": 205,
+      "ordem": 1,
+      "nome": "Campo terrestre",
+      "expressao": "B = F / (q · v)",
+      "descricao": "Modelo da força magnética aplicado ao campo terrestre.",
+      "unidade": "T",
+      "calc": null
+    },
+    {
+      "id_formula": 24,
+      "id_modulo": 206,
+      "ordem": 1,
+      "nome": "Força magnética",
+      "expressao": "F = q · v · B · sen(θ)",
+      "descricao": "Força sobre uma carga em movimento em um campo magnético.",
+      "unidade": "N",
+      "calc": null
+    },
+    {
+      "id_formula": 25,
+      "id_modulo": 207,
+      "ordem": 1,
+      "nome": "Campo de fio retilíneo",
+      "expressao": "B = μ₀ · i / (2πr)",
+      "descricao": "Campo magnético ao redor de um fio retilíneo longo.",
+      "unidade": "T",
+      "calc": null
+    },
+    {
+      "id_formula": 26,
+      "id_modulo": 208,
+      "ordem": 1,
+      "nome": "Eletroímã",
+      "expressao": "B ∝ N · i",
+      "descricao": "A intensidade do campo de uma bobina aumenta com espiras e corrente.",
+      "unidade": "T",
+      "calc": null
+    },
+    {
+      "id_formula": 27,
+      "id_modulo": 209,
+      "ordem": 1,
+      "nome": "Fluxo magnético",
+      "expressao": "Φ = B · A · cos(θ)",
+      "descricao": "Fluxo magnético através de uma área.",
+      "unidade": "Wb",
+      "calc": null
+    },
+    {
+      "id_formula": 28,
+      "id_modulo": 210,
+      "ordem": 1,
+      "nome": "Lei de Faraday",
+      "expressao": "ε = −ΔΦ / Δt",
+      "descricao": "Força eletromotriz induzida pela variação do fluxo magnético.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 29,
+      "id_modulo": 211,
+      "ordem": 1,
+      "nome": "Lei de Lenz",
+      "expressao": "ε = −ΔΦ / Δt",
+      "descricao": "O sinal negativo representa a oposição à variação do fluxo.",
+      "unidade": "V",
+      "calc": null
+    },
+    {
+      "id_formula": 30,
+      "id_modulo": 212,
+      "ordem": 1,
+      "nome": "Potência elétrica",
+      "expressao": "P = U · i",
+      "descricao": "Relação elétrica presente em motores, geradores e outros dispositivos.",
+      "unidade": "W",
+      "calc": null
+    },
+    {
+      "id_formula": 31,
+      "id_modulo": 212,
+      "ordem": 2,
+      "nome": "Transformador ideal",
+      "expressao": "V₁/V₂ = N₁/N₂",
+      "descricao": "Relação entre tensões e número de espiras em um transformador ideal.",
+      "unidade": "—",
+      "calc": null
+    }
+  ],
+  "variaveis": [],
+  "exemplos": [
+    {
+      "id_exemplo": 10101,
+      "id_modulo": 101,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Conceitos básicos de eletricidade",
+      "enunciado": "Fundamentos de carga, elétrons, condutores, isolantes e conservação da carga.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "Q = n · e",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10102,
+      "id_modulo": 102,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Corrente elétrica",
+      "enunciado": "Entenda o movimento ordenado de cargas e a intensidade da corrente elétrica.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "i = ΔQ / Δt",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10103,
+      "id_modulo": 103,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Tensão elétrica",
+      "enunciado": "Aprenda diferença de potencial, fontes e o papel da tensão nos circuitos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "U = W / q",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10104,
+      "id_modulo": 104,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Resistência elétrica",
+      "enunciado": "Descubra o que limita a corrente e como resistência depende do material e da geometria.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "R = U / i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10105,
+      "id_modulo": 105,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Lei de Ohm",
+      "enunciado": "Relacione tensão, resistência e corrente para resolver problemas elétricos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "U = R · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10106,
+      "id_modulo": 106,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Resistores",
+      "enunciado": "Conheça resistores, suas funções e como interpretar seus valores.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "P = U · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10107,
+      "id_modulo": 107,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Associação de resistores",
+      "enunciado": "Resolva associações em série e paralelo e encontre resistências equivalentes.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "Req = R₁ + R₂ + ...",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10108,
+      "id_modulo": 108,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Potência elétrica",
+      "enunciado": "Calcule a potência transformada ou consumida por aparelhos e circuitos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "P = U · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10109,
+      "id_modulo": 109,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Energia elétrica",
+      "enunciado": "Relacione potência, tempo e consumo de energia elétrica.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "E = P · Δt",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10110,
+      "id_modulo": 110,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Efeito Joule",
+      "enunciado": "Entenda o aquecimento provocado pela passagem da corrente elétrica.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "Q = R · i² · Δt",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10111,
+      "id_modulo": 111,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Circuitos elétricos",
+      "enunciado": "Analise fontes, fios, resistores e caminhos de corrente em circuitos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "U = R · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10112,
+      "id_modulo": 112,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Leis de Kirchhoff",
+      "enunciado": "Use as leis dos nós e das malhas para analisar circuitos mais complexos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "Σi_entrada = Σi_saída",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10201,
+      "id_modulo": 201,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Conceitos básicos de magnetismo",
+      "enunciado": "Conheça ímãs, polos e as interações magnéticas fundamentais.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "F = kₘ · m₁ · m₂ / d²",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10202,
+      "id_modulo": 202,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Ímãs e polos magnéticos",
+      "enunciado": "Explore polos norte e sul, atração, repulsão e inseparabilidade dos polos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "N ↔ S",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10203,
+      "id_modulo": 203,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Campo magnético",
+      "enunciado": "Entenda como uma região do espaço pode apresentar efeitos magnéticos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "B = F / (q · v)",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10204,
+      "id_modulo": 204,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "titulo": "Exemplo de Linhas de campo magnético",
+      "enunciado": "Interprete direção, sentido e intensidade por meio das linhas de campo.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "B ∝ linhas / área",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10205,
+      "id_modulo": 205,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Campo magnético terrestre",
+      "enunciado": "Descubra o campo magnético da Terra e sua importância para orientação.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "B = F / (q · v)",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10206,
+      "id_modulo": 206,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Força magnética",
+      "enunciado": "Analise a força sobre cargas em movimento e correntes em campos magnéticos.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "F = q · v · B · sen(θ)",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10207,
+      "id_modulo": 207,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Campo magnético gerado por corrente elétrica",
+      "enunciado": "Relacione corrente elétrica e campo magnético produzido por condutores.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "B = μ₀ · i / (2πr)",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10208,
+      "id_modulo": 208,
+      "ordem": 1,
+      "dificuldade": "intermediario",
+      "titulo": "Exemplo de Eletroímãs",
+      "enunciado": "Veja como corrente elétrica pode produzir ímãs controláveis e suas aplicações.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "B ∝ N · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10209,
+      "id_modulo": 209,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Indução eletromagnética",
+      "enunciado": "Entenda como a variação do fluxo magnético pode gerar tensão induzida.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "Φ = B · A · cos(θ)",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10210,
+      "id_modulo": 210,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Lei de Faraday",
+      "enunciado": "Calcule a força eletromotriz induzida a partir da variação do fluxo magnético.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "ε = −ΔΦ / Δt",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10211,
+      "id_modulo": 211,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Lei de Lenz",
+      "enunciado": "Determine o sentido da corrente induzida pela oposição à variação do fluxo.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "ε = −ΔΦ / Δt",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    },
+    {
+      "id_exemplo": 10212,
+      "id_modulo": 212,
+      "ordem": 1,
+      "dificuldade": "avancado",
+      "titulo": "Exemplo de Aplicações do eletromagnetismo",
+      "enunciado": "Conecte os conceitos de magnetismo e eletricidade em motores, geradores e transformadores.",
+      "dados": "Identifique as grandezas relevantes e suas unidades.",
+      "formula_utilizada": "P = U · i",
+      "resolucao": [
+        "Identifique as grandezas do problema.",
+        "Escolha a relação física adequada.",
+        "Substitua os valores com as unidades corretas."
+      ],
+      "resultado": "A solução deve ser interpretada fisicamente e conferida pela unidade."
+    }
+  ],
+  "atividades": [
+    {
+      "id_atividade": 1001,
+      "id_modulo": 101,
+      "titulo": "Desafio 1 — Conceitos básicos de eletricidade",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Qual partícula possui carga elétrica negativa?",
+      "alternativas": [
+        {
+          "id_alternativa": 10010,
+          "texto": "Próton",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10011,
+          "texto": "Elétron",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10012,
+          "texto": "Nêutron",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10013,
+          "texto": "Fóton",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de eletricidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1002,
+      "id_modulo": 101,
+      "titulo": "Desafio 2 — Conceitos básicos de eletricidade",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Cargas de mesmo sinal...",
+      "alternativas": [
+        {
+          "id_alternativa": 10020,
+          "texto": "Se atraem",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10021,
+          "texto": "Se repelem",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10022,
+          "texto": "Se anulam sempre",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10023,
+          "texto": "Não interagem",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de eletricidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1003,
+      "id_modulo": 101,
+      "titulo": "Desafio 3 — Conceitos básicos de eletricidade",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade SI de carga é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10030,
+          "texto": "Ampere",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10031,
+          "texto": "Volt",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10032,
+          "texto": "Coulomb",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10033,
+          "texto": "Ohm",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de eletricidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1004,
+      "id_modulo": 101,
+      "titulo": "Desafio 4 — Conceitos básicos de eletricidade",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um corpo que ganha elétrons tende a ficar...",
+      "alternativas": [
+        {
+          "id_alternativa": 10040,
+          "texto": "Positivo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10041,
+          "texto": "Negativo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10042,
+          "texto": "Neutro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10043,
+          "texto": "Magnético",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de eletricidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1005,
+      "id_modulo": 101,
+      "titulo": "Desafio 5 — Conceitos básicos de eletricidade",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Se um corpo possui 5 cargas elementares positivas, use e=1,6×10⁻¹⁹ C. Qual é Q em 10⁻¹⁹ C?",
+      "resposta_correta": 8,
+      "tolerancia": 0.24,
+      "unidade": "×10⁻¹⁹ C",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1006,
+      "id_modulo": 102,
+      "titulo": "Desafio 1 — Corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Corrente elétrica representa...",
+      "alternativas": [
+        {
+          "id_alternativa": 10060,
+          "texto": "Energia armazenada",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10061,
+          "texto": "Fluxo ordenado de cargas",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10062,
+          "texto": "Resistência do fio",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10063,
+          "texto": "Campo magnético apenas",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1007,
+      "id_modulo": 102,
+      "titulo": "Desafio 2 — Corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade de corrente é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10070,
+          "texto": "A",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10071,
+          "texto": "V",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10072,
+          "texto": "Ω",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10073,
+          "texto": "W",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1008,
+      "id_modulo": 102,
+      "titulo": "Desafio 3 — Corrente elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Uma carga de 10 C atravessa uma seção em 2 s. Qual é a corrente?",
+      "resposta_correta": 5,
+      "tolerancia": 0.15,
+      "unidade": "A",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1009,
+      "id_modulo": 102,
+      "titulo": "Desafio 4 — Corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se a carga que passa por segundo aumenta, a corrente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10090,
+          "texto": "Diminui",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10091,
+          "texto": "Aumenta",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10092,
+          "texto": "Fica sempre zero",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10093,
+          "texto": "Não muda",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1010,
+      "id_modulo": 102,
+      "titulo": "Desafio 5 — Corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Corrente convencional considera o sentido do movimento de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10100,
+          "texto": "Elétrons apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10101,
+          "texto": "Cargas positivas",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10102,
+          "texto": "Nêutrons",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10103,
+          "texto": "Fótons",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1011,
+      "id_modulo": 103,
+      "titulo": "Desafio 1 — Tensão elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Tensão elétrica também é chamada de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10110,
+          "texto": "Diferença de potencial",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10111,
+          "texto": "Resistência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10112,
+          "texto": "Potência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10113,
+          "texto": "Carga",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de tensão elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1012,
+      "id_modulo": 103,
+      "titulo": "Desafio 2 — Tensão elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade SI da tensão é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10120,
+          "texto": "Ampere",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10121,
+          "texto": "Volt",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10122,
+          "texto": "Ohm",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10123,
+          "texto": "Coulomb",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de tensão elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1013,
+      "id_modulo": 103,
+      "titulo": "Desafio 3 — Tensão elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um trabalho de 20 J é realizado para mover 4 C. Qual é a tensão?",
+      "resposta_correta": 5,
+      "tolerancia": 0.15,
+      "unidade": "V",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1014,
+      "id_modulo": 103,
+      "titulo": "Desafio 4 — Tensão elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma pilha funciona como...",
+      "alternativas": [
+        {
+          "id_alternativa": 10140,
+          "texto": "Fonte de diferença de potencial",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10141,
+          "texto": "Resistor puro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10142,
+          "texto": "Amperímetro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10143,
+          "texto": "Interruptor",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de tensão elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1015,
+      "id_modulo": 103,
+      "titulo": "Desafio 5 — Tensão elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Sem diferença de potencial, em um circuito resistivo ideal, a corrente é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10150,
+          "texto": "Máxima",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10151,
+          "texto": "Nula",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10152,
+          "texto": "Infinita",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10153,
+          "texto": "Negativa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de tensão elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1016,
+      "id_modulo": 104,
+      "titulo": "Desafio 1 — Resistência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A resistência elétrica indica principalmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10160,
+          "texto": "O quanto o componente se opõe à corrente",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10161,
+          "texto": "A quantidade de carga",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10162,
+          "texto": "A velocidade da luz",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10163,
+          "texto": "A massa do fio",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1017,
+      "id_modulo": 104,
+      "titulo": "Desafio 2 — Resistência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade de resistência é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10170,
+          "texto": "W",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10171,
+          "texto": "Ω",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10172,
+          "texto": "V",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10173,
+          "texto": "A",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1018,
+      "id_modulo": 104,
+      "titulo": "Desafio 3 — Resistência elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Se U=12 V e i=3 A, qual é R?",
+      "resposta_correta": 4,
+      "tolerancia": 0.12,
+      "unidade": "Ω",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1019,
+      "id_modulo": 104,
+      "titulo": "Desafio 4 — Resistência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Para um mesmo material e comprimento, aumentar a área do fio tende a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10190,
+          "texto": "Aumentar R",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10191,
+          "texto": "Diminuir R",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10192,
+          "texto": "Zerar R",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10193,
+          "texto": "Não alterar R",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1020,
+      "id_modulo": 104,
+      "titulo": "Desafio 5 — Resistência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um resistor ideal transforma energia elétrica principalmente em...",
+      "alternativas": [
+        {
+          "id_alternativa": 10200,
+          "texto": "Luz solar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10201,
+          "texto": "Calor",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10202,
+          "texto": "Carga",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10203,
+          "texto": "Massa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1021,
+      "id_modulo": 105,
+      "titulo": "Desafio 1 — Lei de Ohm",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Na Lei de Ohm, a relação correta é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10210,
+          "texto": "U=R·i",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10211,
+          "texto": "U=R+i",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10212,
+          "texto": "U=R/i",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10213,
+          "texto": "U=i/R",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de ohm."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1022,
+      "id_modulo": 105,
+      "titulo": "Desafio 2 — Lei de Ohm",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um resistor de 10 Ω recebe 2 A. Qual é a tensão?",
+      "resposta_correta": 20,
+      "tolerancia": 0.6,
+      "unidade": "V",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1023,
+      "id_modulo": 105,
+      "titulo": "Desafio 3 — Lei de Ohm",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Uma tensão de 24 V aplicada a 6 Ω produz qual corrente?",
+      "resposta_correta": 4,
+      "tolerancia": 0.12,
+      "unidade": "A",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1024,
+      "id_modulo": 105,
+      "titulo": "Desafio 4 — Lei de Ohm",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um componente recebe 15 V e 3 A. Qual é sua resistência?",
+      "resposta_correta": 5,
+      "tolerancia": 0.15,
+      "unidade": "Ω",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1025,
+      "id_modulo": 105,
+      "titulo": "Desafio 5 — Lei de Ohm",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se R é constante e U dobra, a corrente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10250,
+          "texto": "Dobra",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10251,
+          "texto": "Cai pela metade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10252,
+          "texto": "Fica zero",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10253,
+          "texto": "Não muda",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de ohm."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1026,
+      "id_modulo": 106,
+      "titulo": "Desafio 1 — Resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A principal função de um resistor é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10260,
+          "texto": "Limitar a corrente",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10261,
+          "texto": "Criar carga",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10262,
+          "texto": "Armazenar luz",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10263,
+          "texto": "Produzir campo gravitacional",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1027,
+      "id_modulo": 106,
+      "titulo": "Desafio 2 — Resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O código de cores de resistores serve para indicar...",
+      "alternativas": [
+        {
+          "id_alternativa": 10270,
+          "texto": "Resistência e tolerância",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10271,
+          "texto": "Massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10272,
+          "texto": "Velocidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10273,
+          "texto": "Temperatura do ambiente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1028,
+      "id_modulo": 106,
+      "titulo": "Desafio 3 — Resistores",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um resistor de 5 Ω atravessado por 2 A dissipa qual potência usando P=R·i²?",
+      "resposta_correta": 20,
+      "tolerancia": 0.6,
+      "unidade": "W",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1029,
+      "id_modulo": 106,
+      "titulo": "Desafio 4 — Resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Em um circuito, um resistor pode transformar energia elétrica em...",
+      "alternativas": [
+        {
+          "id_alternativa": 10290,
+          "texto": "Energia térmica",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10291,
+          "texto": "Carga elétrica nova",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10292,
+          "texto": "Massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10293,
+          "texto": "Vácuo",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1030,
+      "id_modulo": 106,
+      "titulo": "Desafio 5 — Resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Resistores são componentes classificados principalmente por sua...",
+      "alternativas": [
+        {
+          "id_alternativa": 10300,
+          "texto": "Resistência",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10301,
+          "texto": "Cor da placa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10302,
+          "texto": "Massa atômica",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10303,
+          "texto": "Velocidade",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1031,
+      "id_modulo": 107,
+      "titulo": "Desafio 1 — Associação de resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Em série, a corrente nos resistores é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10310,
+          "texto": "A mesma em todos",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10311,
+          "texto": "Sempre diferente",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10312,
+          "texto": "Zero",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10313,
+          "texto": "Infinita",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de associação de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1032,
+      "id_modulo": 107,
+      "titulo": "Desafio 2 — Associação de resistores",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Dois resistores de 4 Ω e 6 Ω em série têm Req igual a?",
+      "resposta_correta": 10,
+      "tolerancia": 0.3,
+      "unidade": "Ω",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1033,
+      "id_modulo": 107,
+      "titulo": "Desafio 3 — Associação de resistores",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Dois resistores de 6 Ω em paralelo têm Req igual a?",
+      "resposta_correta": 3,
+      "tolerancia": 0.09,
+      "unidade": "Ω",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1034,
+      "id_modulo": 107,
+      "titulo": "Desafio 4 — Associação de resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Em paralelo, a tensão nos ramos é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10340,
+          "texto": "A mesma",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10341,
+          "texto": "Sempre zero",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10342,
+          "texto": "Sempre diferente",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10343,
+          "texto": "Indefinida",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de associação de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1035,
+      "id_modulo": 107,
+      "titulo": "Desafio 5 — Associação de resistores",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Adicionar um ramo em paralelo tende a fazer a resistência equivalente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10350,
+          "texto": "Diminuir",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10351,
+          "texto": "Aumentar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10352,
+          "texto": "Ficar infinita",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10353,
+          "texto": "Não existir",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de associação de resistores."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1036,
+      "id_modulo": 108,
+      "titulo": "Desafio 1 — Potência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Potência elétrica é a taxa de transformação de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10360,
+          "texto": "Energia",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10361,
+          "texto": "Massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10362,
+          "texto": "Carga elementar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10363,
+          "texto": "Distância",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de potência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1037,
+      "id_modulo": 108,
+      "titulo": "Desafio 2 — Potência elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um aparelho opera com 10 V e 2 A. Qual sua potência?",
+      "resposta_correta": 20,
+      "tolerancia": 0.6,
+      "unidade": "W",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1038,
+      "id_modulo": 108,
+      "titulo": "Desafio 3 — Potência elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um resistor de 5 Ω conduz 2 A. Qual sua potência?",
+      "resposta_correta": 20,
+      "tolerancia": 0.6,
+      "unidade": "W",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1039,
+      "id_modulo": 108,
+      "titulo": "Desafio 4 — Potência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade SI da potência é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10390,
+          "texto": "J",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10391,
+          "texto": "W",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10392,
+          "texto": "V",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10393,
+          "texto": "A",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de potência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1040,
+      "id_modulo": 108,
+      "titulo": "Desafio 5 — Potência elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Para mesma corrente, aumentar R em P=R·i²...",
+      "alternativas": [
+        {
+          "id_alternativa": 10400,
+          "texto": "Aumenta a potência",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10401,
+          "texto": "Diminui a potência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10402,
+          "texto": "Zera a potência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10403,
+          "texto": "Não altera",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de potência elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1041,
+      "id_modulo": 109,
+      "titulo": "Desafio 1 — Energia elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Energia elétrica consumida depende diretamente de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10410,
+          "texto": "Potência e tempo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10411,
+          "texto": "Apenas tensão",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10412,
+          "texto": "Apenas resistência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10413,
+          "texto": "Apenas carga",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de energia elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1042,
+      "id_modulo": 109,
+      "titulo": "Desafio 2 — Energia elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um aparelho de 100 W funciona por 10 s. Qual energia em joules?",
+      "resposta_correta": 1000,
+      "tolerancia": 30.0,
+      "unidade": "J",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1043,
+      "id_modulo": 109,
+      "titulo": "Desafio 3 — Energia elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade SI de energia é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10430,
+          "texto": "J",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10431,
+          "texto": "W",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10432,
+          "texto": "Ω",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10433,
+          "texto": "A",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de energia elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1044,
+      "id_modulo": 109,
+      "titulo": "Desafio 4 — Energia elétrica",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Um aparelho de 500 W funciona por 2 s. Energia?",
+      "resposta_correta": 1000,
+      "tolerancia": 30.0,
+      "unidade": "J",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1045,
+      "id_modulo": 109,
+      "titulo": "Desafio 5 — Energia elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Para a mesma potência, dobrar o tempo de uso...",
+      "alternativas": [
+        {
+          "id_alternativa": 10450,
+          "texto": "Dobra a energia",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10451,
+          "texto": "Reduz a energia pela metade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10452,
+          "texto": "Zera a energia",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10453,
+          "texto": "Não muda",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de energia elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1046,
+      "id_modulo": 110,
+      "titulo": "Desafio 1 — Efeito Joule",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O efeito Joule está relacionado principalmente ao...",
+      "alternativas": [
+        {
+          "id_alternativa": 10460,
+          "texto": "Aquecimento por corrente",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10461,
+          "texto": "Resfriamento por tensão",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10462,
+          "texto": "Aumento de massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10463,
+          "texto": "Campo gravitacional",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de efeito joule."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1047,
+      "id_modulo": 110,
+      "titulo": "Desafio 2 — Efeito Joule",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "R=2 Ω, i=3 A e t=4 s. Qual Q=R·i²·t?",
+      "resposta_correta": 72,
+      "tolerancia": 2.16,
+      "unidade": "J",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1048,
+      "id_modulo": 110,
+      "titulo": "Desafio 3 — Efeito Joule",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um exemplo de aplicação do efeito Joule é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10480,
+          "texto": "Chuveiro elétrico",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10481,
+          "texto": "Bússola",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10482,
+          "texto": "Lente óptica",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10483,
+          "texto": "Barômetro",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de efeito joule."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1049,
+      "id_modulo": 110,
+      "titulo": "Desafio 4 — Efeito Joule",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Aumentando a corrente em um resistor, mantendo R e t, o calor...",
+      "alternativas": [
+        {
+          "id_alternativa": 10490,
+          "texto": "Aumenta",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10491,
+          "texto": "Diminui",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10492,
+          "texto": "Zera",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10493,
+          "texto": "Não muda",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de efeito joule."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1050,
+      "id_modulo": 110,
+      "titulo": "Desafio 5 — Efeito Joule",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade da energia térmica calculada na fórmula é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10500,
+          "texto": "J",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10501,
+          "texto": "A",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10502,
+          "texto": "V",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10503,
+          "texto": "Ω",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de efeito joule."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1051,
+      "id_modulo": 111,
+      "titulo": "Desafio 1 — Circuitos elétricos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um circuito elétrico precisa de um caminho...",
+      "alternativas": [
+        {
+          "id_alternativa": 10510,
+          "texto": "Fechado para corrente circular",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10511,
+          "texto": "Sempre aberto",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10512,
+          "texto": "Sem fonte",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10513,
+          "texto": "Sem condutores",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de circuitos elétricos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1052,
+      "id_modulo": 111,
+      "titulo": "Desafio 2 — Circuitos elétricos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O instrumento usado para medir corrente é o...",
+      "alternativas": [
+        {
+          "id_alternativa": 10520,
+          "texto": "Amperímetro",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10521,
+          "texto": "Voltímetro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10522,
+          "texto": "Ohmímetro apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10523,
+          "texto": "Termômetro",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de circuitos elétricos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1053,
+      "id_modulo": 111,
+      "titulo": "Desafio 3 — Circuitos elétricos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O voltímetro é ligado, idealmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10530,
+          "texto": "Em paralelo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10531,
+          "texto": "Em série",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10532,
+          "texto": "No lugar da fonte",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10533,
+          "texto": "Sem fios",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de circuitos elétricos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1054,
+      "id_modulo": 111,
+      "titulo": "Desafio 4 — Circuitos elétricos",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Uma fonte de 12 V alimenta um resistor de 6 Ω. Corrente?",
+      "resposta_correta": 2,
+      "tolerancia": 0.06,
+      "unidade": "A",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1055,
+      "id_modulo": 111,
+      "titulo": "Desafio 5 — Circuitos elétricos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um interruptor aberto em um circuito ideal faz a corrente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10550,
+          "texto": "Interromper",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10551,
+          "texto": "Dobrar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10552,
+          "texto": "Aumentar infinitamente",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10553,
+          "texto": "Mudar para magnetismo",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de circuitos elétricos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1056,
+      "id_modulo": 112,
+      "titulo": "Desafio 1 — Leis de Kirchhoff",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A Lei dos Nós está associada à conservação de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10560,
+          "texto": "Carga elétrica",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10561,
+          "texto": "Massa nuclear",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10562,
+          "texto": "Temperatura",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10563,
+          "texto": "Distância",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de leis de kirchhoff."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1057,
+      "id_modulo": 112,
+      "titulo": "Desafio 2 — Leis de Kirchhoff",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Em um nó, a soma das correntes que entram é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10570,
+          "texto": "Igual à soma das que saem",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10571,
+          "texto": "Sempre maior",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10572,
+          "texto": "Sempre menor",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10573,
+          "texto": "Zero em qualquer caso",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de leis de kirchhoff."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1058,
+      "id_modulo": 112,
+      "titulo": "Desafio 3 — Leis de Kirchhoff",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Na Lei das Malhas, a soma algébrica das variações de potencial é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10580,
+          "texto": "Zero",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10581,
+          "texto": "100 V",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10582,
+          "texto": "Infinita",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10583,
+          "texto": "Sempre negativa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de leis de kirchhoff."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1059,
+      "id_modulo": 112,
+      "titulo": "Desafio 4 — Leis de Kirchhoff",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Entram 5 A e 2 A em um nó e sai uma corrente. Qual é a saída?",
+      "resposta_correta": 7,
+      "tolerancia": 0.21,
+      "unidade": "A",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1060,
+      "id_modulo": 112,
+      "titulo": "Desafio 5 — Leis de Kirchhoff",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "As leis de Kirchhoff são úteis principalmente para...",
+      "alternativas": [
+        {
+          "id_alternativa": 10600,
+          "texto": "Analisar circuitos complexos",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10601,
+          "texto": "Calcular massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10602,
+          "texto": "Estudar ondas sonoras",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10603,
+          "texto": "Medir temperatura",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de leis de kirchhoff."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1061,
+      "id_modulo": 201,
+      "titulo": "Desafio 1 — Conceitos básicos de magnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um ímã possui dois polos chamados...",
+      "alternativas": [
+        {
+          "id_alternativa": 10610,
+          "texto": "Norte e Sul",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10611,
+          "texto": "Leste e Oeste",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10612,
+          "texto": "Alfa e Beta",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10613,
+          "texto": "Positivo e neutro",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de magnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1062,
+      "id_modulo": 201,
+      "titulo": "Desafio 2 — Conceitos básicos de magnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Polos iguais...",
+      "alternativas": [
+        {
+          "id_alternativa": 10620,
+          "texto": "Se repelem",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10621,
+          "texto": "Se atraem",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10622,
+          "texto": "Desaparecem",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10623,
+          "texto": "Não exercem efeito",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de magnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1063,
+      "id_modulo": 201,
+      "titulo": "Desafio 3 — Conceitos básicos de magnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O magnetismo está associado principalmente a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10630,
+          "texto": "Movimento de cargas e momentos magnéticos",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10631,
+          "texto": "Somente massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10632,
+          "texto": "Gravidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10633,
+          "texto": "Temperatura ambiente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de magnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1064,
+      "id_modulo": 201,
+      "titulo": "Desafio 4 — Conceitos básicos de magnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um material fortemente atraído por ímãs pode ser...",
+      "alternativas": [
+        {
+          "id_alternativa": 10640,
+          "texto": "Ferro",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10641,
+          "texto": "Vidro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10642,
+          "texto": "Madeira",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10643,
+          "texto": "Plástico",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de magnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1065,
+      "id_modulo": 201,
+      "titulo": "Desafio 5 — Conceitos básicos de magnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Ao quebrar um ímã, cada pedaço tende a formar...",
+      "alternativas": [
+        {
+          "id_alternativa": 10650,
+          "texto": "Dois polos",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10651,
+          "texto": "Apenas polo norte",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10652,
+          "texto": "Apenas polo sul",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10653,
+          "texto": "Nenhum polo",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de conceitos básicos de magnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1066,
+      "id_modulo": 202,
+      "titulo": "Desafio 1 — Ímãs e polos magnéticos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O polo norte de um ímã interage com o polo sul por...",
+      "alternativas": [
+        {
+          "id_alternativa": 10660,
+          "texto": "Atração",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10661,
+          "texto": "Repulsão",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10662,
+          "texto": "Nenhuma força",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10663,
+          "texto": "Calor",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de ímãs e polos magnéticos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1067,
+      "id_modulo": 202,
+      "titulo": "Desafio 2 — Ímãs e polos magnéticos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "É impossível isolar, em um ímã comum, apenas...",
+      "alternativas": [
+        {
+          "id_alternativa": 10670,
+          "texto": "Um polo magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10671,
+          "texto": "Uma massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10672,
+          "texto": "Uma cor",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10673,
+          "texto": "Uma temperatura",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de ímãs e polos magnéticos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1068,
+      "id_modulo": 202,
+      "titulo": "Desafio 3 — Ímãs e polos magnéticos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A bússola aponta aproximadamente para...",
+      "alternativas": [
+        {
+          "id_alternativa": 10680,
+          "texto": "Direções do campo terrestre",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10681,
+          "texto": "O Sol sempre",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10682,
+          "texto": "O centro da Lua",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10683,
+          "texto": "Qualquer metal",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de ímãs e polos magnéticos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1069,
+      "id_modulo": 202,
+      "titulo": "Desafio 4 — Ímãs e polos magnéticos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Dois polos norte próximos tendem a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10690,
+          "texto": "Repelir-se",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10691,
+          "texto": "Atrair-se",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10692,
+          "texto": "Fundir-se",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10693,
+          "texto": "Anular a gravidade",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de ímãs e polos magnéticos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1070,
+      "id_modulo": 202,
+      "titulo": "Desafio 5 — Ímãs e polos magnéticos",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A região de maior interação de um ímã está próxima...",
+      "alternativas": [
+        {
+          "id_alternativa": 10700,
+          "texto": "Dos polos",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10701,
+          "texto": "Do centro geométrico apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10702,
+          "texto": "Da sombra",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10703,
+          "texto": "Do chão",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de ímãs e polos magnéticos."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1071,
+      "id_modulo": 203,
+      "titulo": "Desafio 1 — Campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Campo magnético é uma grandeza representada por...",
+      "alternativas": [
+        {
+          "id_alternativa": 10710,
+          "texto": "B",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10711,
+          "texto": "R",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10712,
+          "texto": "U",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10713,
+          "texto": "P",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1072,
+      "id_modulo": 203,
+      "titulo": "Desafio 2 — Campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade SI do campo magnético é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10720,
+          "texto": "Tesla",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10721,
+          "texto": "Volt",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10722,
+          "texto": "Ohm",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10723,
+          "texto": "Ampere",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1073,
+      "id_modulo": 203,
+      "titulo": "Desafio 3 — Campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um campo magnético pode exercer força sobre...",
+      "alternativas": [
+        {
+          "id_alternativa": 10730,
+          "texto": "Cargas em movimento",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10731,
+          "texto": "Cargas sempre paradas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10732,
+          "texto": "Nêutrons apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10733,
+          "texto": "Objetos sem massa apenas",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1074,
+      "id_modulo": 203,
+      "titulo": "Desafio 4 — Campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "As linhas de campo são usadas para indicar...",
+      "alternativas": [
+        {
+          "id_alternativa": 10740,
+          "texto": "Direção e intensidade do campo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10741,
+          "texto": "Massa do ímã",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10742,
+          "texto": "Temperatura",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10743,
+          "texto": "Carga total do universo",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1075,
+      "id_modulo": 203,
+      "titulo": "Desafio 5 — Campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Quanto mais concentradas as linhas, o campo é geralmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10750,
+          "texto": "Mais intenso",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10751,
+          "texto": "Mais fraco",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10752,
+          "texto": "Nulo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10753,
+          "texto": "Inexistente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1076,
+      "id_modulo": 204,
+      "titulo": "Desafio 1 — Linhas de campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Fora de um ímã, as linhas de campo saem convencionalmente do polo...",
+      "alternativas": [
+        {
+          "id_alternativa": 10760,
+          "texto": "Norte",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10761,
+          "texto": "Sul",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10762,
+          "texto": "Centro",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10763,
+          "texto": "Neutro",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de linhas de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1077,
+      "id_modulo": 204,
+      "titulo": "Desafio 2 — Linhas de campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Linhas de campo magnético...",
+      "alternativas": [
+        {
+          "id_alternativa": 10770,
+          "texto": "Não se cruzam em uma representação regular",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10771,
+          "texto": "Sempre se cruzam",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10772,
+          "texto": "São paralelas em qualquer lugar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10773,
+          "texto": "Não possuem sentido",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de linhas de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1078,
+      "id_modulo": 204,
+      "titulo": "Desafio 3 — Linhas de campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Ao redor de um ímã de barra, as linhas formam...",
+      "alternativas": [
+        {
+          "id_alternativa": 10780,
+          "texto": "Curvas fechadas",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10781,
+          "texto": "Linhas que terminam no espaço",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10782,
+          "texto": "Apenas retas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10783,
+          "texto": "Pontos isolados",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de linhas de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1079,
+      "id_modulo": 204,
+      "titulo": "Desafio 4 — Linhas de campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Maior densidade de linhas indica...",
+      "alternativas": [
+        {
+          "id_alternativa": 10790,
+          "texto": "Maior intensidade de B",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10791,
+          "texto": "Menor intensidade de B",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10792,
+          "texto": "Ausência de campo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10793,
+          "texto": "Maior massa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de linhas de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1080,
+      "id_modulo": 204,
+      "titulo": "Desafio 5 — Linhas de campo magnético",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma região com linhas quase paralelas e próximas pode indicar campo...",
+      "alternativas": [
+        {
+          "id_alternativa": 10800,
+          "texto": "Aproximadamente uniforme",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10801,
+          "texto": "Necessariamente nulo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10802,
+          "texto": "Gravitacional",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10803,
+          "texto": "Sonoro",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de linhas de campo magnético."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1081,
+      "id_modulo": 205,
+      "titulo": "Desafio 1 — Campo magnético terrestre",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O campo magnético terrestre é importante para...",
+      "alternativas": [
+        {
+          "id_alternativa": 10810,
+          "texto": "Orientação por bússolas",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10811,
+          "texto": "Produzir água",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10812,
+          "texto": "Impedir toda eletricidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10813,
+          "texto": "Aumentar a massa da Terra",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético terrestre."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1082,
+      "id_modulo": 205,
+      "titulo": "Desafio 2 — Campo magnético terrestre",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A bússola se alinha aproximadamente com...",
+      "alternativas": [
+        {
+          "id_alternativa": 10820,
+          "texto": "O campo magnético local",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10821,
+          "texto": "A corrente elétrica da cidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10822,
+          "texto": "A gravidade apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10823,
+          "texto": "O vento",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético terrestre."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1083,
+      "id_modulo": 205,
+      "titulo": "Desafio 3 — Campo magnético terrestre",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O campo terrestre ajuda a proteger a Terra de parte do...",
+      "alternativas": [
+        {
+          "id_alternativa": 10830,
+          "texto": "Vento solar",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10831,
+          "texto": "Som",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10832,
+          "texto": "Calor de uma lâmpada",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10833,
+          "texto": "Atrito do chão",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético terrestre."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1084,
+      "id_modulo": 205,
+      "titulo": "Desafio 4 — Campo magnético terrestre",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O campo magnético terrestre é gerado principalmente por movimentos no...",
+      "alternativas": [
+        {
+          "id_alternativa": 10840,
+          "texto": "Núcleo externo metálico",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10841,
+          "texto": "Manto sólido",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10842,
+          "texto": "Oceano",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10843,
+          "texto": "Atmosfera superior",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético terrestre."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1085,
+      "id_modulo": 205,
+      "titulo": "Desafio 5 — Campo magnético terrestre",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A direção indicada pela bússola varia conforme...",
+      "alternativas": [
+        {
+          "id_alternativa": 10850,
+          "texto": "O campo magnético local",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10851,
+          "texto": "A cor da bússola",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10852,
+          "texto": "A massa do observador",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10853,
+          "texto": "A fase da Lua apenas",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético terrestre."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1086,
+      "id_modulo": 206,
+      "titulo": "Desafio 1 — Força magnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A força magnética sobre uma carga depende da velocidade e de...",
+      "alternativas": [
+        {
+          "id_alternativa": 10860,
+          "texto": "Campo magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10861,
+          "texto": "Massa do planeta apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10862,
+          "texto": "Temperatura",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10863,
+          "texto": "Som",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de força magnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1087,
+      "id_modulo": 206,
+      "titulo": "Desafio 2 — Força magnética",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Para q=2 C, v=3 m/s, B=4 T e θ=90°, qual F?",
+      "resposta_correta": 24,
+      "tolerancia": 0.72,
+      "unidade": "N",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1088,
+      "id_modulo": 206,
+      "titulo": "Desafio 3 — Força magnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Quando a velocidade é paralela ao campo, a força magnética é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10880,
+          "texto": "Nula",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10881,
+          "texto": "Máxima",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10882,
+          "texto": "Infinita",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10883,
+          "texto": "Sempre negativa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de força magnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1089,
+      "id_modulo": 206,
+      "titulo": "Desafio 4 — Força magnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A força magnética sobre uma carga em movimento é perpendicular a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10890,
+          "texto": "Velocidade e campo, no caso ideal",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10891,
+          "texto": "Apenas à massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10892,
+          "texto": "Apenas à temperatura",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10893,
+          "texto": "Nada",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de força magnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1090,
+      "id_modulo": 206,
+      "titulo": "Desafio 5 — Força magnética",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Se q=1 C, v=5 m/s, B=2 T e θ=90°, F=",
+      "resposta_correta": 10,
+      "tolerancia": 0.3,
+      "unidade": "N",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1091,
+      "id_modulo": 207,
+      "titulo": "Desafio 1 — Campo magnético gerado por corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma corrente elétrica em um fio pode produzir...",
+      "alternativas": [
+        {
+          "id_alternativa": 10910,
+          "texto": "Campo magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10911,
+          "texto": "Somente calor",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10912,
+          "texto": "Gravidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10913,
+          "texto": "Carga nova",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético gerado por corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1092,
+      "id_modulo": 207,
+      "titulo": "Desafio 2 — Campo magnético gerado por corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O sentido do campo ao redor de um fio pode ser obtido pela...",
+      "alternativas": [
+        {
+          "id_alternativa": 10920,
+          "texto": "Regra da mão direita",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10921,
+          "texto": "Lei da reflexão",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10922,
+          "texto": "Regra de três",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10923,
+          "texto": "Balança",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético gerado por corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1093,
+      "id_modulo": 207,
+      "titulo": "Desafio 3 — Campo magnético gerado por corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se B é proporcional à corrente, dobrar i tende a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10930,
+          "texto": "dobrar",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10931,
+          "texto": "diminuir",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10932,
+          "texto": "zerar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10933,
+          "texto": "não mudar",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Leia com atenção as grandezas e seus significados."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1094,
+      "id_modulo": 207,
+      "titulo": "Desafio 4 — Campo magnético gerado por corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Aumentar a distância de um fio retilíneo longo tende a tornar B...",
+      "alternativas": [
+        {
+          "id_alternativa": 10940,
+          "texto": "Menor",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10941,
+          "texto": "Maior",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10942,
+          "texto": "Infinito",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10943,
+          "texto": "Igual sempre",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético gerado por corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1095,
+      "id_modulo": 207,
+      "titulo": "Desafio 5 — Campo magnético gerado por corrente elétrica",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade do campo magnético é...",
+      "alternativas": [
+        {
+          "id_alternativa": 10950,
+          "texto": "T",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10951,
+          "texto": "J",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10952,
+          "texto": "W",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10953,
+          "texto": "Ω",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de campo magnético gerado por corrente elétrica."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1096,
+      "id_modulo": 208,
+      "titulo": "Desafio 1 — Eletroímãs",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um eletroímã funciona usando...",
+      "alternativas": [
+        {
+          "id_alternativa": 10960,
+          "texto": "Corrente em uma bobina",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10961,
+          "texto": "Apenas madeira",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10962,
+          "texto": "Som",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10963,
+          "texto": "Luz ambiente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de eletroímãs."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1097,
+      "id_modulo": 208,
+      "titulo": "Desafio 2 — Eletroímãs",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Adicionar mais espiras, mantendo corrente, tende a...",
+      "alternativas": [
+        {
+          "id_alternativa": 10970,
+          "texto": "Aumentar o campo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10971,
+          "texto": "Zerar o campo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10972,
+          "texto": "Diminuir sempre",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10973,
+          "texto": "Não produzir efeito",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de eletroímãs."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1098,
+      "id_modulo": 208,
+      "titulo": "Desafio 3 — Eletroímãs",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma vantagem do eletroímã é que ele pode ser...",
+      "alternativas": [
+        {
+          "id_alternativa": 10980,
+          "texto": "Ligado e desligado",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10981,
+          "texto": "Feito sem corrente",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10982,
+          "texto": "Usado sem campo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10983,
+          "texto": "Sempre permanente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de eletroímãs."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1099,
+      "id_modulo": 208,
+      "titulo": "Desafio 4 — Eletroímãs",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um núcleo de ferro em uma bobina geralmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 10990,
+          "texto": "Intensifica o campo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 10991,
+          "texto": "Elimina o campo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10992,
+          "texto": "Impede corrente",
+          "correta": false
+        },
+        {
+          "id_alternativa": 10993,
+          "texto": "Muda massa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de eletroímãs."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1100,
+      "id_modulo": 208,
+      "titulo": "Desafio 5 — Eletroímãs",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um exemplo de aplicação é...",
+      "alternativas": [
+        {
+          "id_alternativa": 11000,
+          "texto": "Guindaste magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11001,
+          "texto": "Termômetro de mercúrio",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11002,
+          "texto": "Lupa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11003,
+          "texto": "Relógio de areia",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de eletroímãs."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1101,
+      "id_modulo": 209,
+      "titulo": "Desafio 1 — Indução eletromagnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Indução eletromagnética ocorre quando há...",
+      "alternativas": [
+        {
+          "id_alternativa": 11010,
+          "texto": "Variação do fluxo magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11011,
+          "texto": "Somente carga parada",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11012,
+          "texto": "Apenas aumento de massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11013,
+          "texto": "Temperatura constante obrigatoriamente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de indução eletromagnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1102,
+      "id_modulo": 209,
+      "titulo": "Desafio 2 — Indução eletromagnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A grandeza que mede o campo atravessando uma área é...",
+      "alternativas": [
+        {
+          "id_alternativa": 11020,
+          "texto": "Fluxo magnético",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11021,
+          "texto": "Resistência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11022,
+          "texto": "Potência",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11023,
+          "texto": "Corrente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de indução eletromagnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1103,
+      "id_modulo": 209,
+      "titulo": "Desafio 3 — Indução eletromagnética",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Se Φ muda de 2 Wb para 6 Wb em 2 s, qual o módulo de ΔΦ/Δt?",
+      "resposta_correta": 2,
+      "tolerancia": 0.06,
+      "unidade": "Wb/s",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1104,
+      "id_modulo": 209,
+      "titulo": "Desafio 4 — Indução eletromagnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um gerador elétrico utiliza principalmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 11040,
+          "texto": "Indução eletromagnética",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11041,
+          "texto": "Efeito Joule apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11042,
+          "texto": "Gravidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11043,
+          "texto": "Pressão sonora",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de indução eletromagnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1105,
+      "id_modulo": 209,
+      "titulo": "Desafio 5 — Indução eletromagnética",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma bobina pode gerar tensão induzida quando...",
+      "alternativas": [
+        {
+          "id_alternativa": 11050,
+          "texto": "O fluxo através dela varia",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11051,
+          "texto": "Nada se move e nada varia",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11052,
+          "texto": "Sua massa aumenta",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11053,
+          "texto": "Sua cor muda",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de indução eletromagnética."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1106,
+      "id_modulo": 210,
+      "titulo": "Desafio 1 — Lei de Faraday",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Na Lei de Faraday, a fem induzida é proporcional à...",
+      "alternativas": [
+        {
+          "id_alternativa": 11060,
+          "texto": "Taxa de variação do fluxo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11061,
+          "texto": "Massa da bobina",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11062,
+          "texto": "Temperatura apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11063,
+          "texto": "Cor do fio",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de faraday."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1107,
+      "id_modulo": 210,
+      "titulo": "Desafio 2 — Lei de Faraday",
+      "dificuldade": "intermediario",
+      "xp_recompensa": 15,
+      "tipo": "numerica",
+      "enunciado": "Se ΔΦ=4 Wb em 2 s, qual módulo da fem?",
+      "resposta_correta": 2,
+      "tolerancia": 0.06,
+      "unidade": "V",
+      "dicas": [
+        {
+          "texto": "Escolha a fórmula adequada, substitua os valores e confira a unidade."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1108,
+      "id_modulo": 210,
+      "titulo": "Desafio 3 — Lei de Faraday",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O sinal negativo em ε=−ΔΦ/Δt está ligado à...",
+      "alternativas": [
+        {
+          "id_alternativa": 11080,
+          "texto": "Lei de Lenz",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11081,
+          "texto": "Lei de Ohm",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11082,
+          "texto": "Lei dos nós",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11083,
+          "texto": "Conservação da massa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de faraday."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1109,
+      "id_modulo": 210,
+      "titulo": "Desafio 4 — Lei de Faraday",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A unidade de fem é...",
+      "alternativas": [
+        {
+          "id_alternativa": 11090,
+          "texto": "Volt",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11091,
+          "texto": "Tesla",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11092,
+          "texto": "Ohm",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11093,
+          "texto": "Watt",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de faraday."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1110,
+      "id_modulo": 210,
+      "titulo": "Desafio 5 — Lei de Faraday",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Aumentar rapidamente a variação do fluxo tende a...",
+      "alternativas": [
+        {
+          "id_alternativa": 11100,
+          "texto": "Aumentar a fem induzida",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11101,
+          "texto": "Zerar a fem",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11102,
+          "texto": "Não alterar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11103,
+          "texto": "Eliminar o campo terrestre",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de faraday."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1111,
+      "id_modulo": 211,
+      "titulo": "Desafio 1 — Lei de Lenz",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A Lei de Lenz determina que a corrente induzida...",
+      "alternativas": [
+        {
+          "id_alternativa": 11110,
+          "texto": "Se opõe à variação do fluxo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11111,
+          "texto": "Sempre aumenta o fluxo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11112,
+          "texto": "Não depende do fluxo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11113,
+          "texto": "Sempre aponta para norte",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de lenz."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1112,
+      "id_modulo": 211,
+      "titulo": "Desafio 2 — Lei de Lenz",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "O sentido da corrente induzida depende de...",
+      "alternativas": [
+        {
+          "id_alternativa": 11120,
+          "texto": "Como o fluxo está variando",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11121,
+          "texto": "Apenas da massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11122,
+          "texto": "Da cor da bobina",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11123,
+          "texto": "Do som",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de lenz."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1113,
+      "id_modulo": 211,
+      "titulo": "Desafio 3 — Lei de Lenz",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se um fluxo aumenta, a resposta induzida tende a criar campo que...",
+      "alternativas": [
+        {
+          "id_alternativa": 11130,
+          "texto": "Se opõe ao aumento",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11131,
+          "texto": "Aumenta ainda mais",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11132,
+          "texto": "Some",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11133,
+          "texto": "Ignora a variação",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de lenz."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1114,
+      "id_modulo": 211,
+      "titulo": "Desafio 4 — Lei de Lenz",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Lenz é uma consequência da conservação de...",
+      "alternativas": [
+        {
+          "id_alternativa": 11140,
+          "texto": "Energia",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11141,
+          "texto": "Cor",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11142,
+          "texto": "Massa apenas",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11143,
+          "texto": "Temperatura",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de lenz."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1115,
+      "id_modulo": 211,
+      "titulo": "Desafio 5 — Lei de Lenz",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Para determinar o sentido da corrente induzida, primeiro analise...",
+      "alternativas": [
+        {
+          "id_alternativa": 11150,
+          "texto": "A variação do fluxo",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11151,
+          "texto": "A cor do ímã",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11152,
+          "texto": "A massa da bobina",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11153,
+          "texto": "A temperatura externa",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de lei de lenz."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1116,
+      "id_modulo": 212,
+      "titulo": "Desafio 1 — Aplicações do eletromagnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um motor elétrico converte principalmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 11160,
+          "texto": "Energia elétrica em mecânica",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11161,
+          "texto": "Energia mecânica em elétrica",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11162,
+          "texto": "Som em massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11163,
+          "texto": "Calor em carga",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de aplicações do eletromagnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1117,
+      "id_modulo": 212,
+      "titulo": "Desafio 2 — Aplicações do eletromagnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um gerador converte principalmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 11170,
+          "texto": "Energia mecânica em elétrica",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11171,
+          "texto": "Energia elétrica em mecânica",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11172,
+          "texto": "Luz em massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11173,
+          "texto": "Som em calor",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de aplicações do eletromagnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1118,
+      "id_modulo": 212,
+      "titulo": "Desafio 3 — Aplicações do eletromagnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um transformador ideal altera principalmente...",
+      "alternativas": [
+        {
+          "id_alternativa": 11180,
+          "texto": "Tensão e corrente em CA",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11181,
+          "texto": "Massa",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11182,
+          "texto": "Carga elementar",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11183,
+          "texto": "Temperatura ambiente",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de aplicações do eletromagnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1119,
+      "id_modulo": 212,
+      "titulo": "Desafio 4 — Aplicações do eletromagnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A relação V₁/V₂=N₁/N₂ envolve...",
+      "alternativas": [
+        {
+          "id_alternativa": 11190,
+          "texto": "Número de espiras",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11191,
+          "texto": "Massa do núcleo",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11192,
+          "texto": "Temperatura",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11193,
+          "texto": "Velocidade do som",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de aplicações do eletromagnetismo."
+        }
+      ]
+    },
+    {
+      "id_atividade": 1120,
+      "id_modulo": 212,
+      "titulo": "Desafio 5 — Aplicações do eletromagnetismo",
+      "dificuldade": "basico",
+      "xp_recompensa": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "Motores e geradores têm em comum o uso de...",
+      "alternativas": [
+        {
+          "id_alternativa": 11200,
+          "texto": "Interação eletromagnética",
+          "correta": true
+        },
+        {
+          "id_alternativa": 11201,
+          "texto": "Gravidade",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11202,
+          "texto": "Pressão atmosférica",
+          "correta": false
+        },
+        {
+          "id_alternativa": 11203,
+          "texto": "Combustão obrigatória",
+          "correta": false
+        }
+      ],
+      "dicas": [
+        {
+          "texto": "Pense no conceito central de aplicações do eletromagnetismo."
+        }
+      ]
+    }
+  ],
+  "conquistas": [
+    {
+      "id_conquista": 1,
+      "nome": "Primeiro Passo",
+      "descricao": "Responda seu primeiro desafio no laboratório ou em um conteúdo.",
+      "xp_recompensa": 20,
+      "icone": "eletricidade",
+      "criterio": "primeira_atividade"
+    },
+    {
+      "id_conquista": 2,
+      "nome": "Primeira Fórmula",
+      "descricao": "Desbloqueie sua primeira fórmula.",
+      "xp_recompensa": 20,
+      "icone": "∑",
+      "criterio": "primeira_formula"
+    },
+    {
+      "id_conquista": 3,
+      "nome": "Mente Elétrica",
+      "descricao": "Consiga 5 acertos em desafios de Eletrodinâmica.",
+      "xp_recompensa": 30,
+      "icone": "eletricidade",
+      "criterio": "cinco_eletro_acertos"
+    },
+    {
+      "id_conquista": 4,
+      "nome": "Mestre da Lei de Ohm",
+      "descricao": "Conclua o conteúdo Lei de Ohm com pelo menos 4/5.",
+      "xp_recompensa": 40,
+      "icone": "Ω",
+      "criterio": "lei_ohm"
+    },
+    {
+      "id_conquista": 5,
+      "nome": "Calculista",
+      "descricao": "Resolva 10 cálculos corretamente.",
+      "xp_recompensa": 40,
+      "icone": "∑",
+      "criterio": "dez_numericas"
+    },
+    {
+      "id_conquista": 6,
+      "nome": "Sem Errar",
+      "descricao": "Responda 5 perguntas consecutivas corretamente.",
+      "xp_recompensa": 50,
+      "icone": "Sequência",
+      "criterio": "cinco_seguidas"
+    },
+    {
+      "id_conquista": 7,
+      "nome": "Perfeito",
+      "descricao": "Consiga 5/5 em uma atividade.",
+      "xp_recompensa": 50,
+      "icone": "Perfeito",
+      "criterio": "cinco_de_cinco"
+    },
+    {
+      "id_conquista": 8,
+      "nome": "Explorador do Magnetismo",
+      "descricao": "Complete seu primeiro desafio de Magnetismo.",
+      "xp_recompensa": 25,
+      "icone": "magnetismo",
+      "criterio": "primeiro_magnetismo"
+    },
+    {
+      "id_conquista": 9,
+      "nome": "Mestre do Magnetismo",
+      "descricao": "Conclua uma sequência de desafios de Magnetismo.",
+      "xp_recompensa": 60,
+      "icone": "magnetismo",
+      "criterio": "cinco_magnetismo_acertos"
+    },
+    {
+      "id_conquista": 10,
+      "nome": "Físico em Formação",
+      "descricao": "Conclua 5 conteúdos de Física.",
+      "xp_recompensa": 75,
+      "icone": "◆",
+      "criterio": "cinco_modulos"
+    },
+    {
+      "id_conquista": 11,
+      "nome": "Dominador das Fórmulas",
+      "descricao": "Desbloqueie 10 fórmulas.",
+      "xp_recompensa": 75,
+      "icone": "Σ",
+      "criterio": "dez_formulas"
+    },
+    {
+      "id_conquista": 12,
+      "nome": "Laboratório Completo",
+      "descricao": "Conclua todas as fases atuais do laboratório.",
+      "xp_recompensa": 100,
+      "icone": "Laboratório",
+      "criterio": "todas_fases"
+    }
+  ],
+  "alunoDemo": {
+    "id_aluno": 0,
+    "id_usuario": 0,
+    "matricula": "DEMO-0001",
+    "nivel_atual": 1,
+    "xp_total": 0,
+    "moedas": 0,
+    "usuario": {
+      "nome": "Visitante",
+      "foto": null,
+      "tipo_usuario": "aluno"
+    }
+  },
+  "fasesJogo": [
+    {
+      "id_fase": 1,
+      "id_atividade": 201,
+      "ordem": 1,
+      "dificuldade": "basico",
+      "xp": 50,
+      "pontuacao_maxima": 100,
+      "titulo": "Atração ou Repulsão",
+      "tipo": "atracao-repulsao",
+      "descricao": "Observe pares de cargas e classifique corretamente a interação entre elas.",
+      "objetivo": "Acerte 5 de 5 rodadas para completar a fase com estrelas máximas.",
+      "configuracao": {
+        "rodadas": 5
+      }
+    },
+    {
+      "id_fase": 2,
+      "id_atividade": 202,
+      "ordem": 2,
+      "dificuldade": "basico",
+      "xp": 80,
+      "pontuacao_maxima": 150,
+      "titulo": "Controle da Força",
+      "tipo": "controle-forca",
+      "descricao": "Ajuste as cargas e a distância até que a força elétrica atinja o valor-alvo.",
+      "objetivo": "Faça a força elétrica chegar a aproximadamente 10 N (tolerância de 5%).",
+      "configuracao": {
+        "forcaAlvo": 10,
+        "tolerancia": 0.05
+      }
+    },
+    {
+      "id_fase": 3,
+      "id_atividade": 203,
+      "ordem": 3,
+      "dificuldade": "intermediario",
+      "xp": 100,
+      "pontuacao_maxima": 200,
+      "titulo": "Mapa do Campo",
+      "tipo": "mapa-campo",
+      "descricao": "Posicione cargas positivas e negativas e observe o campo elétrico resultante em tempo real.",
+      "objetivo": "Monte uma configuração com pelo menos 2 cargas e explore o mapa de vetores gerado.",
+      "configuracao": {
+        "maxCargas": 4
+      }
+    },
+    {
+      "id_fase": 4,
+      "id_atividade": 204,
+      "ordem": 4,
+      "dificuldade": "intermediario",
+      "xp": 120,
+      "pontuacao_maxima": 200,
+      "titulo": "Caça ao Potencial",
+      "tipo": "caca-potencial",
+      "descricao": "Compare o potencial elétrico em diferentes pontos ao redor de uma carga central.",
+      "objetivo": "Identifique corretamente o ponto de maior potencial em 4 rodadas.",
+      "configuracao": {
+        "rodadas": 4
+      }
+    },
+    {
+      "id_fase": 5,
+      "id_atividade": 205,
+      "ordem": 5,
+      "dificuldade": "intermediario",
+      "xp": 150,
+      "pontuacao_maxima": 250,
+      "titulo": "Subida ou Descida",
+      "tipo": "subida-descida",
+      "descricao": "Identifique se o potencial aumenta ou diminui no sentido indicado pelo campo.",
+      "objetivo": "Acerte a direção do potencial em 5 cenários diferentes.",
+      "configuracao": {
+        "rodadas": 5
+      }
+    },
+    {
+      "id_fase": 6,
+      "id_atividade": 206,
+      "ordem": 6,
+      "dificuldade": "avancado",
+      "xp": 200,
+      "pontuacao_maxima": 300,
+      "titulo": "Resgate da Carga",
+      "tipo": "resgate-carga",
+      "descricao": "Movimente uma carga entre pontos de potenciais diferentes minimizando o trabalho gasto.",
+      "objetivo": "Complete o resgate calculando corretamente Ep e W em cada etapa.",
+      "configuracao": {
+        "etapas": 3
+      }
+    },
+    {
+      "id_fase": 7,
+      "id_atividade": 207,
+      "ordem": 7,
+      "dificuldade": "avancado",
+      "xp": 300,
+      "pontuacao_maxima": 500,
+      "titulo": "Desafio Final",
+      "tipo": "desafio-final",
+      "descricao": "Um desafio que combina Lei de Coulomb, campo, potencial, energia e trabalho.",
+      "objetivo": "Responda corretamente a 5 questões encadeadas para dominar Campo e Potencial Elétrico.",
+      "configuracao": {
+        "perguntas": 5
+      }
+    }
+  ],
+  "niveis": [
+    {
+      "id_nivel": 1,
+      "nivel": 1,
+      "xp_necessario": 0,
+      "recompensa_moedas": 0
+    },
+    {
+      "id_nivel": 2,
+      "nivel": 2,
+      "xp_necessario": 200,
+      "recompensa_moedas": 20
+    },
+    {
+      "id_nivel": 3,
+      "nivel": 3,
+      "xp_necessario": 500,
+      "recompensa_moedas": 30
+    },
+    {
+      "id_nivel": 4,
+      "nivel": 4,
+      "xp_necessario": 900,
+      "recompensa_moedas": 40
+    },
+    {
+      "id_nivel": 5,
+      "nivel": 5,
+      "xp_necessario": 1400,
+      "recompensa_moedas": 50
+    },
+    {
+      "id_nivel": 6,
+      "nivel": 6,
+      "xp_necessario": 2000,
+      "recompensa_moedas": 60
+    },
+    {
+      "id_nivel": 7,
+      "nivel": 7,
+      "xp_necessario": 2700,
+      "recompensa_moedas": 70
+    },
+    {
+      "id_nivel": 8,
+      "nivel": 8,
+      "xp_necessario": 3500,
+      "recompensa_moedas": 80
+    }
+  ],
+  "rankingDemo": [
+    {
+      "posicao": 1,
+      "nome": "Marina S.",
+      "pontuacao": 2450
+    },
+    {
+      "posicao": 2,
+      "nome": "Lucas T.",
+      "pontuacao": 2210
+    },
+    {
+      "posicao": 3,
+      "nome": "Beatriz A.",
+      "pontuacao": 1980
+    },
+    {
+      "posicao": 4,
+      "nome": "Rafael M.",
+      "pontuacao": 1755
+    },
+    {
+      "posicao": 5,
+      "nome": "Você",
+      "pontuacao": 0,
+      "isCurrentUser": true
+    }
+  ]
+}
