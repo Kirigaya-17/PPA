@@ -1,143 +1,217 @@
-
 # ALPHAFIZIC 🐺
 
-Bem-vindo ao repositório do **ALPHAFIZIC**. Esta aplicação é construída em **Python + Flask** e gerencia fluxos de cadastro, login e painéis específicos para alunos e professores.
-
-**Aviso de Contexto:** Este projeto é o resultado da **PPA2025**. Atualmente, ele serve como base para a implementação do sistema completo, com autenticação provisória estruturada em memória.
+Plataforma educacional gamificada de Física desenvolvida como projeto da **PPA 2025**. Conecta professores e alunos por meio de turmas, módulos de conteúdo e um sistema de progressão com XP, níveis e conquistas.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
-- **Back-end:** Python 3, Flask
-- **Front-end:** HTML5, CSS3, JavaScript (Jinja2 para renderização de templates)
-- **Armazenamento de Dados Atual:** Em memória (utilizando Dicionários/Dicts). *A ser substituído por SQL em breve.*
-- **Gerenciamento de Sessão:** Sessões nativas do Flask
+| Camada | Tecnologias |
+|---|---|
+| Back-end | Python 3, Flask, Flask-SQLAlchemy, Flask-Migrate, Flask-WTF, Flask-Limiter |
+| Front-end | HTML5, CSS3, JavaScript, Jinja2 |
+| Banco de dados | MySQL (via PyMySQL) |
+| E-mail | Resend API |
+| Segurança | Werkzeug (hashing), CSRF, Rate Limiting, HTTP Security Headers |
+| Testes | pytest, pip-audit |
 
 ---
 
 ## 📦 Estrutura do Projeto
 
-Para facilitar a navegação da equipe, o projeto segue a arquitetura modular abaixo:
-
 ```text
 ALPHAFIZIC/
 │
 ├── app/
-│   ├── __init__.py          # Configurações iniciais do app e secret_key
-│   ├── routes.py            # Controladores e definição de todas as rotas
-│   ├── templates/           # Arquivos HTML (views)
-│   └── static/              # Assets (CSS, JS, Imagens)
-│       ├── css/             # Folhas de estilo modularizadas
-│       ├── js/              # Scripts de interatividade
-│       └── img/             # Imagens da aplicação
+│   ├── __init__.py           # Inicialização do app, db, CSRF e rate limiter
+│   ├── config.py             # Configurações lidas de variáveis de ambiente
+│   ├── models.py             # Modelos SQLAlchemy (schema MySQL)
+│   ├── routes.py             # Rotas gerais (auth, perfil, turmas, materiais)
+│   ├── routes_fisica.py      # Rotas da API de física (módulos, progresso, XP)
+│   ├── seed_fisica.py        # Script de carga inicial do currículo de física
+│   ├── dados/
+│   │   └── curriculo_fisica.json   # Dados do currículo (módulos, fórmulas, atividades)
+│   ├── templates/            # Views Jinja2
+│   └── static/
+│       ├── css/              # Estilos (global, aluno, professor, turma…)
+│       ├── js/               # Scripts (app.js, game.js, progress.js, ui.js…)
+│       └── img/              # Imagens
 │
-├── venv/                    # (Ignorado no Git) Ambiente virtual
-├── requirements.txt         # Dependências do projeto
-└── av.py                    # Ponto de entrada (Entrypoint) do servidor
-
+├── migrations/               # Migrações Alembic
+├── tests/
+│   ├── test_security.py      # Testes de segurança gerais
+│   ├── test_regressao.py     # Testes de regressão
+│   └── test_integracao_fisica.py  # Testes de integração do módulo de física
+├── requirements.txt
+└── av.py                     # Entrypoint do servidor
 ```
 
 ---
 
-## 🚀 Como Rodar o Projeto Localmente
+## ⚙️ Configuração do Ambiente
 
-Siga o passo a passo abaixo para configurar o ambiente de desenvolvimento na sua máquina:
+O projeto usa variáveis de ambiente para **todos** os segredos e credenciais. Crie um arquivo `.env` na raiz do projeto (`ALPHAFIZIC/`) com as seguintes variáveis:
 
-**1. Clone o repositório e acesse a pasta**
+```dotenv
+# Obrigatórias
+SECRET_KEY=<chave-secreta-longa-e-aleatoria>
+DATABASE_URL=mysql+pymysql://<usuario>:<senha>@<host>/<banco>
+
+# Opcionais (valores padrão em parênteses)
+FLASK_DEBUG=0                         # 1 apenas em desenvolvimento local
+FLASK_TESTING=0
+SESSION_COOKIE_SECURE=0               # 1 quando servindo via HTTPS
+SESSION_LIFETIME_SECONDS=3600
+MAX_CONTENT_LENGTH_BYTES=2097152      # 2 MB
+RESEND_API_KEY=                       # Necessária para e-mails de recuperação de senha
+```
+
+> **Nunca** comite o `.env` no repositório. O `.gitignore` já o exclui.
+
+---
+
+## 🚀 Como Rodar Localmente
+
+**1. Clone o repositório**
 
 ```bash
 git clone <url-do-repositorio>
-cd ALPHAFIZIC
-
+cd PPA-altb/ALPHAFIZIC
 ```
 
-**2. Crie e ative o Ambiente Virtual (Recomendado)**
+**2. Crie e ative o ambiente virtual**
 
 ```bash
-# Criar o ambiente
 python -m venv venv
 
-# Ativar no Windows:
+# Windows
 venv\Scripts\activate
-# Ativar no Linux/Mac:
-source venv/bin/activate
 
+# Linux / macOS
+source venv/bin/activate
 ```
 
-**3. Instale as Dependências**
+**3. Instale as dependências**
 
 ```bash
 pip install -r requirements.txt
-
 ```
 
-**4. Execute o Servidor**
+**4. Configure as variáveis de ambiente**
+
+Crie o arquivo `.env` conforme descrito na seção acima.
+
+**5. Aplique as migrações do banco de dados**
+
+```bash
+flask db upgrade
+```
+
+**6. (Opcional) Carregue o currículo de física**
+
+```bash
+python app/seed_fisica.py
+```
+
+**7. Inicie o servidor**
 
 ```bash
 python av.py
-
 ```
 
-> O servidor estará rodando em: `http://localhost:5000`
+O servidor estará disponível em `http://localhost:5000`.
 
 ---
 
-## 📍 Mapeamento de Rotas
+## 📍 Rotas
 
-Lista de endpoints disponíveis atualmente no arquivo `routes.py`:
+### Gerais
 
 | Rota | Método | Descrição | Autenticação |
-| --- | --- | --- | --- |
-| `/` | `GET` | Página inicial da aplicação | Pública |
-| `/login` | `GET, POST` | Página e processamento de Login | Pública |
-| `/cadastro` | `GET` | Tela de escolha de perfil (Aluno/Professor) | Pública |
-| `/cadastro2` | `GET, POST` | Formulário final e processamento de cadastro | Pública |
-| `/esqueci-senha` | `GET, POST` | Solicitação de recuperação de senha | Pública |
-| `/codigo` | `GET, POST` | Verificação do código de recuperação | Pública |
-| `/professorMenu` | `GET` | Painel de controle do Professor | **Protegida** |
-| `/logout` | `GET` | Encerra a sessão atual e limpa os cookies | **Protegida** |
+|---|---|---|---|
+| `/` ou `/index` | GET | Página inicial | Pública |
+| `/login` | GET, POST | Login de usuários | Pública |
+| `/cadastro` | GET | Escolha de perfil (aluno/professor) | Pública |
+| `/cadastro2` | GET, POST | Formulário de cadastro | Pública |
+| `/esqueci-senha` | GET, POST | Solicitação de recuperação de senha | Pública |
+| `/logout` | GET | Encerra a sessão | Protegida |
+| `/professorMenu` | GET | Painel do professor | Professor |
+| `/atualizar-perfil-inline` | POST | Atualização de dados do perfil | Protegida |
+| `/turmas` | GET | Listagem de turmas do professor | Professor |
+| `/salvar_material` | POST | Upload de material para uma turma | Professor |
+| `/api/dados` | GET, POST | CRUD de dados da turma (alunos, atividades) | Protegida |
+
+### Módulo de Física (API)
+
+| Rota | Método | Descrição |
+|---|---|---|
+| `/aluno` | GET | Painel do aluno (menu principal) |
+| `/api/fisica/modulos` | GET | Lista todos os módulos de física |
+| `/api/fisica/modulo/<id>` | GET | Detalhes de um módulo |
+| `/api/fisica/modulo/<id>/formulas` | GET | Fórmulas do módulo |
+| `/api/fisica/modulo/<id>/exemplos` | GET | Exemplos do módulo |
+| `/api/fisica/modulo/<id>/atividades` | GET | Atividades do módulo |
+| `/api/fisica/modulo/<id>/progresso` | POST | Registra progresso no módulo |
+| `/api/fisica/fases` | GET | Lista fases do jogo |
+| `/api/fisica/fase/<id>/concluir` | POST | Conclui uma fase e concede XP |
+| `/api/fisica/atividade/<id>/responder` | POST | Responde uma atividade |
+| `/api/fisica/niveis` | GET | Tabela de níveis e XP necessário |
+| `/api/fisica/conquistas` | GET | Conquistas disponíveis e desbloqueadas |
+| `/api/fisica/resumo` | GET | Resumo do progresso do aluno |
+| `/api/fisica/ranking` | GET | Ranking de XP da turma |
+
+> Todas as rotas de física exigem autenticação com papel `aluno`. O XP nunca é aceito como valor enviado pelo cliente — o servidor sempre recalcula a partir das definições oficiais.
 
 ---
 
-## 🔧 Histórico de Atualizações (Changelog)
+## 🔐 Segurança
 
-**Correções Recentes:**
+O projeto implementa diversas camadas de proteção:
 
-* ✅ Corrigido bug de login que permitia acesso sem verificação de sessão.
-* ✅ Adicionadas validações estruturais de Email e CPF.
-* ✅ Conectado o `professorMenu` com o módulo de turmas.
-* ✅ Implementada a rota e o botão de logout.
-* ✅ Arquivo `requirements.txt` atualizado e corrigido.
-* ✅ Adicionada verificação de autenticação nas rotas protegidas (redirecionamento caso não logado).
-
----
-
-## ⚠️ Issues Conhecidos (Bugs)
-
-Abaixo estão os bugs mapeados que precisam de atenção prioritária da equipe:
-
-* [ ] **Falso Positivo no Login:** A mensagem de "Login concluído com Sucesso" está aparecendo na tela (flash message) mesmo quando o usuário falha na autenticação ou acessa a página sem logar.
+- **Hashing de senhas** com Werkzeug (scrypt), nunca armazenando texto puro.
+- **CSRF Protection** via Flask-WTF em todos os formulários POST.
+- **Rate Limiting** via Flask-Limiter (200 req/hora por padrão; limites específicos em `/login` e `/cadastro`).
+- **HTTP Security Headers**: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Content-Security-Policy`.
+- **Cookies de sessão** com `HttpOnly`, `SameSite=Lax` e `Secure` (configurável via env).
+- **Variáveis de ambiente obrigatórias**: a aplicação falha ao iniciar se `SECRET_KEY` ou `DATABASE_URL` estiverem ausentes — nunca sobe com valores padrão inseguros.
+- **Autorização por papel** (`login_required` + `roles_required`) verificada no servidor em toda rota protegida.
+- **Prevenção de IDOR**: o `id_aluno` usado em gravações vem sempre da sessão do servidor, nunca do corpo da requisição.
 
 ---
 
-## 🎯 Próximos Passos (Roadmap)
+## 🧪 Testes
 
-Tarefas pendentes para os desenvolvedores. Pegue uma task, crie uma *branch* e faça seu PR!
-
-**Banco de Dados & Segurança:**
-
-* [ ] Integrar banco de dados real utilizando **SQLAlchemy** (Substituir os dicionários atuais).
-* [ ] Adicionar sistema de hash e proteção de senhas (ex: *Werkzeug security* ou *Bcrypt*).
-* [ ] Adicionar sistema de tokens para recuperação de senha real (JWT).
-
-**Funcionalidades:**
-
-* [ ] Melhorar/Aprofundar as validações de email no backend.
-* [ ] Implementar fluxo de confirmação de cadastro via email.
-* [ ] Adicionar um botão funcional de "Entrar nas turmas" no painel do aluno.
-* [ ] Refinar a conexão e exibição das turmas dentro do `professorMenu`.
-
+```bash
+pytest tests/
 ```
 
+A suíte cobre:
+
+- Autenticação e controle de acesso (privilege escalation vertical).
+- Prevenção de IDOR entre alunos.
+- Mass Assignment (tentativa de definir `xp_aluno` ou `tipo_usuario` via request).
+- Proteção CSRF nas rotas de física.
+- Manipulação de XP (envio de valores arbitrários nas rotas de resposta/fase).
+- Regressões gerais de rotas.
+
+Para auditoria de dependências:
+
+```bash
+pip-audit
 ```
+
+---
+
+## 🗄️ Banco de Dados
+
+O schema é gerenciado pelo **Alembic** via Flask-Migrate. As principais entidades são:
+
+- **usuarios** / **professores** / **alunos** — cadastro e perfis.
+- **turmas** / **alunos_turma** — gerenciamento de turmas.
+- **atividades** / **atividades_aluno** — atividades e registros de entrega.
+- **conteudos** — materiais vinculados a turmas.
+- **modulos_fisica**, **formulas_fisica**, **exemplos_fisica**, **atividades_fisica** — currículo gamificado.
+- **fases_jogo_fisica**, **niveis_fisica**, **conquistas_fisica** — progressão e gamificação.
+- **progresso_atividade_fisica**, **progresso_modulo_fisica**, **progresso_fase_fisica**, **aluno_conquista_fisica** — rastreamento de progresso por aluno.
+
+---
